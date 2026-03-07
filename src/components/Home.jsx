@@ -3,12 +3,103 @@ import { PieChart, Pie, Cell } from "recharts";
 import Header from "./Header";
 import Footer from "./Footer";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import InsightsSlider from "./InsightsSlider";
+import SIPCalculator from "./SIPCalculator";
+
+
+const logos = [
+  "/google.png",
+  "/google.png",
+  "/google.png",
+  "/google.png",
+  "/google.png",
+  "/google.png",
+  "/google.png",
+  "/google.png",
+];
+
 const Home = () => {
-    const data = [
+  const data = [
     { name: "Principal", value: 40 },
-    { name: "Interest", value: 60 }
+    { name: "Interest", value: 60 },
+  ];
+  const swiperRef = useRef(null);
+  const awordref = useRef(null);
+
+  const awards = [
+    {
+      img: "/ac1.png",
+      year: "2020",
+      title: "Award of Excellence – COT 2024",
+      desc: "Honoured for exceptional dedication, performance and achieving the prestigious Court of the Table (COT) recognition for 2024.",
+    },
+    {
+      img: "/ac2.png",
+      year: "2020",
+      title: "360 ONE Asset – Stellar Contribution",
+      desc: "Appreciated for outstanding contribution to the 360 ONE Focused Equity Fund.",
+    },
+    {
+      img: "/ac3.png",
+      year: "2020",
+      title: "Award of Excellence – COT 2024",
+      desc: "Honoured for exceptional dedication and achieving the Court of the Table recognition.",
+    },
   ];
 
+  const testimonials = [
+    {
+      image: "/bigimg.png",
+      thimg: "/smallimg.png",
+
+      name: "Aadil bandukwala",
+      role: "managing director",
+      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    },
+    {
+      image: "/bigimg.png",
+      thimg: "/smallimg.png",
+      name: "John Doe",
+      role: "CEO",
+      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    },
+  ];
+  const testimonial = [
+    {
+      name: "Sunil Chetri",
+      role: "CEO Universal",
+      img: "/Image.png",
+      text: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and.",
+    },
+    {
+      name: "Sunil Chetri",
+      role: "CEO Universal",
+      img: "/Image.png",
+      text: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and.",
+    },
+    {
+      name: "Sunil Chetri",
+      role: "CEO Universal",
+      img: "/Image.png",
+      text: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and.",
+    },
+    {
+      name: "Sunil Chetri",
+      role: "CEO Universal",
+      img: "/Image.png",
+      text: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and.",
+    },
+    {
+      name: "Sunil Chetri",
+      role: "CEO Universal",
+      img: "/Image.png",
+      text: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and.",
+    },
+  ];
   const COLORS = ["#949494", "#ffffff"];
   return (
     <>
@@ -125,210 +216,312 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative bg-black py-28 overflow-hidden">
-        {/* Background Glow */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gray-300 blur-[180px] opacity-20"></div>
+   <section className="relative bg-black py-32 overflow-hidden">
 
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
-          {/* LEFT CONTENT */}
-          <div>
-            <h2 className="text-white text-5xl font-bold mb-6">Process</h2>
+  {/* Glow */}
+  <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gray-400 blur-[200px] opacity-20"></div>
 
-            <p className="text-gray-400 max-w-sm">
+  <div className="max-w-6xl mx-auto px-6">
+
+    {/* Heading */}
+    <div className="mb-16">
+      <h2 className="text-white text-5xl font-bold mb-4">Process</h2>
+      <p className="text-gray-400 max-w-xs">
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry.
+      </p>
+    </div>
+
+   <img src="line.png"/>
+  </div>
+</section>
+
+      <SIPCalculator/>
+
+      <section className="bg-black py-24 text-white">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* heading */}
+
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-semibold">
+              What our clien<span className="text-gray-400">t says</span>
+            </h2>
+
+            <p className="text-gray-400 mt-4">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry.
             </p>
           </div>
 
-          {/* RIGHT TIMELINE */}
-          <div className="relative">
-            {/* Curved Line */}
-            <svg
-              className="absolute top-10 left-0 w-full"
-              viewBox="0 0 600 200"
-              fill="none"
-            >
-              <path
-                d="M0 150 C100 50 200 200 300 100 C400 0 500 150 600 80"
-                stroke="#9ca3af"
-                strokeWidth="2"
-              />
-            </svg>
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            slidesPerView={1.15}
+            spaceBetween={40}
+            loop={true}
+            autoplay={{ delay: 3500 }}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              768: {
+                slidesPerView: 1.1,
+              },
+              1024: {
+                slidesPerView: 1.2,
+              },
+            }}
+          >
+            {testimonials.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-[#1a1a1a] rounded-3xl p-7 flex items-center gap-10">
+                  {/* Image */}
 
-            {/* Steps */}
-            <div className="relative flex justify-between mt-10">
-              {[1, 2, 3, 4, 5, 6].map((step, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center text-center"
-                >
-                  {/* Dot */}
-                  <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center shadow-lg">
-                    <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
+                  <div className="w-[280px] shrink-0">
+                    <img
+                      src={item.image}
+                      className="rounded-2xl object-cover w-full h-[320px]"
+                      alt=""
+                    />
                   </div>
 
-                  {/* Text */}
-                  <div className="mt-4 max-w-[140px]">
-                    <h4 className="text-white text-sm font-semibold">
-                      Project Discovery Call
-                    </h4>
+                  {/* Content */}
 
-                    <p className="text-gray-400 text-xs mt-1">
-                      From they fine john he give of rich he. They age and draws
-                      mrs like.
+                  <div>
+                    <p className="text-gray-300 leading-relaxed mb-8">
+                      {item.text}
                     </p>
+
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={item.thimg}
+                        className="w-10 h-10 rounded-full"
+                        alt=""
+                      />
+
+                      <div>
+                        <h4 className="font-semibold">{item.name}</h4>
+
+                        <p className="text-sm text-gray-400">{item.role}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
+
+      <section className="bg-black py-24 text-white">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Title */}
+
+          <div className="text-center mb-14">
+            <span className="border border-gray-600 px-4 py-1 rounded-full text-sm">
+              testimonials
+            </span>
+          </div>
+
+          {/* Slider */}
+
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={25}
+            slidesPerView={4}
+            loop={true}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            autoplay={{ delay: 3500 }}
+            breakpoints={{
+              320: { slidesPerView: 1 },
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 4 },
+            }}
+          >
+            {testimonial.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-[#1c1c1c] p-6 rounded-xl border border-gray-800">
+                  {/* stars */}
+
+                  <div className=" mb-4">★★★★★</div>
+
+                  <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                    {item.text}
+                  </p>
+
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={item.img}
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+
+                    <div>
+                      <h4 className="text-sm font-semibold">{item.name}</h4>
+
+                      <p className="text-xs text-gray-500">{item.role}</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Navigation Buttons */}
+
+          <div className="flex justify-center gap-4 mt-10">
+            <button
+              onClick={() => swiperRef.current.slidePrev()}
+              className="w-10 h-10 border border-gray-500 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
+            >
+              ‹
+            </button>
+
+            <button
+              onClick={() => swiperRef.current.slideNext()}
+              className="w-10 h-10 border border-gray-500 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
+            >
+              ›
+            </button>
           </div>
         </div>
       </section>
 
-       <section className="bg-black py-24 flex justify-center">
+      <InsightsSlider/>
 
-      <div className="max-w-6xl w-full border border-white rounded-[40px] p-10">
-
-        {/* TITLE */}
-        <h2 className="text-white text-2xl font-semibold mb-6">
-          SIP calculator
-        </h2>
-
-        {/* TOGGLE */}
-        <div className="flex gap-8 mb-8 text-gray-300">
-          <label className="flex items-center gap-2">
-            <input type="radio" name="type" />
-            SIP calculator
-          </label>
-
-          <label className="flex items-center gap-2">
-            <input type="radio" name="type" />
-            Lumpsum
-          </label>
+      <section className="py-10 text-white bg-black">
+        <div className="max-w-6xl mx-auto  py-10">
+          {/* Heading */}
+         <img src="/map.png"/>
+         
         </div>
+      </section>
 
-        <div className="grid md:grid-cols-2 gap-12">
+      <section className="py-10 text-white bg-black">
+        <div className="max-w-6xl mx-auto px-6 bg-gradient-to-b from-[#0b0b0b] via-[#000000] to-[#050505] rounded-3xl py-10">
+          {/* Heading */}
 
-          {/* LEFT FORM */}
-          <div className="border border-gray-700 rounded-2xl p-8">
+          <h2 className="text-center text-5xl font-semibold mb-16 text-gray-300">
+            Award and achievement
+          </h2>
 
-            <div className="mb-10">
-              <p className="text-gray-400 mb-2 text-sm">
-                monthly SIP Amount
-              </p>
-              <input type="range" className="w-full custom-slider" />
-            </div>
+          {/* Slider */}
 
-            <div className="mb-10">
-              <p className="text-gray-400 mb-2 text-sm">
-                SIP Period
-              </p>
-              <input type="range" className="w-full custom-slider "  />
-            </div>
+          <Swiper
+            modules={[Navigation]}
+            slidesPerView={3}
+            spaceBetween={50}
+            loop={true}
+            onSwiper={(swiper) => (awordref.current = swiper)}
+            breakpoints={{
+              320: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
+            {awards.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="text-center">
+                  {/* Image */}
 
-            <div>
-              <p className="text-gray-400 mb-2 text-sm">
-                Expected return rate (p.a)
-              </p>
-              <input type="range" className="w-full custom-slider" />
-            </div>
-<style>
-  {
-    `
-    .custom-slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 2px;
-  background: #6b7280; /* grey track */
-  outline: none;
-}
+                  <div className="flex justify-center mb-6">
+                    <img src={item.img} className="h-40 object-contain" />
+                  </div>
 
-/* filled track */
-.custom-slider::-webkit-slider-runnable-track {
-  height: 2px;
-  background: linear-gradient(to right, #ffffff 50%, #6b7280 50%);
-}
+                  {/* Ribbon */}
 
-/* thumb */
-.custom-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
-  background: #ffffff;
-  border-radius: 50%;
-  margin-top: -6px;
-  cursor: pointer;
-}
+                  <div className="flex justify-center mb-6">
+                    <div className="relative">
+                      <div className="bg-gray-300 text-black font-semibold py-2 px-10 clip-path-ribbon">
+                        {item.year}
+                      </div>
+                    </div>
+                  </div>
 
-/* Firefox */
-.custom-slider::-moz-range-track {
-  background: #6b7280;
-  height: 2px;
-}
+                  {/* Title */}
 
-.custom-slider::-moz-range-thumb {
-  width: 14px;
-  height: 14px;
-  background: #ffffff;
-  border-radius: 50%;
-  border: none;
-}
-    `
-  }
-</style>
+                  <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
+
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* arrows */}
+
+          <div className="flex justify-center gap-4 mt-14">
+            <button
+              onClick={() => awordref.current.slidePrev()}
+              className="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
+            >
+              ‹
+            </button>
+
+            <button
+              onClick={() => awordref.current.slideNext()}
+              className="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
+            >
+              ›
+            </button>
           </div>
-
-          {/* RIGHT CHART */}
-          <div className="flex flex-col items-center justify-center">
-
-            <PieChart width={220} height={220}>
-              <Pie
-                data={data}
-                cx="50%"
-                cy="50%"
-                innerRadius={60}
-                outerRadius={90}
-                dataKey="value"
-              >
-                {data.map((entry, index) => (
-                  <Cell key={index} fill={COLORS[index]} />
-                ))}
-              </Pie>
-            </PieChart>
-
-            {/* Legend */}
-            <div className="flex gap-6 mt-4 text-gray-400 text-sm">
-              <span>● Principal</span>
-              <span>● Interest</span>
-            </div>
-
-            {/* Values */}
-            <div className="mt-6 text-center text-gray-300 text-sm">
-
-              <p>Total SIP Amount invested</p>
-              <p className="text-white text-lg font-semibold">
-                Rs. 1,71,75,000
-              </p>
-
-              <p className="mt-3">Total Growth</p>
-              <p className="text-white text-lg font-semibold">
-                Rs. 2,15,12,16,484
-              </p>
-
-              <p className="mt-3">Total Future Value</p>
-              <p className="text-white text-lg font-semibold">
-                Rs. 2,16,83,91,484
-              </p>
-
-            </div>
-
-          </div>
-
         </div>
+      </section>
 
-      </div>
+      <section className="bg-black py-10">
+        <div className="max-w-6xl mx-auto">
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={30}
+            slidesPerView={6}
+            loop={true}
+            speed={3000}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              320: { slidesPerView: 2 },
+              640: { slidesPerView: 3 },
+              1024: { slidesPerView: 6 },
+            }}
+          >
+            {logos.map((logo, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-white rounded-xl flex items-center justify-center p-4">
+                  <img src={logo} alt="logo" className="h-8 object-contain" />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-    </section>
+          {/* Slider 2 - Right Direction */}
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={30}
+            slidesPerView={6}
+            loop={true}
+            speed={3000}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+              reverseDirection: true,
+            }}
+            className="mt-6"
+            breakpoints={{
+              320: { slidesPerView: 2 },
+              640: { slidesPerView: 3 },
+              1024: { slidesPerView: 6 },
+            }}
+          >
+            {logos.map((logo, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-white rounded-xl flex items-center justify-center p-4">
+                  <img src={logo} alt="logo" className="h-8 object-contain" />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
 
       <Footer />
     </>
