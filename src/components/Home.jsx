@@ -10,7 +10,6 @@ import "swiper/css";
 import InsightsSlider from "./InsightsSlider";
 import SIPCalculator from "./SIPCalculator";
 
-
 const logos = [
   "/google.png",
   "/google.png",
@@ -211,35 +210,33 @@ const Home = () => {
       </section>
       <section className="bg-black  pb-20">
         {/* Stats Card */}
-        <div className="max-w-6xl mx-auto  ">
+        <div className="max-w-7xl  mx-auto  ">
           <img src="/scnhome.png" className="w-full h-auto" />
         </div>
       </section>
 
-   <section className="relative bg-black py-32 overflow-hidden">
+      <section className="relative bg-black py-32 overflow-hidden">
+        {/* Glow */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gray-400 blur-[200px] opacity-20"></div>
 
-  {/* Glow */}
-  <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gray-400 blur-[200px] opacity-20"></div>
+        <div className="max-w-7xl  mx-auto px-6">
+          {/* Heading */}
+          <div className="mb-16">
+            <h2 className="text-white text-5xl font-bold mb-4">Process</h2>
+            <p className="text-gray-400 max-w-xs">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </p>
+          </div>
 
-  <div className="max-w-6xl mx-auto px-6">
+          <img src="line.png" />
+        </div>
+      </section>
 
-    {/* Heading */}
-    <div className="mb-16">
-      <h2 className="text-white text-5xl font-bold mb-4">Process</h2>
-      <p className="text-gray-400 max-w-xs">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry.
-      </p>
-    </div>
-
-   <img src="line.png"/>
-  </div>
-</section>
-
-      <SIPCalculator/>
+      <SIPCalculator />
 
       <section className="bg-black py-24 text-white">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl  mx-auto px-6">
           {/* heading */}
 
           <div className="text-center mb-16">
@@ -311,7 +308,7 @@ const Home = () => {
       </section>
 
       <section className="bg-black py-24 text-white">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl  mx-auto px-6">
           {/* Title */}
 
           <div className="text-center mb-14">
@@ -383,18 +380,17 @@ const Home = () => {
         </div>
       </section>
 
-      <InsightsSlider/>
+      <InsightsSlider />
 
       <section className="py-10 text-white bg-black">
-        <div className="max-w-6xl mx-auto  py-10">
+        <div className="max-w-7xl  mx-auto  py-10">
           {/* Heading */}
-         <img src="/map.png"/>
-         
+          <img src="/map.png" />
         </div>
       </section>
 
       <section className="py-10 text-white bg-black">
-        <div className="max-w-6xl mx-auto px-6 bg-gradient-to-b from-[#0b0b0b] via-[#000000] to-[#050505] rounded-3xl py-10">
+        <div className="max-w-7xl  mx-auto px-6 bg-gradient-to-b from-[#0b0b0b] via-[#000000] to-[#050505] rounded-3xl py-10">
           {/* Heading */}
 
           <h2 className="text-center text-5xl font-semibold mb-16 text-gray-300">
@@ -467,7 +463,7 @@ const Home = () => {
       </section>
 
       <section className="bg-black py-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl  mx-auto">
           <Swiper
             modules={[Autoplay]}
             spaceBetween={30}

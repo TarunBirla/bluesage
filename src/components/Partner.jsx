@@ -49,7 +49,7 @@ const Partner = () => {
         {/* Background Glow */}
         <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-gray-300 blur-[160px] opacity-20"></div>
 
-        <div className="max-w-6xl mx-auto px-4 text-gray-300">
+        <div className="max-w-7xl  mx-auto px-4 text-gray-300">
           {/* Heading */}
           <h2 className="text-white text-3xl md:text-4xl font-semibold mb-8">
             Grow Together. Build Trust. Create Impact.
@@ -100,114 +100,107 @@ const Partner = () => {
         </div>
       </section>
       <section className="relative bg-black py-24 overflow-hidden">
+        {/* Background Glow */}
+        <div className="absolute left-0 top-0 w-[400px] h-[400px] bg-gray-300 blur-[160px] opacity-20"></div>
 
-  {/* Background Glow */}
-  <div className="absolute left-0 top-0 w-[400px] h-[400px] bg-gray-300 blur-[160px] opacity-20"></div>
+        <div className="max-w-7xl  mx-auto px-3">
+          {/* Heading */}
+          <h2 className="text-center text-white text-4xl md:text-5xl font-semibold mb-16">
+            What We Offer
+          </h2>
 
-  <div className="max-w-6xl mx-auto px-3">
+          {/* Cards Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Card */}
+            <div className="border border-gray-700 rounded-2xl p-6 bg-black/40 backdrop-blur-md text-gray-300">
+              <div className="mb-4 text-white text-xl">✈</div>
 
-    {/* Heading */}
-    <h2 className="text-center text-white text-4xl md:text-5xl font-semibold mb-16">
-      What We Offer
-    </h2>
+              <h3 className="text-white font-semibold mb-3">
+                Established Brand Backed Experts
+              </h3>
 
-    {/* Cards Grid */}
-    <div className="grid md:grid-cols-3 gap-8">
+              <p className="text-sm text-gray-400">
+                Operate under the Blue Sage Wealth banner — built by IIM alumni
+                and certified financial planners with over 20 years of combined
+                experience.
+              </p>
+            </div>
 
-      {/* Card */}
-      <div className="border border-gray-700 rounded-2xl p-6 bg-black/40 backdrop-blur-md text-gray-300">
-        <div className="mb-4 text-white text-xl">✈</div>
+            {/* Card */}
+            <div className="border border-gray-700 rounded-2xl p-6 bg-black/40 backdrop-blur-md text-gray-300">
+              <div className="mb-4 text-white text-xl">✈</div>
 
-        <h3 className="text-white font-semibold mb-3">
-          Established Brand Backed Experts
-        </h3>
+              <h3 className="text-white font-semibold mb-3">
+                End-to-End Business Infrastructure
+              </h3>
 
-        <p className="text-sm text-gray-400">
-          Operate under the Blue Sage Wealth banner — built by IIM alumni and
-          certified financial planners with over 20 years of combined experience.
-        </p>
-      </div>
+              <p className="text-sm text-gray-400">
+                Access our robust product platforms, tech tools, operations
+                support, and compliance systems so you can scale efficiently.
+              </p>
+            </div>
 
+            {/* Card */}
+            <div className="border border-gray-700 rounded-2xl p-6 bg-black/40 backdrop-blur-md text-gray-300">
+              <div className="mb-4 text-white text-xl">✈</div>
 
-      {/* Card */}
-      <div className="border border-gray-700 rounded-2xl p-6 bg-black/40 backdrop-blur-md text-gray-300">
-        <div className="mb-4 text-white text-xl">✈</div>
+              <h3 className="text-white font-semibold mb-3">
+                Training, Mentorship & Growth Support
+              </h3>
 
-        <h3 className="text-white font-semibold mb-3">
-          End-to-End Business Infrastructure
-        </h3>
+              <p className="text-sm text-gray-400">
+                We invest in our partners through hands-on mentorship, domain
+                training, marketing support, and business development
+                strategies.
+              </p>
+            </div>
 
-        <p className="text-sm text-gray-400">
-          Access our robust product platforms, tech tools, operations support,
-          and compliance systems so you can scale efficiently.
-        </p>
-      </div>
+            {/* Card */}
+            <div className="border border-gray-700 rounded-2xl p-6 bg-black/40 backdrop-blur-md text-gray-300">
+              <div className="mb-4 text-white text-xl">✈</div>
 
+              <h3 className="text-white font-semibold mb-3">
+                Join Industry's Best Insurance Company
+              </h3>
 
-      {/* Card */}
-      <div className="border border-gray-700 rounded-2xl p-6 bg-black/40 backdrop-blur-md text-gray-300">
-        <div className="mb-4 text-white text-xl">✈</div>
+              <p className="text-sm text-gray-400">
+                We are recognized leaders in one of the leading insurance
+                companies and we can help you establish your own successful
+                insurance distribution business.
+              </p>
+            </div>
 
-        <h3 className="text-white font-semibold mb-3">
-          Training, Mentorship & Growth Support
-        </h3>
+            {/* Card */}
+            <div className="border border-gray-700 rounded-2xl p-6 bg-black/40 backdrop-blur-md text-gray-300">
+              <div className="mb-4 text-white text-xl">✈</div>
 
-        <p className="text-sm text-gray-400">
-          We invest in our partners through hands-on mentorship, domain training,
-          marketing support, and business development strategies.
-        </p>
-      </div>
+              <h3 className="text-white font-semibold mb-3">
+                Wide Product Spectrum
+              </h3>
 
+              <p className="text-sm text-gray-400">
+                Offer your clients best-in-class solutions across mutual funds,
+                insurance, retirement planning, estate advisory, and more.
+              </p>
+            </div>
 
-      {/* Card */}
-      <div className="border border-gray-700 rounded-2xl p-6 bg-black/40 backdrop-blur-md text-gray-300">
-        <div className="mb-4 text-white text-xl">✈</div>
+            {/* Card */}
+            <div className="border border-gray-700 rounded-2xl p-6 bg-black/40 backdrop-blur-md text-gray-300">
+              <div className="mb-4 text-white text-xl">✈</div>
 
-        <h3 className="text-white font-semibold mb-3">
-          Join Industry's Best Insurance Company
-        </h3>
+              <h3 className="text-white font-semibold mb-3">
+                Ethical, Collaborative Culture
+              </h3>
 
-        <p className="text-sm text-gray-400">
-          We are recognized leaders in one of the leading insurance companies
-          and we can help you establish your own successful insurance distribution business.
-        </p>
-      </div>
-
-
-      {/* Card */}
-      <div className="border border-gray-700 rounded-2xl p-6 bg-black/40 backdrop-blur-md text-gray-300">
-        <div className="mb-4 text-white text-xl">✈</div>
-
-        <h3 className="text-white font-semibold mb-3">
-          Wide Product Spectrum
-        </h3>
-
-        <p className="text-sm text-gray-400">
-          Offer your clients best-in-class solutions across mutual funds,
-          insurance, retirement planning, estate advisory, and more.
-        </p>
-      </div>
-
-
-      {/* Card */}
-      <div className="border border-gray-700 rounded-2xl p-6 bg-black/40 backdrop-blur-md text-gray-300">
-        <div className="mb-4 text-white text-xl">✈</div>
-
-        <h3 className="text-white font-semibold mb-3">
-          Ethical, Collaborative Culture
-        </h3>
-
-        <p className="text-sm text-gray-400">
-          Collaborate with a brand built on trust, driven by compliance and
-          focused on leading client impact and maintaining highest standards in ethics.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+              <p className="text-sm text-gray-400">
+                Collaborate with a brand built on trust, driven by compliance
+                and focused on leading client impact and maintaining highest
+                standards in ethics.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </>

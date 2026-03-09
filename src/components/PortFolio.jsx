@@ -62,7 +62,7 @@ const PortFolio = () => {
         <div className="absolute left-0 top-0 w-[300px] h-[300px] bg-gray-300 blur-[150px] opacity-20"></div>
         <div className="absolute right-0 top-0 w-[300px] h-[300px] bg-gray-300 blur-[150px] opacity-20"></div>
 
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="max-w-7xl  mx-auto px-6 text-center">
           {/* Heading */}
           <h2 className="text-white text-4xl md:text-5xl font-semibold mb-14">
             Why choose Blue Sage?
@@ -114,7 +114,7 @@ const PortFolio = () => {
         {/* Bottom Glow */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gray-300 blur-[160px] opacity-20"></div>
 
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="max-w-7xl  mx-auto px-6 text-center">
           {/* Top Button */}
           <button className="border border-gray-500 text-white px-6 py-3 rounded-full mb-16 bg-white/10 backdrop-blur-md">
             Schedule an expert call ▼
@@ -126,8 +126,7 @@ const PortFolio = () => {
             <div className="relative border border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
               {/* Icon */}
               <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-
-                <img src="icon.png"/>
+                <img src="icon.png" />
               </div>
 
               <h3 className="mt-6 text-lg font-semibold">
@@ -144,9 +143,7 @@ const PortFolio = () => {
             <div className="relative border border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
               {/* Icon */}
               <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-
-                <img src="icon.png"/>
-                
+                <img src="icon.png" />
               </div>
 
               <ul className="mt-6 text-left space-y-3 text-sm text-gray-300">
@@ -163,8 +160,7 @@ const PortFolio = () => {
             <div className="relative border  border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
               {/* Icon */}
               <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-                <img src="icon.png"/>
-                
+                <img src="icon.png" />
               </div>
 
               <h3 className="mt-6 text-lg font-semibold">
@@ -177,12 +173,11 @@ const PortFolio = () => {
               </p>
             </div>
 
-             {/* CARD 1 */}
+            {/* CARD 1 */}
             <div className="relative border mt-8 border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
               {/* Icon */}
               <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-
-                <img src="icon.png"/>
+                <img src="icon.png" />
               </div>
 
               <h3 className="mt-6 text-lg font-semibold">
@@ -199,9 +194,7 @@ const PortFolio = () => {
             <div className="relative border mt-8 border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
               {/* Icon */}
               <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-
-                <img src="icon.png"/>
-                
+                <img src="icon.png" />
               </div>
 
               <ul className="mt-6 text-left space-y-3 text-sm text-gray-300">
@@ -218,8 +211,7 @@ const PortFolio = () => {
             <div className="relative border mt-8 border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
               {/* Icon */}
               <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-                <img src="icon.png"/>
-                
+                <img src="icon.png" />
               </div>
 
               <h3 className="mt-6 text-lg font-semibold">
@@ -231,12 +223,11 @@ const PortFolio = () => {
                 industry.
               </p>
             </div>
-              {/* CARD 1 */}
+            {/* CARD 1 */}
             <div className="relative border mt-8 border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
               {/* Icon */}
               <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-
-                <img src="icon.png"/>
+                <img src="icon.png" />
               </div>
 
               <h3 className="mt-6 text-lg font-semibold">
@@ -253,9 +244,7 @@ const PortFolio = () => {
             <div className="relative border mt-8 border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
               {/* Icon */}
               <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-
-                <img src="icon.png"/>
-                
+                <img src="icon.png" />
               </div>
 
               <ul className="mt-6 text-left space-y-3 text-sm text-gray-300">
@@ -272,8 +261,7 @@ const PortFolio = () => {
             <div className="relative border mt-8 border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
               {/* Icon */}
               <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-                <img src="icon.png"/>
-                
+                <img src="icon.png" />
               </div>
 
               <h3 className="mt-6 text-lg font-semibold">
@@ -290,56 +278,51 @@ const PortFolio = () => {
       </section>
       <section className="bg-black  pb-20 pt-20 ">
         {/* Stats Card */}
-        <div className="max-w-6xl mx-auto text-center ">
+        <div className="max-w-7xl  mx-auto text-center ">
           <h2 className="text-white text-4xl md:text-5xl font-semibold mb-14 ">
-            Schedule a call to align your<br/> investments with financial goals
+            Schedule a call to align your
+            <br /> investments with financial goals
           </h2>
           <img src="/scnhome.png" className="w-full h-auto" />
         </div>
       </section>
       <section className="bg-black py-24 relative overflow-hidden">
+        {/* Bottom Glow */}
+        <div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 
+  w-[700px] h-[300px] bg-gray-300 blur-[160px] opacity-20"
+        ></div>
 
-  {/* Bottom Glow */}
-  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 
-  w-[700px] h-[300px] bg-gray-300 blur-[160px] opacity-20"></div>
+        <div className="max-w-7xl  mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          {/* LEFT CONTENT */}
+          <div>
+            <h2 className="text-white text-4xl md:text-5xl font-semibold leading-tight">
+              50% of high-net worth portfolios fail to beat the benchmark
+            </h2>
 
-  <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <p className="text-gray-400 mt-6 max-w-md text-sm">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever when an unknown printer.
+            </p>
 
-    {/* LEFT CONTENT */}
-    <div>
+            <button className="mt-8 border border-gray-500 text-white px-6 py-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white hover:text-black transition">
+              Read more →
+            </button>
+          </div>
 
-      <h2 className="text-white text-4xl md:text-5xl font-semibold leading-tight">
-        50% of high-net worth portfolios fail to beat the benchmark
-      </h2>
-
-      <p className="text-gray-400 mt-6 max-w-md text-sm">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text
-        ever when an unknown printer.
-      </p>
-
-      <button className="mt-8 border border-gray-500 text-white px-6 py-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white hover:text-black transition">
-        Read more →
-      </button>
-
-    </div>
-
-    {/* RIGHT IMAGE */}
-    <div className="relative">
-
-      <div className="rounded-2xl overflow-hidden ">
-        <img
-          src="/iphone.png"
-          alt="phone"
-          className="w-full h-auto object-contain"
-        />
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+          {/* RIGHT IMAGE */}
+          <div className="relative">
+            <div className="rounded-2xl overflow-hidden ">
+              <img
+                src="/iphone.png"
+                alt="phone"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
       <Footer />
     </>
   );

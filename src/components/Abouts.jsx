@@ -32,7 +32,7 @@ const Abouts = () => {
     blur-[120px] opacity-40"
         ></div>
 
-        <div className="relative w-full max-w-6xl mx-auto px-6 py-14">
+        <div className="relative w-full max-w-7xl  mx-auto px-6 py-14">
           <div
             className="relative 
       bg-contain bg-center h-[600px] w-full bg-no-repeat
@@ -71,125 +71,112 @@ const Abouts = () => {
         </div>
       </section>
       <section className="bg-black text-white py-24">
+        <div className="max-w-7xl  mx-auto px-6">
+          {/* Heading */}
+          <h2 className="text-center text-5xl font-semibold text-gray-300 mb-20">
+            Our Journey
+          </h2>
 
-<div className="max-w-6xl mx-auto px-6">
+          {/* Timeline wrapper */}
+          <div className="relative">
+            {/* Top line */}
+            {/* <div className="absolute top-24 left-0 w-full h-[1px] bg-gray-500"></div> */}
 
-{/* Heading */}
-<h2 className="text-center text-5xl font-semibold text-gray-300 mb-20">
-Our Journey
-</h2>
+            {/* Bottom line */}
+            {/* <div className="absolute bottom-24 left-0 w-full h-[1px] bg-gray-500"></div> */}
 
-{/* Timeline wrapper */}
-<div className="relative">
+            {/* Top Row */}
+            <div className="grid grid-cols-3 gap-12 mb-32">
+              {/* Item */}
+              <div>
+                <p className="text-xs text-gray-400 mb-2">2000-2005</p>
 
-{/* Top line */}
-{/* <div className="absolute top-24 left-0 w-full h-[1px] bg-gray-500"></div> */}
+                <h3 className="font-semibold mb-2">
+                  Lorem Ipsum is <br /> simply dummy text
+                </h3>
 
-{/* Bottom line */}
-{/* <div className="absolute bottom-24 left-0 w-full h-[1px] bg-gray-500"></div> */}
+                <p className="text-gray-400 text-sm">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
 
+              <div>
+                <p className="text-xs text-gray-400 mb-2">2000-2005</p>
 
+                <h3 className="font-semibold mb-2">
+                  Lorem Ipsum is <br /> simply dummy text
+                </h3>
 
+                <p className="text-gray-400 text-sm">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
 
+              <div>
+                <p className="text-xs text-gray-400 mb-2">2000-2005</p>
 
-{/* Top Row */}
-<div className="grid grid-cols-3 gap-12 mb-32">
+                <h3 className="font-semibold mb-2">
+                  Lorem Ipsum is <br /> simply dummy text
+                </h3>
 
-{/* Item */}
-<div>
-<p className="text-xs text-gray-400 mb-2">2000-2005</p>
+                <p className="text-gray-400 text-sm">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </div>
 
-<h3 className="font-semibold mb-2">
-Lorem Ipsum is <br/> simply dummy text
-</h3>
+            {/* Bottom Row */}
+            <div className="grid grid-cols-3 gap-12">
+              <div>
+                <p className="text-xs text-gray-400 mb-2">2000-2005</p>
 
-<p className="text-gray-400 text-sm">
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-</p>
-</div>
+                <h3 className="font-semibold mb-2">
+                  Lorem Ipsum is <br /> simply dummy text
+                </h3>
 
+                <p className="text-gray-400 text-sm">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
 
-<div>
-<p className="text-xs text-gray-400 mb-2">2000-2005</p>
+              <div>
+                <p className="text-xs text-gray-400 mb-2">2000-2005</p>
 
-<h3 className="font-semibold mb-2">
-Lorem Ipsum is <br/> simply dummy text
-</h3>
+                <h3 className="font-semibold mb-2">
+                  Lorem Ipsum is <br /> simply dummy text
+                </h3>
 
-<p className="text-gray-400 text-sm">
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-</p>
-</div>
+                <p className="text-gray-400 text-sm">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
 
+              <div>
+                <p className="text-xs text-gray-400 mb-2">2000-2005</p>
 
-<div>
-<p className="text-xs text-gray-400 mb-2">2000-2005</p>
+                <h3 className="font-semibold mb-2">
+                  Lorem Ipsum is <br /> simply dummy text
+                </h3>
 
-<h3 className="font-semibold mb-2">
-Lorem Ipsum is <br/> simply dummy text
-</h3>
-
-<p className="text-gray-400 text-sm">
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-</p>
-</div>
-
-</div>
-
-
-{/* Bottom Row */}
-<div className="grid grid-cols-3 gap-12">
-
-<div>
-<p className="text-xs text-gray-400 mb-2">2000-2005</p>
-
-<h3 className="font-semibold mb-2">
-Lorem Ipsum is <br/> simply dummy text
-</h3>
-
-<p className="text-gray-400 text-sm">
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-</p>
-</div>
-
-
-<div>
-<p className="text-xs text-gray-400 mb-2">2000-2005</p>
-
-<h3 className="font-semibold mb-2">
-Lorem Ipsum is <br/> simply dummy text
-</h3>
-
-<p className="text-gray-400 text-sm">
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-</p>
-</div>
-
-
-<div>
-<p className="text-xs text-gray-400 mb-2">2000-2005</p>
-
-<h3 className="font-semibold mb-2">
-Lorem Ipsum is <br/> simply dummy text
-</h3>
-
-<p className="text-gray-400 text-sm">
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
+                <p className="text-gray-400 text-sm">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="bg-black text-white py-24 relative overflow-hidden">
         {/* bottom gradient glow */}
         <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-gray-600/40 to-transparent blur-2xl"></div>
 
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="max-w-7xl  mx-auto px-6 text-center">
           {/* Heading */}
           <h2 className="text-5xl font-semibold text-gray-300 mb-16">
             Award and achievement
@@ -243,7 +230,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </div>
       </section>
       <section className="bg-black py-10">
-        <div className="max-w-6xl mx-auto ">
+        <div className="max-w-7xl  mx-auto ">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {/* Card */}
             <div className="bg-white rounded-3xl overflow-hidden">
@@ -302,7 +289,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </section>
 
       <section className="bg-black py-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl  mx-auto">
           <Swiper
             modules={[Autoplay]}
             spaceBetween={30}

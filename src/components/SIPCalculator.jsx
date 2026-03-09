@@ -26,9 +26,7 @@ export default function SIPCalculator() {
 
   return (
     <section className="bg-black py-24 flex justify-center">
-
-      <div className="max-w-6xl w-full border border-gray-400 rounded-[40px] p-12">
-
+      <div className="max-w-7xl  w-full border border-gray-400 rounded-[40px] p-12">
         <h2 className="text-white text-2xl font-semibold mb-8">
           SIP calculator
         </h2>
@@ -47,15 +45,11 @@ export default function SIPCalculator() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-14">
-
           {/* LEFT SIDE */}
           <div className="border border-gray-600 rounded-2xl p-8">
-
             {/* SIP */}
             <div className="mb-10">
-              <p className="text-gray-400 text-sm mb-2">
-                monthly SIP Amount
-              </p>
+              <p className="text-gray-400 text-sm mb-2">monthly SIP Amount</p>
 
               <input
                 type="range"
@@ -69,9 +63,7 @@ export default function SIPCalculator() {
 
             {/* Years */}
             <div className="mb-10">
-              <p className="text-gray-400 text-sm mb-2">
-                SIP Period
-              </p>
+              <p className="text-gray-400 text-sm mb-2">SIP Period</p>
 
               <input
                 type="range"
@@ -98,12 +90,10 @@ export default function SIPCalculator() {
                 className="w-full slider"
               />
             </div>
-
           </div>
 
           {/* RIGHT SIDE */}
           <div className="flex flex-col items-center">
-
             {/* Donut Chart */}
             <PieChart width={220} height={220}>
               <Pie
@@ -128,7 +118,6 @@ export default function SIPCalculator() {
 
             {/* Values */}
             <div className="grid grid-cols-2 gap-8 mt-8 text-gray-300 text-sm">
-
               <div>
                 <p>Total SIP Amount invested</p>
                 <p className="text-white font-semibold">
@@ -142,25 +131,17 @@ export default function SIPCalculator() {
                   ₹ {Math.round(growth).toLocaleString()}
                 </p>
               </div>
-
             </div>
 
             <div className="mt-6 text-center">
-
-              <p className="text-gray-400">
-                Total Future Value
-              </p>
+              <p className="text-gray-400">Total Future Value</p>
 
               <p className="text-white text-xl font-bold">
                 ₹ {Math.round(futureValue).toLocaleString()}
               </p>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
 
       <style>
@@ -181,7 +162,6 @@ export default function SIPCalculator() {
 }
 `}
       </style>
-
     </section>
   );
 }
