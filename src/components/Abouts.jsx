@@ -24,23 +24,21 @@ const Abouts = () => {
       <Header />
 
       <section className="relative w-full bg-black flex items-center justify-center py-24 overflow-hidden">
-        {/* Bottom Silver Glow */}
         <div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 
-    w-[700px] h-[250px] 
-    bg-gradient-to-t from-gray-200 to-transparent 
-    blur-[120px] opacity-40"
+          w-[700px] h-[250px] 
+          bg-gradient-to-t from-gray-200 to-transparent 
+          blur-[120px] opacity-40"
         ></div>
 
         <div className="relative w-full max-w-7xl  mx-auto px-6 py-14">
           <div
             className="relative 
-      bg-contain bg-center h-[600px] w-full bg-no-repeat
-      flex items-center gap-40 px-16"
+            bg-contain bg-center h-[600px] w-full bg-no-repeat
+            flex items-center gap-40 px-16"
             style={{ backgroundImage: "url('/aboutimg.png')" }}
           >
-            {/* Left Image */}
-            <div className="w-[300px] shrink-0">
+            <div className="w-[300px] shrink-0 ml-10">
               <img
                 src="/bigimg.png"
                 alt=""
@@ -48,9 +46,8 @@ const Abouts = () => {
               />
             </div>
 
-            {/* Right Text */}
-            <div className="text-gray-300 max-w-lg">
-              <p className="leading-relaxed mb-8 text-[18px]">
+            <div className="text-gray-300 max-w-lg -mt-20">
+              <p className="leading-relaxed font-light mb-10 text-[24px]">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
                 text ever since the 1500s, when an unknown printer took a galley
@@ -70,24 +67,18 @@ const Abouts = () => {
           </div>
         </div>
       </section>
-      <section className="bg-black text-white py-24">
+      {/* <section className="bg-black text-white py-24">
         <div className="max-w-7xl  mx-auto px-6">
-          {/* Heading */}
+          
           <h2 className="text-center text-5xl font-semibold text-gray-300 mb-20">
             Our Journey
           </h2>
 
-          {/* Timeline wrapper */}
+         
           <div className="relative">
-            {/* Top line */}
-            {/* <div className="absolute top-24 left-0 w-full h-[1px] bg-gray-500"></div> */}
-
-            {/* Bottom line */}
-            {/* <div className="absolute bottom-24 left-0 w-full h-[1px] bg-gray-500"></div> */}
-
-            {/* Top Row */}
+            
             <div className="grid grid-cols-3 gap-12 mb-32">
-              {/* Item */}
+              
               <div>
                 <p className="text-xs text-gray-400 mb-2">2000-2005</p>
 
@@ -128,7 +119,7 @@ const Abouts = () => {
               </div>
             </div>
 
-            {/* Bottom Row */}
+            
             <div className="grid grid-cols-3 gap-12">
               <div>
                 <p className="text-xs text-gray-400 mb-2">2000-2005</p>
@@ -171,7 +162,131 @@ const Abouts = () => {
             </div>
           </div>
         </div>
+      </section> */}
+      <section className="bg-black py-24 text-white">
+        <div className="max-w-7xl mx-auto px-6 relative">
+          {/* TIMELINE LINE */}
+          <svg
+            className="absolute left-0 top-[-6px] w-full h-[400px]"
+            viewBox="0 0 1200 400"
+            fill="none"
+            stroke="white"
+            strokeWidth="2"
+          >
+            {/* TOP LINE */}
+            <path d="M20 30 H1080" />
+
+            {/* ARROWS */}
+            <polygon points="280,26 260,30 280,34" fill="white" />
+            <polygon points="580,26 560,30 580,34" fill="white" />
+            <polygon points="880,26 860,30 880,34" fill="white" />
+
+            {/* CURVE */}
+            <path d="M1080 30 Q1150 30 1150 90" />
+
+            {/* DOWN LINE */}
+            <path d="M1150 90 V260" />
+
+            {/* DOWN ARROWS */}
+            <polygon points="1145,120 1150,135 1155,120" fill="white" />
+            {/* <polygon points="1145,160 1150,175 1155,160" fill="white" /> */}
+          </svg>
+          {/* TOP ROW */}
+          <div className="grid grid-cols-3 px-16 pr-20 gap-24 mb-32 relative z-10">
+            <div>
+              <p className="text-gray-400 text-sm mb-3">2000-2005</p>
+              <h3 className="font-semibold text-sm mb-2">
+                Lorem Ipsum is <br /> simply dummy text
+              </h3>
+              <p className="text-gray-400 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-gray-400 text-sm mb-3">2000-2005</p>
+              <h3 className="font-semibold text-sm mb-2">
+                Lorem Ipsum is <br /> simply dummy text
+              </h3>
+              <p className="text-gray-400 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-gray-400 text-sm mb-3">2000-2005</p>
+              <h3 className="font-semibold text-sm mb-2">
+                Lorem Ipsum is <br /> simply dummy text
+              </h3>
+              <p className="text-gray-400 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+          </div>
+
+          {/* TIMELINE LINE */}
+          <svg
+            className="absolute left-0 top-[140px] w-full h-[180px]"
+            viewBox="0 0 1200 180"
+            fill="none"
+            stroke="white"
+            strokeWidth="2"
+          >
+            {/* DOWN ARROW */}
+            <polygon points="1145,100 1150,115 1155,100" fill="white" />
+            {/* CURVE TO BOTTOM LINE */}
+            <path d="M1150 100 Q1150 130 1120 130" />
+            {/* BOTTOM LINE */}
+            {/* BOTTOM LINE */}
+            <path d="M1120 130 H20" />
+
+            {/* ARROWS BOTTOM */}
+            <polygon points="880,126 860,130 880,134" fill="white" />
+            <polygon points="580,126 560,130 580,134" fill="white" />
+            <polygon points="280,126 260,130 280,134" fill="white" />
+          </svg>
+
+          {/* BOTTOM ROW */}
+          <div className="grid grid-cols-3 gap-24 px-16 pr-20 mt-28 relative z-10">
+            <div>
+              <p className="text-gray-400 text-sm mb-3">2000-2005</p>
+              <h3 className="font-semibold mb-2 text-sm">
+                Lorem Ipsum is <br /> simply dummy text
+              </h3>
+              <p className="text-gray-400 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-gray-400 text-sm mb-3">2000-2005</p>
+              <h3 className="font-semibold mb-2 text-sm">
+                Lorem Ipsum is <br /> simply dummy text
+              </h3>
+              <p className="text-gray-400 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-gray-400 text-sm mb-3">2000-2005</p>
+              <h3 className="font-semibold mb-2 text-sm">
+                Lorem Ipsum is <br /> simply dummy text
+              </h3>
+              <p className="text-gray-400 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
+
       <section className="bg-black text-white py-24 relative overflow-hidden">
         {/* bottom gradient glow */}
         <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-gray-600/40 to-transparent blur-2xl"></div>
@@ -237,7 +352,7 @@ const Abouts = () => {
               {/* Image */}
               <img
                 src="/bigimg.png"
-                className="w-full h-[350px] object-cover"
+                className="w-full h-[350px] rounded-3xl object-cover"
                 alt=""
               />
 
@@ -253,7 +368,7 @@ const Abouts = () => {
             <div className="bg-white rounded-3xl overflow-hidden">
               <img
                 src="/bigimg.png"
-                className="w-full h-[350px] object-cover"
+                className="w-full h-[350px] rounded-3xl object-cover"
               />
               <div className="p-5">
                 <h3 className="font-semibold text-gray-900">Vaibhav Porwal</h3>
@@ -265,7 +380,7 @@ const Abouts = () => {
             <div className="bg-white rounded-3xl overflow-hidden">
               <img
                 src="/bigimg.png"
-                className="w-full h-[350px] object-cover"
+                className="w-full h-[350px] rounded-3xl object-cover"
               />
               <div className="p-5">
                 <h3 className="font-semibold text-gray-900">Vaibhav Porwal</h3>
@@ -277,7 +392,7 @@ const Abouts = () => {
             <div className="bg-white rounded-3xl overflow-hidden">
               <img
                 src="/bigimg.png"
-                className="w-full h-[350px] object-cover"
+                className="w-full h-[350px] rounded-3xl object-cover"
               />
               <div className="p-5">
                 <h3 className="font-semibold text-gray-900">Vaibhav Porwal</h3>

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 
 import Header from "./Header";
 import Footer from "./Footer";
+import { ChevronDown } from "lucide-react";
 
 const ProjectNew = () => {
   return (
@@ -42,19 +43,28 @@ const ProjectNew = () => {
           </p>
 
           {/* Dropdown */}
-          <select
-            className="mt-10 px-6 py-3 rounded-full
-      border border-gray-400
-      text-white bg-white/10 backdrop-blur-md
-      outline-none cursor-pointer
-      hover:bg-white hover:text-black
-      transition"
-          >
-            <option className="text-black">Book a free call</option>
-            <option className="text-black">Investment Planning</option>
-            <option className="text-black">Portfolio Review</option>
-            <option className="text-black">Financial Consultation</option>
-          </select>
+          {/* Dropdown Wrapper */}
+          <div className="relative mt-10">
+            <select
+              className="appearance-none px-8 py-3 pr-12 rounded-full
+        border border-gray-400
+        text-white bg-[#252525]
+        text-center
+        outline-none cursor-pointer
+        hover:bg-white hover:text-black
+        transition"
+            >
+              <option className="text-black">Book a free call</option>
+              <option className="text-black">Investment Planning</option>
+              <option className="text-black">Portfolio Review</option>
+              <option className="text-black">Financial Consultation</option>
+            </select>
+
+            {/* Custom Arrow */}
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white pointer-events-none">
+              <ChevronDown size={20} />
+            </span>
+          </div>
         </div>
       </section>
       <section className="bg-black py-24 relative overflow-hidden">
@@ -88,7 +98,7 @@ const ProjectNew = () => {
               {/* <div className="hidden md:block border-l border-gray-600 h-14 mx-auto"></div> */}
 
               {/* Stat 2 */}
-              <div className="text-center">
+              <div className="text-center border-l border-r border-gray-600">
                 <h3 className="text-3xl font-semibold">5,000+</h3>
                 <p className="text-gray-400 text-sm mt-2">
                   Clients trust Blue Sage Wealth

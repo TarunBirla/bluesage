@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import BlogSlider from "./blogs/BlogSlider";
 import SmallBlogSlider from "./blogs/SmallBlogSlider";
 import BlogGrid from "./blogs/BlogGrid";
+import { ChevronDown } from "lucide-react";
 
 const Blog = () => {
   return (
@@ -49,7 +50,7 @@ const Blog = () => {
 
             {/* Custom Arrow */}
             <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white pointer-events-none">
-              ▼
+              <ChevronDown size={20} />
             </span>
           </div>
         </div>
