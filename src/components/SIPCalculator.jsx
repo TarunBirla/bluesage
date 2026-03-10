@@ -25,14 +25,14 @@ export default function SIPCalculator() {
   ];
 
   return (
-    <section className="bg-black py-24 flex justify-center">
-      <div className="max-w-7xl  w-full border border-gray-400 rounded-[40px] p-12">
+    <section className="bg-black py-24 px-4 flex justify-center overflow-hidden">
+      <div className="max-w-7xl w-full border border-gray-400 rounded-[40px] p-6 md:p-12">
         <h2 className="text-white text-2xl font-semibold mb-8">
           SIP calculator
         </h2>
 
         {/* Toggle */}
-        <div className="flex gap-10 text-gray-300 mb-10">
+        <div className="flex flex-col md:flex-row gap-10 text-gray-300 mb-10">
           <label className="flex items-center gap-2">
             <input type="radio" name="type" defaultChecked />
             SIP calculator
