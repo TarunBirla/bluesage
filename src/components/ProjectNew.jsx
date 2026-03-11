@@ -9,31 +9,31 @@ const ProjectNew = () => {
     <>
       <Header />
 
-      <section className="relative w-full h-[60vh] md:h-[90vh] bg-black overflow-hidden">
+      <section className="relative w-full h-[80vh] md:h-[90vh] bg-black overflow-hidden ">
         {/* Bottom Silver Glow */}
         <div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 
-  w-[700px] h-[250px] 
-  bg-gradient-to-t from-gray-200 to-transparent 
-  blur-[120px] opacity-40"
+          w-[700px] h-[250px] 
+          bg-gradient-to-t from-gray-200 to-transparent 
+          blur-[120px] opacity-40"
         ></div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
           <h1
             className="text-white font-[Syne] font-bold
-      text-[38px] leading-[46px]
-      sm:text-[56px] sm:leading-[60px]
-      md:text-[72px] md:leading-[78px]"
+            text-[38px] leading-[46px]
+            sm:text-[56px] sm:leading-[60px]
+            md:text-[72px] md:leading-[78px]"
           >
             Blue Sage Wealth:
           </h1>
 
           <h2
             className="text-white font-[Syne] font-semibold
-      text-[28px] leading-[36px]
-      sm:text-[46px] sm:leading-[50px]
-      md:text-[52px] md:leading-[58px]"
+            text-[28px] leading-[36px]
+            sm:text-[46px] sm:leading-[50px]
+            md:text-[52px] md:leading-[58px]"
           >
             Your Family’s Wealth Partner
           </h2>
@@ -47,12 +47,12 @@ const ProjectNew = () => {
           <div className="relative mt-10">
             <select
               className="appearance-none px-8 py-3 pr-12 rounded-full
-        border border-gray-400
-        text-white bg-[#252525]
-        text-center
-        outline-none cursor-pointer
-        hover:bg-white hover:text-black
-        transition"
+              border border-gray-400
+              text-white bg-[#252525]
+              text-center
+              outline-none cursor-pointer
+              hover:bg-white hover:text-black
+              transition"
             >
               <option className="text-black">Book a free call</option>
               <option className="text-black">Investment Planning</option>
@@ -74,18 +74,23 @@ const ProjectNew = () => {
 
         <div className="max-w-7xl  mx-auto px-6 text-center">
           {/* Heading */}
-          <h2 className="text-white text-4xl md:text-5xl font-semibold mb-14">
+          <h2
+            className="text-center font-semibold mb-20
+           text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
+          bg-gradient-to-b from-white to-[#999999]
+          bg-clip-text text-transparent"
+          >
             Why choose Blue Sage?
           </h2>
 
           {/* Stats Card */}
           <div
             className="border border-gray-600 rounded-[30px] py-10 px-6
-    backdrop-blur-md bg-black/60"
+          backdrop-blur-md bg-black/60"
           >
             <div className="grid md:grid-cols-3 text-white items-center">
               {/* Stat 1 */}
-              <div className="text-center">
+              <div className="text-center py-4 md:py-0">
                 <h3 className="text-3xl font-semibold">
                   15,000<span className="text-lg">+ Cr</span>
                 </h3>
@@ -98,7 +103,7 @@ const ProjectNew = () => {
               {/* <div className="hidden md:block border-l border-gray-600 h-14 mx-auto"></div> */}
 
               {/* Stat 2 */}
-              <div className="text-center border-l border-r border-gray-600">
+              <div className="text-center py-4 md:py-0 border-t border-b md:border-t-0 md:border-b-0 md:border-l md:border-r border-gray-600">
                 <h3 className="text-3xl font-semibold">5,000+</h3>
                 <p className="text-gray-400 text-sm mt-2">
                   Clients trust Blue Sage Wealth
@@ -109,7 +114,7 @@ const ProjectNew = () => {
               {/* <div className="hidden md:block border-l border-gray-600 h-14 mx-auto"></div> */}
 
               {/* Stat 3 */}
-              <div className="text-center">
+              <div className="text-center py-4 md:py-0">
                 <h3 className="text-3xl font-semibold">
                   20+ <span className="text-lg">Years</span>
                 </h3>
@@ -118,6 +123,12 @@ const ProjectNew = () => {
             </div>
           </div>
         </div>
+        {/* Top Button */}
+        <div className="flex items-center justify-center mt-24">
+          <button className="border flex items-center gap-2 border-gray-500 text-white px-6 py-3 rounded-full mb-16 bg-white/10 backdrop-blur-md">
+            Schedule an expert call <ChevronDown size={20} />
+          </button>
+        </div>
       </section>
 
       <section className="bg-black py-24 relative overflow-hidden">
@@ -125,18 +136,16 @@ const ProjectNew = () => {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gray-300 blur-[160px] opacity-20"></div>
 
         <div className="max-w-7xl  mx-auto px-6 text-center">
-          {/* Top Button */}
-          <button className="border border-gray-500 text-white px-6 py-3 rounded-full mb-16 bg-white/10 backdrop-blur-md">
-            Schedule an expert call ▼
-          </button>
-
           {/* Cards */}
           <div className="grid md:grid-cols-3 gap-8">
             {/* CARD 1 */}
-            <div className="relative border border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
+            <div className="relative">
+              {/* main box */}
+              <img src="/box1.png" />
+
               {/* Icon */}
               <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-                <img src="icon.png" />
+                <img src="/Gear.png" />
               </div>
 
               <h3 className="mt-6 text-lg font-semibold">

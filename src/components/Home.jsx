@@ -33,19 +33,19 @@ const Home = () => {
     {
       img: "/ac1.png",
       year: "2020",
-      title: "Award of Excellence – COT 2024",
+      title: "Award of Excellence <br /> – COT 2024",
       desc: "Honoured for exceptional dedication, performance and achieving the prestigious Court of the Table (COT) recognition for 2024.",
     },
     {
       img: "/ac2.png",
       year: "2020",
-      title: "360 ONE Asset – Stellar Contribution",
+      title: "360 ONE Asset <br /> – Stellar Contribution",
       desc: "Appreciated for outstanding contribution to the 360 ONE Focused Equity Fund.",
     },
     {
       img: "/ac3.png",
       year: "2020",
-      title: "Award of Excellence – COT 2024",
+      title: "Award of Excellence <br /> – COT 2024",
       desc: "Honoured for exceptional dedication and achieving the Court of the Table recognition.",
     },
   ];
@@ -582,28 +582,38 @@ const Home = () => {
           >
             {awards.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="text-center">
-                  {/* Image */}
+                <div className="text-center relative flex flex-col items-center">
+                  {/* Trophy + Hexagon */}
+                  <div className="relative flex justify-center mt-10 items-center mb-10">
+                    {/* Hexagon Border */}
+                    <img src="/outerborder.png" className="absolute w-40 z-1" />
 
-                  <div className="flex justify-center mb-6">
-                    <img src={item.img} className="h-40 object-contain" />
-                  </div>
+                    {/* Trophy */}
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="relative z-10 h-40 -top-8 object-contain"
+                    />
 
-                  {/* Ribbon */}
+                    {/* Ribbon */}
+                    <div className="absolute -bottom-20 flex flex-col items-center z-0">
+                      <img src="/ribbon.png" className="w-24" />
 
-                  <div className="flex justify-center mb-6">
-                    <div className="relative">
-                      <div className="bg-gray-300 text-black font-semibold py-2 px-10 clip-path-ribbon">
+                      {/* Year */}
+                      <span className="absolute top-8 text-gray-700 font-semibold text-xl">
                         {item.year}
-                      </div>
+                      </span>
                     </div>
                   </div>
 
                   {/* Title */}
+                  <h3
+                    className="text-lg font-semibold mb-3 mt-16"
+                    dangerouslySetInnerHTML={{ __html: item.title }}
+                  />
 
-                  <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
-
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  {/* Description */}
+                  <p className="text-gray-400 text-xs px-8 leading-relaxed max-w-xs mx-auto">
                     {item.desc}
                   </p>
                 </div>

@@ -23,7 +23,7 @@ const Abouts = () => {
     <>
       <Header />
 
-      <section className="relative w-full bg-black flex items-center justify-center py-24 overflow-hidden">
+      <section className="relative w-full bg-black flex items-center justify-center py-24 overflow-hidden hidden md:flex">
         <div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 
           w-[700px] h-[250px] 
@@ -63,6 +63,36 @@ const Abouts = () => {
                   <p className="text-sm text-gray-400">Managing director</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-black text-white py-16 md:hidden">
+        <div className="max-w-md mx-auto px-6 py-6">
+          {/* image */}
+          <div className="mb-8">
+            <img
+              src="/bigimg.png"
+              alt=""
+              className="rounded-2xl w-full h-[360px] object-fill"
+            />
+          </div>
+
+          {/* text */}
+          <p className="text-gray-300 text-base leading-relaxed mb-8">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s.
+          </p>
+
+          {/* author */}
+          <div className="flex items-center gap-3">
+            <img src="/smallimg.png" className="w-10 h-10 rounded-full" />
+
+            <div>
+              <h4 className="text-white font-semibold">Aadil bandukwala</h4>
+
+              <p className="text-sm text-gray-400">Managing director</p>
             </div>
           </div>
         </div>
@@ -163,7 +193,15 @@ const Abouts = () => {
           </div>
         </div>
       </section> */}
-      <section className="bg-black py-24 text-white">
+      <section className="bg-black py-24 text-white hidden md:block">
+        <h2
+          className="text-center font-semibold mb-16
+          text-[80px] leading-[85px] tracking-[-0.02em]
+          bg-gradient-to-b from-white to-[#999999]
+          bg-clip-text text-transparent"
+        >
+          Our Journey
+        </h2>
         <div className="max-w-7xl mx-auto px-6 relative">
           {/* TIMELINE LINE */}
           <svg
@@ -286,6 +324,86 @@ const Abouts = () => {
           </div>
         </div>
       </section>
+      <section className="bg-black py-16 text-white md:hidden">
+        <h2
+          className="text-center font-semibold mb-16
+          text-[40px] leading-[45px] tracking-[-0.02em]
+          bg-gradient-to-b from-white to-[#999999]
+          bg-clip-text text-transparent"
+        >
+          Our Journey
+        </h2>
+        <div className="max-w-md mx-auto px-6 relative">
+          {/* vertical line */}
+          <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-white/30"></div>
+
+          <div className="space-y-12">
+            {/* ITEM */}
+            <div className="relative pl-10">
+              <div className="absolute left-0 top-2 w-3 h-3 bg-white rounded-full"></div>
+
+              <p className="text-gray-400 text-xs mb-2">2000-2005</p>
+
+              <h3 className="font-semibold text-sm mb-2">
+                Lorem Ipsum is <br /> simply dummy text
+              </h3>
+
+              <p className="text-gray-400 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+
+            {/* ITEM */}
+            <div className="relative pl-10">
+              <div className="absolute left-0 top-2 w-3 h-3 bg-white rounded-full"></div>
+
+              <p className="text-gray-400 text-xs mb-2">2005-2010</p>
+
+              <h3 className="font-semibold text-sm mb-2">
+                Lorem Ipsum is <br /> simply dummy text
+              </h3>
+
+              <p className="text-gray-400 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+
+            {/* ITEM */}
+            <div className="relative pl-10">
+              <div className="absolute left-0 top-2 w-3 h-3 bg-white rounded-full"></div>
+
+              <p className="text-gray-400 text-xs mb-2">2010-2015</p>
+
+              <h3 className="font-semibold text-sm mb-2">
+                Lorem Ipsum is <br /> simply dummy text
+              </h3>
+
+              <p className="text-gray-400 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+
+            {/* ITEM */}
+            <div className="relative pl-10">
+              <div className="absolute left-0 top-2 w-3 h-3 bg-white rounded-full"></div>
+
+              <p className="text-gray-400 text-xs mb-2">2015-2020</p>
+
+              <h3 className="font-semibold text-sm mb-2">
+                Lorem Ipsum is <br /> simply dummy text
+              </h3>
+
+              <p className="text-gray-400 text-sm">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-black text-white py-24 relative overflow-hidden">
         {/* bottom gradient glow */}
@@ -293,43 +411,80 @@ const Abouts = () => {
 
         <div className="max-w-7xl  mx-auto px-6 text-center">
           {/* Heading */}
-          <h2 className="text-5xl font-semibold text-gray-300 mb-16">
+          <h2
+            className="text-center font-semibold mb-16
+           text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
+          bg-gradient-to-b from-white to-[#999999]
+          bg-clip-text text-transparent"
+          >
             Award and achievement
           </h2>
 
           {/* Awards Row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 items-center">
             {/* Award Item */}
-            <div className="text-center">
-              <img src="/10.png" className="mx-auto h-28 object-contain" />
-              <p className="mt-4 text-sm text-gray-300">
+            <div className="text-center relative w-fit mx-auto">
+              {/* Laurels */}
+              <img src="/10.png" className="mx-auto h-36 object-contain" />
+
+              {/* Number badge */}
+              <div className="relative -mt-32 flex justify-center">
+                <img src="/number.png" className="h-28 object-contain" />
+              </div>
+
+              {/* Text */}
+              <p className="mt-4 text-sm text-gray-300 leading-relaxed">
                 BSE Star <br />
                 Mutual Fund Award <br />
                 2019
               </p>
             </div>
 
-            <div className="text-center">
-              <img src="/10.png" className="mx-auto h-28 object-contain" />
-              <p className="mt-4 text-sm text-gray-300">
+            <div className="text-center relative w-fit mx-auto">
+              {/* Laurels */}
+              <img src="/10.png" className="mx-auto h-36 object-contain" />
+
+              {/* Number badge */}
+              <div className="relative -mt-32 flex justify-center">
+                <img src="/number.png" className="h-28 object-contain" />
+              </div>
+
+              {/* Text */}
+              <p className="mt-4 text-sm text-gray-300 leading-relaxed">
                 BSE Star <br />
                 Mutual Fund Award <br />
                 2019
               </p>
             </div>
 
-            <div className="text-center">
-              <img src="/10.png" className="mx-auto h-28 object-contain" />
-              <p className="mt-4 text-sm text-gray-300">
+            <div className="text-center relative w-fit mx-auto">
+              {/* Laurels */}
+              <img src="/10.png" className="mx-auto h-36 object-contain" />
+
+              {/* Number badge */}
+              <div className="relative -mt-32 flex justify-center">
+                <img src="/number.png" className="h-28 object-contain" />
+              </div>
+
+              {/* Text */}
+              <p className="mt-4 text-sm text-gray-300 leading-relaxed">
                 BSE Star <br />
                 Mutual Fund Award <br />
                 2019
               </p>
             </div>
 
-            <div className="text-center">
-              <img src="/10.png" className="mx-auto h-28 object-contain" />
-              <p className="mt-4 text-sm text-gray-300">
+            <div className="text-center relative w-fit mx-auto">
+              {/* Laurels */}
+              <img src="/10.png" className="mx-auto h-36 object-contain" />
+
+              {/* Number badge */}
+              <div className="relative -mt-32 flex justify-center">
+                <img src="/number.png" className="h-28 object-contain" />
+              </div>
+
+              {/* Text */}
+              <p className="mt-4 text-sm text-gray-300 leading-relaxed">
                 BSE Star <br />
                 Mutual Fund Award <br />
                 2019
@@ -338,14 +493,20 @@ const Abouts = () => {
           </div>
 
           {/* Next Section Title */}
-          <h2 className="text-5xl font-semibold text-gray-300 mt-20">
+          <h2
+            className="text-center font-semibold mt-16
+           text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
+          bg-gradient-to-b from-white to-[#999999]
+          bg-clip-text text-transparent"
+          >
             Meet our team <br />
             of experts
           </h2>
         </div>
       </section>
-      <section className="bg-black py-10">
-        <div className="max-w-7xl  mx-auto ">
+
+      <section className="bg-gradient-to-b from-[#161616] to-[#161616]/99 py-16">
+        <div className="max-w-7xl px-4 mx-auto ">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {/* Card */}
             <div className="bg-white rounded-3xl overflow-hidden">
