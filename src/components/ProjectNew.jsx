@@ -131,7 +131,7 @@ const ProjectNew = () => {
         </div>
       </section>
 
-      <section className="bg-black py-24 relative overflow-hidden">
+      <section className="bg-black py-10 relative overflow-hidden">
         {/* Bottom Glow */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gray-300 blur-[160px] opacity-20"></div>
 
@@ -139,158 +139,236 @@ const ProjectNew = () => {
           {/* Cards */}
           <div className="grid md:grid-cols-3 gap-8">
             {/* CARD 1 */}
-            <div className="relative">
-              {/* main box */}
-              <img src="/box1.png" />
+            <div className="relative w-[320px] mx-auto text-center text-white">
+              {/* Box */}
+              <img src="/box1.png" className="w-full" />
 
               {/* Icon */}
-              <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-                <img src="/Gear.png" />
+              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+                <img src="/Gear.png" className="w-10 h-10" />
               </div>
 
-              <h3 className="mt-6 text-lg font-semibold">
-                Risk Management & Insurance Solutions
-              </h3>
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
+                <h3 className="text-lg font-semibold mb-3">
+                  Risk Management & Insurance Solutions
+                </h3>
 
-              <p className="text-gray-400 text-sm mt-3">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
             </div>
 
-            {/* CARD 2 */}
-            <div className="relative border border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
-              {/* Icon */}
-              <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-                <img src="icon.png" />
+            <div className="relative w-[320px] mx-auto text-white">
+              {/* box background */}
+              <img src="/box1.png" alt="" className="w-full" />
+
+              {/* icon */}
+              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+                <img src="/Gear.png" className="w-10 h-10" />
               </div>
 
-              <ul className="mt-6 text-left space-y-3 text-sm text-gray-300">
-                <li>✔ Clear, Actionable Financial Roadmaps</li>
-                <li>✔ Curated Investment Options</li>
-                <li>✔ Help in Avoiding Costly Mistakes</li>
-                <li>✔ Disciplined and Consistency in Investing</li>
-                <li>✔ Tax-Efficient Investment Planning</li>
-                <li>✔ Transparent, Ongoing Support</li>
-              </ul>
-            </div>
+              {/* content */}
+              <div className="absolute inset-0 flex flex-col justify-center px-10 pt-16 gap-4">
+                <div className="flex items-start gap-3">
+                  <img src="/tick.png" className="w-5 h-5 mt-1" />
+                  <p className="text-gray-300 text-start text-xs">
+                    Clear, Actionable Financial Roadmaps
+                  </p>
+                </div>
 
-            {/* CARD 3 */}
-            <div className="relative border  border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
-              {/* Icon */}
-              <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-                <img src="icon.png" />
+                <div className="flex items-start gap-3">
+                  <img src="/tick.png" className="w-5 h-5 mt-1" />
+                  <p className="text-gray-300 text-start text-xs">
+                    Curated Investment Options
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <img src="/tick.png" className="w-5 h-5 mt-1" />
+                  <p className="text-gray-300 text-start text-xs">
+                    Help in Avoiding Costly Mistakes
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <img src="/tick.png" className="w-5 h-5 mt-1" />
+                  <p className="text-gray-300 text-start text-xs">
+                    Discipline and Consistency in Investing
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <img src="/tick.png" className="w-5 h-5 mt-1" />
+                  <p className="text-gray-300 text-start text-xs">
+                    Tax-Efficient Investment Planning
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <img src="/tick.png" className="w-5 h-5 mt-1" />
+                  <p className="text-gray-300 text-start text-xs">
+                    Transparent, Ongoing Support
+                  </p>
+                </div>
               </div>
-
-              <h3 className="mt-6 text-lg font-semibold">
-                Tax Planning Services
-              </h3>
-
-              <p className="text-gray-400 text-sm mt-3">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-
-            {/* CARD 1 */}
-            <div className="relative border mt-8 border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
-              {/* Icon */}
-              <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-                <img src="icon.png" />
-              </div>
-
-              <h3 className="mt-6 text-lg font-semibold">
-                Risk Management & Insurance Solutions
-              </h3>
-
-              <p className="text-gray-400 text-sm mt-3">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-
-            {/* CARD 2 */}
-            <div className="relative border mt-8 border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
-              {/* Icon */}
-              <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-                <img src="icon.png" />
-              </div>
-
-              <ul className="mt-6 text-left space-y-3 text-sm text-gray-300">
-                <li>✔ Clear, Actionable Financial Roadmaps</li>
-                <li>✔ Curated Investment Options</li>
-                <li>✔ Help in Avoiding Costly Mistakes</li>
-                <li>✔ Disciplined and Consistency in Investing</li>
-                <li>✔ Tax-Efficient Investment Planning</li>
-                <li>✔ Transparent, Ongoing Support</li>
-              </ul>
             </div>
 
             {/* CARD 3 */}
-            <div className="relative border mt-8 border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
+            <div className="relative w-[320px] mx-auto text-center text-white">
+              {/* Box */}
+              <img src="/box1.png" className="w-full" />
+
               {/* Icon */}
-              <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-                <img src="icon.png" />
+              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16  rounded-full flex items-center justify-center shadow-lg">
+                <img src="/Accounting.png" className="w-10 h-10" />
               </div>
 
-              <h3 className="mt-6 text-lg font-semibold">
-                Tax Planning Services
-              </h3>
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
+                <h3 className="text-lg font-semibold mb-3">
+                  Tax Planning Services
+                </h3>
 
-              <p className="text-gray-400 text-sm mt-3">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-            {/* CARD 1 */}
-            <div className="relative border mt-8 border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
-              {/* Icon */}
-              <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-                <img src="icon.png" />
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
               </div>
-
-              <h3 className="mt-6 text-lg font-semibold">
-                Risk Management & Insurance Solutions
-              </h3>
-
-              <p className="text-gray-400 text-sm mt-3">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
             </div>
 
-            {/* CARD 2 */}
-            <div className="relative border mt-8 border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
+            <div className="relative w-[320px] mx-auto text-center text-white">
+              {/* Box */}
+              <img src="/box1.png" className="w-full" />
+
               {/* Icon */}
-              <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-                <img src="icon.png" />
+              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+                <img src="/Gear.png" className="w-10 h-10" />
               </div>
 
-              <ul className="mt-6 text-left space-y-3 text-sm text-gray-300">
-                <li>✔ Clear, Actionable Financial Roadmaps</li>
-                <li>✔ Curated Investment Options</li>
-                <li>✔ Help in Avoiding Costly Mistakes</li>
-                <li>✔ Disciplined and Consistency in Investing</li>
-                <li>✔ Tax-Efficient Investment Planning</li>
-                <li>✔ Transparent, Ongoing Support</li>
-              </ul>
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
+                <h3 className="text-lg font-semibold mb-3">
+                  Retirement Planning
+                </h3>
+
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
             </div>
 
-            {/* CARD 3 */}
-            <div className="relative border mt-8 border-gray-600 rounded-2xl p-8 text-white bg-black/40 backdrop-blur-md">
+            <div className="relative w-[320px] mx-auto text-center text-white">
+              {/* Box */}
+              <img src="/box1.png" className="w-full" />
+
               {/* Icon */}
-              <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-15 h-15 bg-[#C8C8C8] rounded-full flex items-center justify-center">
-                <img src="icon.png" />
+              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+                <img src="/Gear.png" className="w-10 h-10" />
               </div>
 
-              <h3 className="mt-6 text-lg font-semibold">
-                Tax Planning Services
-              </h3>
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
+                <h3 className="text-lg font-semibold mb-3">
+                  Legacy & Estate Planning
+                </h3>
 
-              <p className="text-gray-400 text-sm mt-3">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative w-[320px] mx-auto text-center text-white">
+              {/* Box */}
+              <img src="/box1.png" className="w-full" />
+
+              {/* Icon */}
+              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+                <img src="/Gear.png" className="w-10 h-10" />
+              </div>
+
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
+                <h3 className="text-lg font-semibold mb-3">
+                  Valuation Services
+                </h3>
+
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative w-[320px] mx-auto text-center text-white">
+              {/* Box */}
+              <img src="/box1.png" className="w-full" />
+
+              {/* Icon */}
+              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+                <img src="/Gear.png" className="w-10 h-10" />
+              </div>
+
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
+                <h3 className="text-lg font-semibold mb-3">
+                  NRI Financial Solutions
+                </h3>
+
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative w-[320px] mx-auto text-center text-white">
+              {/* Box */}
+              <img src="/box1.png" className="w-full" />
+
+              {/* Icon */}
+              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+                <img src="/Gear.png" className="w-10 h-10" />
+              </div>
+
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
+                <h3 className="text-lg font-semibold mb-3">
+                  Multi Family Office Support
+                </h3>
+
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative w-[320px] mx-auto text-center text-white">
+              {/* Box */}
+              <img src="/box1.png" className="w-full" />
+
+              {/* Icon */}
+              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+                <img src="/Gear.png" className="w-10 h-10" />
+              </div>
+
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
+                <h3 className="text-lg font-semibold mb-3">
+                  Wealth Management
+                </h3>
+
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </p>
+              </div>
             </div>
           </div>
         </div>
