@@ -6,6 +6,7 @@ import BlogSlider from "./blogs/BlogSlider";
 import SmallBlogSlider from "./blogs/SmallBlogSlider";
 import BlogGrid from "./blogs/BlogGrid";
 import { ChevronDown } from "lucide-react";
+import http from "../service/http";
 
 const Blog = () => {
   return (
@@ -56,8 +57,8 @@ const Blog = () => {
         </div>
       </section>
 
-      <BlogSlider />
-      <SmallBlogSlider />
+      {/* <BlogSlider /> */}
+      {/* <SmallBlogSlider /> */}
       <BlogGrid />
 
       <Footer />

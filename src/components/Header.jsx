@@ -61,7 +61,7 @@ const Header = () => {
             </button>
 
             <Link
-              to="/portfolio"
+              to="/project"
               className="bg-[#303030] text-white px-4 py-2 rounded-full text-xs"
             >
               Review my portfolio
