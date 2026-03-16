@@ -10,6 +10,7 @@ import PortFolio from "./components/PortFolio";
 import Partner from "./components/Partner";
 import Blog from "./components/Blog";
 import Abouts from "./components/Abouts";
+import ScrollToTop from "./service/ScrollToTop";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         theme="light"
       />
 
+      <ScrollToTop />
       <Routes>
         {/* <Route path="/" element={<LandingPage />} /> */}
         <Route path="/" element={<Home />} />

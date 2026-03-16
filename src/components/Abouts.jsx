@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
+import http from "../service/http";
+import { baseURL } from "../service/api";
 
 const logos = [
   "/google.png",
@@ -19,6 +21,32 @@ const logos = [
 ];
 
 const Abouts = () => {
+  const [logos, setLogos] = useState([]);
+  const [clienttest, setClientTest] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchHomes();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  const fetchHomes = async () => {
+    try {
+      setLoading(true);
+
+      const res = await http.get(`/home`);
+      const AllData = res.data?.data;
+      console.log("AllData", AllData);
+
+      setClientTest(AllData?.client_testimonials);
+      setLogos(AllData?.client_logos);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <>
       <Header />
@@ -40,27 +68,31 @@ const Abouts = () => {
           >
             <div className="w-[300px] shrink-0 ml-10">
               <img
-                src="/bigimg.png"
+                src={`${baseURL}/${clienttest[0]?.image}`}
                 alt=""
                 className="rounded-2xl object-cover w-full h-[400px] mt-20"
               />
             </div>
 
             <div className="text-gray-300 max-w-lg -mt-20">
-              <p className="leading-relaxed font-light mb-10 text-[24px]">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
+              <p className="leading-relaxed font-light mb-10 text-[24px] line-clamp-6">
+                {clienttest[0]?.message}
               </p>
 
               <div className="flex items-center gap-3">
-                <img src="/smallimg.png" className="w-10 h-10 rounded-full" />
+                <img
+                  src={`${baseURL}/${clienttest[0]?.image}`}
+                  className="w-10 h-10 rounded-full"
+                />
 
                 <div>
-                  <h4 className="text-white font-semibold">Aadil bandukwala</h4>
+                  <h4 className="text-white font-semibold">
+                    {clienttest[0]?.name}
+                  </h4>
 
-                  <p className="text-sm text-gray-400">Managing director</p>
+                  <p className="text-sm text-gray-400">
+                    {clienttest[0]?.designation}
+                  </p>
                 </div>
               </div>
             </div>
@@ -72,17 +104,15 @@ const Abouts = () => {
           {/* image */}
           <div className="mb-8">
             <img
-              src="/bigimg.png"
+              src={`${baseURL}/${clienttest[0]?.image}`}
               alt=""
               className="rounded-2xl w-full h-[360px] object-fill"
             />
           </div>
 
           {/* text */}
-          <p className="text-gray-300 text-base leading-relaxed mb-8">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.
+          <p className="text-gray-300 text-base leading-relaxed mb-8 line-clamp-6">
+            {clienttest[0]?.message}
           </p>
 
           {/* author */}
@@ -90,109 +120,19 @@ const Abouts = () => {
             <img src="/smallimg.png" className="w-10 h-10 rounded-full" />
 
             <div>
-              <h4 className="text-white font-semibold">Aadil bandukwala</h4>
+              <h4 className="text-white font-semibold">
+                {" "}
+                {clienttest[0]?.name}
+              </h4>
 
-              <p className="text-sm text-gray-400">Managing director</p>
+              <p className="text-sm text-gray-400">
+                {clienttest[0]?.designation}
+              </p>
             </div>
           </div>
         </div>
       </section>
-      {/* <section className="bg-black text-white py-24">
-        <div className="max-w-7xl  mx-auto px-6">
-          
-          <h2 className="text-center text-5xl font-semibold text-gray-300 mb-20">
-            Our Journey
-          </h2>
 
-         
-          <div className="relative">
-            
-            <div className="grid grid-cols-3 gap-12 mb-32">
-              
-              <div>
-                <p className="text-xs text-gray-400 mb-2">2000-2005</p>
-
-                <h3 className="font-semibold mb-2">
-                  Lorem Ipsum is <br /> simply dummy text
-                </h3>
-
-                <p className="text-gray-400 text-sm">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-
-              <div>
-                <p className="text-xs text-gray-400 mb-2">2000-2005</p>
-
-                <h3 className="font-semibold mb-2">
-                  Lorem Ipsum is <br /> simply dummy text
-                </h3>
-
-                <p className="text-gray-400 text-sm">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-
-              <div>
-                <p className="text-xs text-gray-400 mb-2">2000-2005</p>
-
-                <h3 className="font-semibold mb-2">
-                  Lorem Ipsum is <br /> simply dummy text
-                </h3>
-
-                <p className="text-gray-400 text-sm">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-            </div>
-
-            
-            <div className="grid grid-cols-3 gap-12">
-              <div>
-                <p className="text-xs text-gray-400 mb-2">2000-2005</p>
-
-                <h3 className="font-semibold mb-2">
-                  Lorem Ipsum is <br /> simply dummy text
-                </h3>
-
-                <p className="text-gray-400 text-sm">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-
-              <div>
-                <p className="text-xs text-gray-400 mb-2">2000-2005</p>
-
-                <h3 className="font-semibold mb-2">
-                  Lorem Ipsum is <br /> simply dummy text
-                </h3>
-
-                <p className="text-gray-400 text-sm">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-
-              <div>
-                <p className="text-xs text-gray-400 mb-2">2000-2005</p>
-
-                <h3 className="font-semibold mb-2">
-                  Lorem Ipsum is <br /> simply dummy text
-                </h3>
-
-                <p className="text-gray-400 text-sm">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
       <section className="bg-black py-24 text-white hidden md:block">
         <h2
           className="text-center font-semibold mb-16
@@ -585,7 +525,11 @@ const Abouts = () => {
             {logos.map((logo, index) => (
               <SwiperSlide key={index}>
                 <div className="bg-white rounded-xl flex items-center justify-center p-4">
-                  <img src={logo} alt="logo" className="h-8 object-contain" />
+                  <img
+                    src={`${baseURL}/${logo.logo}`}
+                    alt="logo"
+                    className="h-8 object-contain"
+                  />
                 </div>
               </SwiperSlide>
             ))}
@@ -613,7 +557,11 @@ const Abouts = () => {
             {logos.map((logo, index) => (
               <SwiperSlide key={index}>
                 <div className="bg-white rounded-xl flex items-center justify-center p-4">
-                  <img src={logo} alt="logo" className="h-8 object-contain" />
+                  <img
+                    src={`${baseURL}/${logo.logo}`}
+                    alt="logo"
+                    className="h-8 object-contain"
+                  />
                 </div>
               </SwiperSlide>
             ))}

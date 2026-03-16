@@ -3,6 +3,9 @@ import { EffectCoverflow, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
+import { useEffect, useState } from "react";
+import http from "../service/http";
+import { baseURL } from "../service/api";
 
 export default function InsightsSlider() {
   const slides = [
@@ -13,6 +16,31 @@ export default function InsightsSlider() {
     "/img.png",
   ];
 
+   const [insights, setInsights] = useState([]);
+      const [loading, setLoading] = useState(true);
+    
+      useEffect(() => {
+        fetchHomes();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, []);
+    
+      const fetchHomes = async () => {
+        try {
+          setLoading(true);
+    
+          const res = await http.get(`/home`);
+   const AllData=res.data?.data;
+   console.log("AllData",AllData);
+   
+   
+    setInsights(AllData?.insights)
+         
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setLoading(false);
+        }
+      };
   return (
     <section className="bg-black py-28 text-center overflow-hidden">
       <h2 className="text-5xl font-semibold text-gray-300 mb-16">
@@ -37,10 +65,10 @@ export default function InsightsSlider() {
   }}
   className="max-w-5xl mx-auto"
 >
-  {slides.map((img, i) => (
+  {insights.map((img, i) => (
     <SwiperSlide key={i}>
       <div className="rounded-3xl overflow-hidden shadow-xl">
-        <img src={img} className="w-full h-[200px] object-cover" />
+        <img src={`${baseURL}/${img.media_url}`} className="w-full h-[200px] object-cover" />
       </div>
     </SwiperSlide>
   ))}
