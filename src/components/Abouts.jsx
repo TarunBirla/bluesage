@@ -9,20 +9,13 @@ import "swiper/css";
 import http from "../service/http";
 import { baseURL } from "../service/api";
 
-const logos = [
-  "/google.png",
-  "/google.png",
-  "/google.png",
-  "/google.png",
-  "/google.png",
-  "/google.png",
-  "/google.png",
-  "/google.png",
-];
+
 
 const Abouts = () => {
   const [logos, setLogos] = useState([]);
   const [clienttest, setClientTest] = useState([]);
+  const [journeys, setJourneys] = useState([]);
+  const [team, setTeam] = useState([]);
 
   const [loading, setLoading] = useState(true);
 
@@ -41,12 +34,17 @@ const Abouts = () => {
 
       setClientTest(AllData?.client_testimonials);
       setLogos(AllData?.client_logos);
+      setJourneys(AllData?.journeys);
+      setTeam(AllData?.team);
     } catch (error) {
       console.error(error);
     } finally {
       setLoading(false);
     }
   };
+
+  const topRow = journeys.slice(0,3);
+const bottomRow = journeys.slice(3,6);
   return (
     <>
       <Header />
@@ -171,38 +169,19 @@ const Abouts = () => {
           </svg>
           {/* TOP ROW */}
           <div className="grid grid-cols-3 px-16 pr-20 gap-24 mb-32 relative z-10">
-            <div>
-              <p className="text-gray-400 text-sm mb-3">2000-2005</p>
-              <h3 className="font-semibold text-sm mb-2">
-                Lorem Ipsum is <br /> simply dummy text
-              </h3>
-              <p className="text-gray-400 text-sm">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
+            {topRow.map((item) => (
+              <div key={item.id}>
+                <p className="text-gray-400 text-sm mb-3">{item.period}</p>
 
-            <div>
-              <p className="text-gray-400 text-sm mb-3">2000-2005</p>
-              <h3 className="font-semibold text-sm mb-2">
-                Lorem Ipsum is <br /> simply dummy text
-              </h3>
-              <p className="text-gray-400 text-sm">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
+                <h3 className="font-semibold text-sm mb-2">
+                  {item.title}
+                </h3>
 
-            <div>
-              <p className="text-gray-400 text-sm mb-3">2000-2005</p>
-              <h3 className="font-semibold text-sm mb-2">
-                Lorem Ipsum is <br /> simply dummy text
-              </h3>
-              <p className="text-gray-400 text-sm">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
+                <p className="text-gray-400 text-sm">
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
 
           {/* TIMELINE LINE */}
@@ -228,40 +207,21 @@ const Abouts = () => {
           </svg>
 
           {/* BOTTOM ROW */}
-          <div className="grid grid-cols-3 gap-24 px-16 pr-20 mt-28 relative z-10">
-            <div>
-              <p className="text-gray-400 text-sm mb-3">2000-2005</p>
-              <h3 className="font-semibold mb-2 text-sm">
-                Lorem Ipsum is <br /> simply dummy text
-              </h3>
-              <p className="text-gray-400 text-sm">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
+         <div className="grid grid-cols-3 gap-24 px-16 pr-20 mt-28 relative z-10">
+          {bottomRow.map((item) => (
+            <div key={item.id}>
+              <p className="text-gray-400 text-sm mb-3">{item.period}</p>
 
-            <div>
-              <p className="text-gray-400 text-sm mb-3">2000-2005</p>
               <h3 className="font-semibold mb-2 text-sm">
-                Lorem Ipsum is <br /> simply dummy text
+                {item.title}
               </h3>
-              <p className="text-gray-400 text-sm">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
 
-            <div>
-              <p className="text-gray-400 text-sm mb-3">2000-2005</p>
-              <h3 className="font-semibold mb-2 text-sm">
-                Lorem Ipsum is <br /> simply dummy text
-              </h3>
               <p className="text-gray-400 text-sm">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
+                {item.description}
               </p>
             </div>
-          </div>
+          ))}
+        </div>
         </div>
       </section>
       <section className="bg-black py-16 text-white md:hidden">
@@ -277,71 +237,27 @@ const Abouts = () => {
           {/* vertical line */}
           <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-white/30"></div>
 
-          <div className="space-y-12">
-            {/* ITEM */}
-            <div className="relative pl-10">
+         <div className="space-y-12">
+          {journeys.map((item) => (
+            <div key={item.id} className="relative pl-10">
+
               <div className="absolute left-0 top-2 w-3 h-3 bg-white rounded-full"></div>
 
-              <p className="text-gray-400 text-xs mb-2">2000-2005</p>
+              <p className="text-gray-400 text-xs mb-2">
+                {item.period}
+              </p>
 
               <h3 className="font-semibold text-sm mb-2">
-                Lorem Ipsum is <br /> simply dummy text
+                {item.title}
               </h3>
 
               <p className="text-gray-400 text-sm">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
+                {item.description}
               </p>
+
             </div>
-
-            {/* ITEM */}
-            <div className="relative pl-10">
-              <div className="absolute left-0 top-2 w-3 h-3 bg-white rounded-full"></div>
-
-              <p className="text-gray-400 text-xs mb-2">2005-2010</p>
-
-              <h3 className="font-semibold text-sm mb-2">
-                Lorem Ipsum is <br /> simply dummy text
-              </h3>
-
-              <p className="text-gray-400 text-sm">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-
-            {/* ITEM */}
-            <div className="relative pl-10">
-              <div className="absolute left-0 top-2 w-3 h-3 bg-white rounded-full"></div>
-
-              <p className="text-gray-400 text-xs mb-2">2010-2015</p>
-
-              <h3 className="font-semibold text-sm mb-2">
-                Lorem Ipsum is <br /> simply dummy text
-              </h3>
-
-              <p className="text-gray-400 text-sm">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-
-            {/* ITEM */}
-            <div className="relative pl-10">
-              <div className="absolute left-0 top-2 w-3 h-3 bg-white rounded-full"></div>
-
-              <p className="text-gray-400 text-xs mb-2">2015-2020</p>
-
-              <h3 className="font-semibold text-sm mb-2">
-                Lorem Ipsum is <br /> simply dummy text
-              </h3>
-
-              <p className="text-gray-400 text-sm">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-          </div>
+          ))}
+        </div>
         </div>
       </section>
 
@@ -449,57 +365,26 @@ const Abouts = () => {
         <div className="max-w-7xl px-4 mx-auto ">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {/* Card */}
-            <div className="bg-white rounded-3xl overflow-hidden">
+            {team.map((item, index) => (
+              <div className="bg-white rounded-3xl overflow-hidden">
               {/* Image */}
               <img
-                src="/bigimg.png"
+                src={`${baseURL}/${item.image}`}
                 className="w-full h-[350px] rounded-3xl object-cover"
                 alt=""
               />
 
               {/* Content */}
               <div className="p-5">
-                <h3 className="font-semibold text-gray-900">Vaibhav Porwal</h3>
+                <h3 className="font-semibold text-gray-900">{item.name}</h3>
 
-                <p className="text-gray-500 text-sm">Co-founder</p>
+                <p className="text-gray-500 text-sm">{item.designation}</p>
               </div>
             </div>
+            ))}
+            
 
-            {/* Card */}
-            <div className="bg-white rounded-3xl overflow-hidden">
-              <img
-                src="/bigimg.png"
-                className="w-full h-[350px] rounded-3xl object-cover"
-              />
-              <div className="p-5">
-                <h3 className="font-semibold text-gray-900">Vaibhav Porwal</h3>
-                <p className="text-gray-500 text-sm">Co-founder</p>
-              </div>
-            </div>
-
-            {/* Card */}
-            <div className="bg-white rounded-3xl overflow-hidden">
-              <img
-                src="/bigimg.png"
-                className="w-full h-[350px] rounded-3xl object-cover"
-              />
-              <div className="p-5">
-                <h3 className="font-semibold text-gray-900">Vaibhav Porwal</h3>
-                <p className="text-gray-500 text-sm">Co-founder</p>
-              </div>
-            </div>
-
-            {/* Card */}
-            <div className="bg-white rounded-3xl overflow-hidden">
-              <img
-                src="/bigimg.png"
-                className="w-full h-[350px] rounded-3xl object-cover"
-              />
-              <div className="p-5">
-                <h3 className="font-semibold text-gray-900">Vaibhav Porwal</h3>
-                <p className="text-gray-500 text-sm">Co-founder</p>
-              </div>
-            </div>
+           
           </div>
         </div>
       </section>
