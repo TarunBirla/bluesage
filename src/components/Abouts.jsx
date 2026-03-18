@@ -9,8 +9,6 @@ import "swiper/css";
 import http from "../service/http";
 import { baseURL } from "../service/api";
 
-
-
 const Abouts = () => {
   const [logos, setLogos] = useState([]);
   const [clienttest, setClientTest] = useState([]);
@@ -43,8 +41,8 @@ const Abouts = () => {
     }
   };
 
-  const topRow = journeys.slice(0,3);
-const bottomRow = journeys.slice(3,6);
+  const topRow = journeys.slice(0, 3);
+  const bottomRow = journeys.slice(3, 6);
   return (
     <>
       <Header />
@@ -64,31 +62,31 @@ const bottomRow = journeys.slice(3,6);
             flex items-center gap-40 px-16"
             style={{ backgroundImage: "url('/aboutimg.png')" }}
           >
-            <div className="w-[300px] shrink-0 ml-10">
+            <div className="w-[350px] shrink-0 ml-10">
               <img
                 src={`${baseURL}/${clienttest[0]?.image}`}
                 alt=""
-                className="rounded-2xl object-cover w-full h-[400px] mt-20"
+                className="rounded-2xl object-fill w-full h-[400px] mt-20"
               />
             </div>
 
             <div className="text-gray-300 max-w-lg -mt-20">
-              <p className="leading-relaxed font-light mb-10 text-[24px] line-clamp-6">
+              <p className="leading-relaxed font-light mb-10 text-[28px] line-clamp-6">
                 {clienttest[0]?.message}
               </p>
 
               <div className="flex items-center gap-3">
                 <img
                   src={`${baseURL}/${clienttest[0]?.image}`}
-                  className="w-10 h-10 rounded-full"
+                  className="w-[74px] h-[74px] rounded-full"
                 />
 
                 <div>
-                  <h4 className="text-white font-semibold">
+                  <h4 className="text-white text-[31px] font-semibold">
                     {clienttest[0]?.name}
                   </h4>
 
-                  <p className="text-[18px] text-gray-400">
+                  <p className="text-[23.73px] text-gray-400">
                     {clienttest[0]?.designation}
                   </p>
                 </div>
@@ -173,13 +171,9 @@ const bottomRow = journeys.slice(3,6);
               <div key={item.id}>
                 <p className="text-gray-400 text-[18px] mb-3">{item.period}</p>
 
-                <h3 className="font-semibold text-[18px] mb-2">
-                  {item.title}
-                </h3>
+                <h3 className="font-semibold text-[18px] mb-2">{item.title}</h3>
 
-                <p className="text-gray-400 text-[18px]">
-                  {item.description}
-                </p>
+                <p className="text-gray-400 text-[18px]">{item.description}</p>
               </div>
             ))}
           </div>
@@ -207,21 +201,17 @@ const bottomRow = journeys.slice(3,6);
           </svg>
 
           {/* BOTTOM ROW */}
-         <div className="grid grid-cols-3 gap-24 px-16 pr-20 mt-28 relative z-10">
-          {bottomRow.map((item) => (
-            <div key={item.id}>
-              <p className="text-gray-400 text-[18px] mb-3">{item.period}</p>
+          <div className="grid grid-cols-3 gap-24 px-16 pr-20 mt-28 relative z-10">
+            {bottomRow.map((item) => (
+              <div key={item.id}>
+                <p className="text-gray-400 text-[18px] mb-3">{item.period}</p>
 
-              <h3 className="font-semibold mb-2 text-[18px]">
-                {item.title}
-              </h3>
+                <h3 className="font-semibold mb-2 text-[18px]">{item.title}</h3>
 
-              <p className="text-gray-400 text-[18px]">
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </div>
+                <p className="text-gray-400 text-[18px]">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       <section className="bg-black py-16 text-white md:hidden">
@@ -237,27 +227,19 @@ const bottomRow = journeys.slice(3,6);
           {/* vertical line */}
           <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-white/30"></div>
 
-         <div className="space-y-12">
-          {journeys.map((item) => (
-            <div key={item.id} className="relative pl-10">
+          <div className="space-y-12">
+            {journeys.map((item) => (
+              <div key={item.id} className="relative pl-10">
+                <div className="absolute left-0 top-2 w-3 h-3 bg-white rounded-full"></div>
 
-              <div className="absolute left-0 top-2 w-3 h-3 bg-white rounded-full"></div>
+                <p className="text-gray-400 text-xs mb-2">{item.period}</p>
 
-              <p className="text-gray-400 text-xs mb-2">
-                {item.period}
-              </p>
+                <h3 className="font-semibold text-[18px] mb-2">{item.title}</h3>
 
-              <h3 className="font-semibold text-[18px] mb-2">
-                {item.title}
-              </h3>
-
-              <p className="text-gray-400 text-[18px]">
-                {item.description}
-              </p>
-
-            </div>
-          ))}
-        </div>
+                <p className="text-gray-400 text-[18px]">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -361,35 +343,36 @@ const bottomRow = journeys.slice(3,6);
         </div>
       </section>
 
-      <section className="bg-gradient-to-b from-[#161616] to-[#161616]/99 py-16">
-        <div className="max-w-7xl px-4 mx-auto ">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {/* Card */}
-            {team.map((item, index) => (
-              <div className="bg-white rounded-3xl overflow-hidden">
-              {/* Image */}
-              <img
-                src={`${baseURL}/${item.image}`}
-                className="w-full h-[350px] rounded-3xl object-cover"
-                alt=""
-              />
+      <section className="bg-black">
+        <section className="bg-gradient-to-b from-[#161616] to-[#161616]/99 py-16 mx-8">
+          <div className="max-w-7xl px-4 mx-auto ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+              {/* Card */}
+              {team.map((item, index) => (
+                <div className="bg-white rounded-[30px] overflow-hidden">
+                  {/* Image */}
+                  <img
+                    src={`${baseURL}/${item.image}`}
+                    className="w-full h-[350px] rounded-[30px] object-cover"
+                    alt=""
+                  />
 
-              {/* Content */}
-              <div className="p-5">
-                <h3 className="font-semibold text-gray-900">{item.name}</h3>
+                  {/* Content */}
+                  <div className="p-5">
+                    <h3 className="font-semibold text-gray-900">{item.name}</h3>
 
-                <p className="text-gray-500 text-[18px]">{item.designation}</p>
-              </div>
+                    <p className="text-gray-500 text-[18px]">
+                      {item.designation}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-            ))}
-            
-
-           
           </div>
-        </div>
+        </section>
       </section>
 
-      <section className="bg-black py-10">
+      {/* <section className="bg-black py-10">
         <div className="max-w-7xl  mx-auto">
           <Swiper
             modules={[Autoplay]}
@@ -420,7 +403,7 @@ const bottomRow = journeys.slice(3,6);
             ))}
           </Swiper>
 
-          {/* Slider 2 - Right Direction */}
+          
           <Swiper
             modules={[Autoplay]}
             spaceBetween={30}
@@ -452,6 +435,79 @@ const bottomRow = journeys.slice(3,6);
             ))}
           </Swiper>
         </div>
+      </section> */}
+      <section className="bg-black  py-10">
+        <section className="bg-gradient-to-b from-[#161616] to-[#161616]/99 py-16 md:mx-8">
+          <div className="max-w-7xl mx-auto relative">
+            {/* LEFT SHADOW */}
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-40 bg-gradient-to-r from-black/90 to-transparent z-10"></div>
+
+            {/* RIGHT SHADOW */}
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-40 bg-gradient-to-l from-black/90 to-transparent z-10"></div>
+
+            {/* Slider 1 */}
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={30}
+              slidesPerView={6}
+              loop={true}
+              speed={3000}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+              }}
+              breakpoints={{
+                320: { slidesPerView: 2 },
+                640: { slidesPerView: 3 },
+                1024: { slidesPerView: 6 },
+              }}
+            >
+              {logos.map((logo, index) => (
+                <SwiperSlide key={index}>
+                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
+                    <img
+                      src={`${baseURL}/${logo?.logo}`}
+                      alt="logo"
+                      className="h-8 object-contain"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Slider 2 */}
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={30}
+              slidesPerView={6}
+              loop={true}
+              speed={3000}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+                reverseDirection: true,
+              }}
+              className="mt-6"
+              breakpoints={{
+                320: { slidesPerView: 2 },
+                640: { slidesPerView: 3 },
+                1024: { slidesPerView: 6 },
+              }}
+            >
+              {logos.map((logo, index) => (
+                <SwiperSlide key={index}>
+                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
+                    <img
+                      src={`${baseURL}/${logo?.logo}`}
+                      alt="logo"
+                      className="h-8 object-contain"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </section>
       </section>
       <Footer />
     </>

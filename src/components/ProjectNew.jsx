@@ -7,35 +7,33 @@ import http from "../service/http";
 import { baseURL } from "../service/api";
 
 const ProjectNew = () => {
-   const [logos, setLogos] = useState([]);
-    const [services, setServices] = useState([]);
-    const [highlight, setHighlight] = useState(null);
-   
-  
-    const [loading, setLoading] = useState(true);
-  
-    useEffect(() => {
-      fetchHomes();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, []);
-  
-    const fetchHomes = async () => {
-      try {
-        setLoading(true);
-  
-        const res = await http.get(`/home`);
-        const AllData = res.data?.data;
-        console.log("AllData", AllData);
-  
-        setServices(AllData?.services);
-        setHighlight(AllData?.highlight);
-     
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const [logos, setLogos] = useState([]);
+  const [services, setServices] = useState([]);
+  const [highlight, setHighlight] = useState(null);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchHomes();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  const fetchHomes = async () => {
+    try {
+      setLoading(true);
+
+      const res = await http.get(`/home`);
+      const AllData = res.data?.data;
+      console.log("AllData", AllData);
+
+      setServices(AllData?.services);
+      setHighlight(AllData?.highlight);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <>
       <Header />
@@ -122,10 +120,10 @@ const ProjectNew = () => {
             <div className="grid md:grid-cols-3 text-white items-center">
               {/* Stat 1 */}
               <div className="text-center py-4 md:py-0">
-                <h3 className="text-3xl font-semibold">
+                <h3 className="text-3xl md:text-[55px] font-semibold">
                   15,000<span className="text-lg">+ Cr</span>
                 </h3>
-                <p className="text-gray-400 text-[18px] mt-2">
+                <p className="text-[#AAAAAA] text-[18px] md:text-[22px] mt-2">
                   Client assets in 4 years
                 </p>
               </div>
@@ -135,8 +133,10 @@ const ProjectNew = () => {
 
               {/* Stat 2 */}
               <div className="text-center py-4 md:py-0 border-t border-b md:border-t-0 md:border-b-0 md:border-l md:border-r border-gray-600">
-                <h3 className="text-3xl font-semibold">5,000+</h3>
-                <p className="text-gray-400 text-[18px] mt-2">
+                <h3 className="text-3xl md:text-[55px] font-semibold">
+                  5,000+
+                </h3>
+                <p className="text-[#AAAAAA] text-[18px] md:text-[22px] mt-2">
                   Clients trust Blue Sage Wealth
                 </p>
               </div>
@@ -146,10 +146,12 @@ const ProjectNew = () => {
 
               {/* Stat 3 */}
               <div className="text-center py-4 md:py-0">
-                <h3 className="text-3xl font-semibold">
+                <h3 className="text-3xl md:text-[55px] font-semibold">
                   20+ <span className="text-lg">Years</span>
                 </h3>
-                <p className="text-gray-400 text-[18px] mt-2">Of experience</p>
+                <p className="text-[#AAAAAA] text-[18px] md:text-[22px] mt-2">
+                  Of experience
+                </p>
               </div>
             </div>
           </div>
@@ -171,30 +173,30 @@ const ProjectNew = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {/* CARD 1 */}
             {services.map((service, index) => (
-               <div className="relative w-[320px] mx-auto text-center text-white">
-              {/* Box */}
-              <img src="/box1.png" className="w-full" />
+              <div className="relative w-[387px] mx-auto text-center text-white">
+                {/* Box */}
+                <img src="/box1.png" className="w-full" />
 
-              {/* Icon */}
-              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
-                <img src={`${baseURL}/${service.icon_img}`} className="w-10 h-10" />
+                {/* Icon */}
+                <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+                  <img
+                    src={`${baseURL}/${service.icon_img}`}
+                    className="w-10 h-10"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
+                  <h3 className="text-2xl md:text-[22.18px] font-semibold mb-3">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-[#C8C8C8] text-[18px] md:text-[21px] leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-
-              {/* Content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
-                <h3 className="text-lg font-semibold mb-3">
-                  {service.title}
-                </h3>
-
-                <p className="text-gray-300 text-[18px] leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            </div>
             ))}
-           
-
-           
           </div>
         </div>
       </section>
@@ -209,45 +211,45 @@ const ProjectNew = () => {
         </div>
       </section>
 
-     <section className="bg-black py-24 relative overflow-hidden">
-  {/* Bottom Glow */}
-  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 
-  w-[700px] h-[300px] bg-gray-300 blur-[160px] opacity-20"></div>
+      <section className="bg-black py-24 relative overflow-hidden">
+        {/* Bottom Glow */}
+        <div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 
+  w-[700px] h-[300px] bg-gray-300 blur-[160px] opacity-20"
+        ></div>
 
-  <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          {/* LEFT CONTENT */}
+          <div>
+            <h2 className="text-white text-4xl md:text-5xl font-semibold leading-tight">
+              {highlight?.title || "Loading..."}
+            </h2>
 
-    {/* LEFT CONTENT */}
-    <div>
-      <h2 className="text-white text-4xl md:text-5xl font-semibold leading-tight">
-        {highlight?.title || "Loading..."}
-      </h2>
+            <p className="text-gray-400 mt-6 max-w-md text-[18px]">
+              {highlight?.description}
+            </p>
 
-      <p className="text-gray-400 mt-6 max-w-md text-[18px]">
-        {highlight?.description}
-      </p>
+            <button className="mt-8 border border-gray-500 text-white px-6 py-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white hover:text-black transition">
+              Read more →
+            </button>
+          </div>
 
-      <button className="mt-8 border border-gray-500 text-white px-6 py-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white hover:text-black transition">
-        Read more →
-      </button>
-    </div>
-
-    {/* RIGHT IMAGE */}
-    <div className="relative">
-      <div className="rounded-2xl overflow-hidden">
-        <img
-          src={
-            highlight?.image
-              ? `${baseURL}/${highlight.image}`
-              : "/img/default.jpg"
-          }
-          alt="highlight"
-          className="w-full h-auto object-contain"
-        />
-      </div>
-    </div>
-
-  </div>
-</section>
+          {/* RIGHT IMAGE */}
+          <div className="relative">
+            <div className="rounded-2xl overflow-hidden">
+              <img
+                src={
+                  highlight?.image
+                    ? `${baseURL}/${highlight.image}`
+                    : "/img/default.jpg"
+                }
+                alt="highlight"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
       <Footer />
     </>
   );

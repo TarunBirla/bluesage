@@ -74,7 +74,7 @@ const Home = () => {
             className="text-white font-[Syne] font-bold
             text-[38px] leading-[46px]
             sm:text-[56px] sm:leading-[60px]
-            md:text-[72px] md:leading-[78px]"
+            md:text-[105px] md:leading-[121px]"
           >
             Your Trusted <br />
             Investment Partner
@@ -102,8 +102,12 @@ const Home = () => {
           >
             {count.map((item, index) => (
               <div key={index}>
-                <h3 className="text-3xl font-bold">{item.number}</h3>
-                <p className="text-[15px] text-gray-400 mt-2">{item.subtitle}</p>
+                <h3 className="text-[40px] md:text-[64px] text-[#FFFFFF] font-bold">
+                  {item.number}
+                </h3>
+                <p className="text-[13px] md:text-[18px] text-[#FFFFFF] mt-2">
+                  {item.subtitle}
+                </p>
               </div>
             ))}
           </div>
@@ -119,7 +123,7 @@ const Home = () => {
               Who we are?
             </button>
 
-            <h2
+            {/* <h2
               className="text-gray-300 font-[Syne] 
               text-[26px] leading-[40px]
               sm:text-[32px] sm:leading-[48px]
@@ -132,7 +136,9 @@ const Home = () => {
               partnerships. With over 20 years of experience, our team brings
               deep market insight, proven expertise, and a strong commitment to
               managing wealth for individuals, families, and business owners.
-            </h2>
+            </h2> */}
+
+            <ScrollHighlightText />
           </div>
         </div>
       </section>
@@ -207,30 +213,30 @@ const Home = () => {
                   <div className="w-full md:w-[260px] lg:w-[280px] shrink-0">
                     <img
                       src={`${baseURL}/${item.image}`} // 👈 image path item.image}
-                      className="rounded-2xl object-cover w-full h-[220px] sm:h-[260px] md:h-[320px]"
+                      className="rounded-2xl object-fill md:object-cover w-full h-[400px] md:h-[548px]"
                       alt=""
                     />
                   </div>
 
                   {/* Content */}
-                  <div className="text-center md:text-left">
-                    <p className="text-gray-300 leading-relaxed mb-6 md:mb-8 text-[18px] sm:text-base">
+                  <div className="text-center md:text-left mt-2 md:mt-4">
+                    <p className="text-gray-300 leading-relaxed mb-6 md:mb-8 text-[18px] sm:text-base md:text-[22px]">
                       {item.message}
                     </p>
 
                     <div className="flex items-center justify-center md:justify-start gap-3">
                       <img
                         src={`${baseURL}/${item.image}`}
-                        className="w-10 h-10 rounded-full"
+                        className="w-10 h-10 md:w-[55px] md:h-[55px] rounded-full"
                         alt=""
                       />
 
                       <div>
-                        <h4 className="font-semibold text-[18px] sm:text-base">
+                        <h4 className="font-semibold text-[18px] sm:text-base md:text-[23.87px]">
                           {item.name}
                         </h4>
 
-                        <p className="text-xs sm:text-[18px] text-gray-400">
+                        <p className="text-xs sm:text-[10px] md:text-[17.91px] text-gray-400">
                           {item.designation}
                         </p>
                       </div>
@@ -268,9 +274,9 @@ const Home = () => {
           >
             {testimonials.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-[#1c1c1c] p-5 md:p-6 rounded-xl border border-gray-800 h-full flex flex-col">
+                <div className="bg-gradient-to-b from-[#303030] to-[#161616] p-5 md:p-6 rounded-xl border border-gray-800 h-full flex flex-col">
                   {/* Stars */}
-                  <div className="mb-4 text-yellow-400 text-[18px] md:text-base">
+                  <div className="mb-4 text-[#FFFFFF] text-[18px] md:text-base">
                     {[...Array(item.rating)].map((_, i) => (
                       <span key={i}>★</span>
                     ))}
@@ -339,7 +345,7 @@ const Home = () => {
 
           {/* Slider */}
 
-          <Swiper
+          {/* <Swiper
             modules={[Navigation]}
             slidesPerView={3}
             spaceBetween={50}
@@ -354,37 +360,88 @@ const Home = () => {
             {awards.map((item, index) => (
               <SwiperSlide key={index}>
                 <div className="text-center relative flex flex-col items-center">
-                  {/* Trophy + Hexagon */}
+                  
                   <div className="relative flex justify-center mt-10 items-center mb-10">
-                    {/* Hexagon Border */}
+                    
                     <img src="/outerborder.png" className="absolute w-40 z-1" />
 
-                    {/* Trophy */}
+                    
                     <img
                       src={`${baseURL}/${item.image}`}
                       alt={item.title}
                       className="relative z-10 h-40 -top-8 object-contain"
                     />
 
-                    {/* Ribbon */}
+                   
                     <div className="absolute -bottom-20 flex flex-col items-center z-0">
                       <img src="/ribbon.png" className="w-24" />
 
-                      {/* Year */}
+                      
                       <span className="absolute top-8 text-gray-700 font-semibold text-xl">
                         {item.year}
                       </span>
                     </div>
                   </div>
 
-                  {/* Title */}
+                 
                   <h3
                     className="text-lg font-semibold mb-3 mt-16"
                     dangerouslySetInnerHTML={{ __html: item.title }}
                   />
 
-                  {/* Description */}
+                  
                   <p className="text-gray-400 text-xs px-8 leading-relaxed max-w-xs mx-auto">
+                    {item.description}
+                  </p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper> */}
+          <Swiper
+            modules={[Navigation]}
+            slidesPerView={3}
+            spaceBetween={50}
+            loop={true}
+            onSwiper={(swiper) => (awordref.current = swiper)}
+            breakpoints={{
+              320: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
+            {awards.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex flex-col items-center text-center">
+                  {/* Trophy Section */}
+                  <div className="relative flex justify-center items-center mb-10">
+                    {/* Ribbon / Badge Background */}
+                    <img
+                      src="/award.png"
+                      className="w-60 object-contain"
+                      alt="award background"
+                    />
+
+                    {/* Trophy */}
+                    <img
+                      src={`${baseURL}/${item.image}`}
+                      alt={item.title}
+                      className="absolute -top-1 h-50 object-contain"
+                    />
+
+                    {/* Year */}
+                    <span className="absolute bottom-18 font-semibold text-[36px] bg-gradient-to-b from-[#000000] to-[#838383] bg-clip-text text-transparent">
+                      {item.year}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3
+                    className="text-[24px] md:text-[28.18px] font-semibold mb-3"
+                    dangerouslySetInnerHTML={{ __html: item.title }}
+                  />
+
+                  {/* Description */}
+                  <p className="text-[#C8C8C8] text-xs px-8 leading-relaxed max-w-xs">
                     {item.description}
                   </p>
                 </div>
@@ -412,7 +469,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="bg-black py-10 overflow-hidden">
+      {/* <section className="bg-black py-10 overflow-hidden">
         <div className="max-w-7xl  mx-auto">
           <Swiper
             modules={[Autoplay]}
@@ -443,7 +500,7 @@ const Home = () => {
             ))}
           </Swiper>
 
-          {/* Slider 2 - Right Direction */}
+          
           <Swiper
             modules={[Autoplay]}
             spaceBetween={30}
@@ -475,11 +532,188 @@ const Home = () => {
             ))}
           </Swiper>
         </div>
+      </section> */}
+      <section className="bg-black py-10">
+        <section className="bg-gradient-to-b from-[#161616] to-[#161616]/99 py-16 md:mx-8">
+          <div className="max-w-7xl mx-auto relative">
+            {/* LEFT SHADOW */}
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-40 bg-gradient-to-r from-black/90 to-transparent z-10"></div>
+
+            {/* RIGHT SHADOW */}
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-40 bg-gradient-to-l from-black/90 to-transparent z-10"></div>
+
+            {/* Slider 1 */}
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={30}
+              slidesPerView={6}
+              loop={true}
+              speed={3000}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+              }}
+              breakpoints={{
+                320: { slidesPerView: 2 },
+                640: { slidesPerView: 3 },
+                1024: { slidesPerView: 6 },
+              }}
+            >
+              {logos.map((logo, index) => (
+                <SwiperSlide key={index}>
+                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
+                    <img
+                      src={`${baseURL}/${logo?.logo}`}
+                      alt="logo"
+                      className="h-8 object-contain"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Slider 2 */}
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={30}
+              slidesPerView={6}
+              loop={true}
+              speed={3000}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+                reverseDirection: true,
+              }}
+              className="mt-6"
+              breakpoints={{
+                320: { slidesPerView: 2 },
+                640: { slidesPerView: 3 },
+                1024: { slidesPerView: 6 },
+              }}
+            >
+              {logos.map((logo, index) => (
+                <SwiperSlide key={index}>
+                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
+                    <img
+                      src={`${baseURL}/${logo?.logo}`}
+                      alt="logo"
+                      className="h-8 object-contain"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </section>
       </section>
 
       <Footer />
     </>
   );
 };
+
+const lines = [
+  { text: "Our bespoke wealth ", bold: true },
+  {
+    text: "management firm is built on ",
+    bold: true,
+  },
+  {
+    text: "the principles of transparency, ",
+    bold: false,
+  },
+  {
+    text: "trust, and long-term partnerships.",
+    bold: false,
+  },
+  {
+    text: "With over 20 years of experience, ",
+    bold: false,
+  },
+  {
+    text: "our team brings deep market ",
+    bold: false,
+  },
+  {
+    text: "insight, proven expertise, and a ",
+    bold: false,
+  },
+  {
+    text: "strong commitment to managing ",
+    bold: false,
+  },
+  {
+    text: "wealth for individuals, families,",
+    bold: false,
+  },
+  {
+    text: "and business owners.",
+    bold: false,
+  },
+];
+
+const INTERVAL = 2000;
+const PAUSE_AT_END = 3000;
+
+function ScrollHighlightText() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    let timeout;
+
+    const next = (current) => {
+      if (current >= lines.length - 1) {
+        timeout = setTimeout(() => {
+          setActiveIndex(0);
+          scheduleNext(0);
+        }, PAUSE_AT_END);
+      } else {
+        timeout = setTimeout(() => {
+          const nextIndex = current + 1;
+          setActiveIndex(nextIndex);
+          scheduleNext(nextIndex);
+        }, INTERVAL);
+      }
+    };
+
+    const scheduleNext = (current) => {
+      next(current);
+    };
+
+    const initial = setTimeout(() => {
+      setActiveIndex(1);
+      scheduleNext(1);
+    }, INTERVAL);
+
+    return () => clearTimeout(timeout || initial);
+  }, []);
+
+  return (
+    <div className="min-h-screen flex items-start  ">
+      <div className=" w-full">
+        <h2 className="text-xl md:text-[50px] leading-snug ">
+          {lines.map((line, i) => (
+            <span
+              key={i}
+              className={`
+                block transition-colors duration-500 font-medium
+                ${
+                  i === activeIndex
+                    ? "text-white"
+                    : i < activeIndex
+                      ? "text-[#888]"
+                      : "text-[#333]"
+                }
+                
+              `}
+            >
+              {line.text}
+            </span>
+          ))}
+        </h2>
+      </div>
+    </div>
+  );
+}
 
 export default Home;
