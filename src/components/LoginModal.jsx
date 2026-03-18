@@ -39,7 +39,7 @@ const LoginModal = ({ close }) => {
 
         {/* EMAIL */}
         <div className="mb-4">
-          <label className="text-gray-400 text-sm">Email</label>
+          <label className="text-gray-400 text-[18px]">Email</label>
           <input
             type="email"
             placeholder="www.@gmail.com"
@@ -50,7 +50,7 @@ const LoginModal = ({ close }) => {
         {/* PASSWORD */}
         <div className="mb-4 relative">
 
-          <div className="flex justify-between text-sm text-gray-400">
+          <div className="flex justify-between text-[18px] text-gray-400">
             <label>Password</label>
             <span className="cursor-pointer">Forgot ?</span>
           </div>
@@ -76,7 +76,7 @@ const LoginModal = ({ close }) => {
         </button>
 
         {/* FOOTER */}
-        <p className="text-center text-gray-400 text-sm mt-6">
+        <p className="text-center text-gray-400 text-[18px] mt-6">
           Already Have An Account ?{" "}
           <span className="text-white cursor-pointer">Log In</span>
         </p>

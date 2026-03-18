@@ -27,7 +27,7 @@
 //   return (
 //     <section className="bg-black py-24 px-4 flex justify-center overflow-hidden">
 //       <div className="max-w-7xl w-full border border-gray-400 rounded-[40px] p-6 md:p-12">
-//         <h2 className="text-white text-2xl font-semibold mb-8">
+//         <h2 className="text-white text-[18px] font-semibold mb-8">
 //           SIP calculator
 //         </h2>
 
@@ -49,7 +49,7 @@
 //           <div className="border border-gray-600 rounded-2xl p-8">
 //             {/* SIP */}
 //             <div className="mb-10">
-//               <p className="text-gray-400 text-sm mb-2">monthly SIP Amount</p>
+//               <p className="text-gray-400 text-[18px] mb-2">monthly SIP Amount</p>
 
 //               <input
 //                 type="range"
@@ -63,7 +63,7 @@
 
 //             {/* Years */}
 //             <div className="mb-10">
-//               <p className="text-gray-400 text-sm mb-2">SIP Period</p>
+//               <p className="text-gray-400 text-[18px] mb-2">SIP Period</p>
 
 //               <input
 //                 type="range"
@@ -77,7 +77,7 @@
 
 //             {/* Rate */}
 //             <div>
-//               <p className="text-gray-400 text-sm mb-2">
+//               <p className="text-gray-400 text-[18px] mb-2">
 //                 Expected return rate (p.a)
 //               </p>
 
@@ -111,13 +111,13 @@
 //             </PieChart>
 
 //             {/* Legend */}
-//             <div className="flex gap-8 text-gray-400 text-sm mt-4">
+//             <div className="flex gap-8 text-gray-400 text-[18px] mt-4">
 //               <span>● Principal</span>
 //               <span>● Interest</span>
 //             </div>
 
 //             {/* Values */}
-//             <div className="grid grid-cols-2 gap-8 mt-8 text-gray-300 text-sm">
+//             <div className="grid grid-cols-2 gap-8 mt-8 text-gray-300 text-[18px]">
 //               <div>
 //                 <p>Total SIP Amount invested</p>
 //                 <p className="text-white font-semibold">
@@ -195,7 +195,7 @@ export default function SIPCalculator() {
   return (
     <section className="bg-black py-24 px-4 flex justify-center overflow-hidden">
       <div className="max-w-7xl w-full border border-gray-400 rounded-[40px] p-6 md:p-12">
-        <h2 className="text-white text-2xl font-semibold mb-8">
+        <h2 className="text-white text-[18px] font-semibold mb-8">
           SIP Calculator
         </h2>
 
@@ -217,7 +217,7 @@ export default function SIPCalculator() {
             {/* SIP Amount */}
             <div className="mb-10">
               <div className="flex justify-between mb-2">
-                <p className="text-gray-400 text-sm">Monthly SIP Amount</p>
+                <p className="text-gray-400 text-[18px]">Monthly SIP Amount</p>
                 <p className="text-white font-semibold">
                   ₹ {sip.toLocaleString()}
                 </p>
@@ -237,7 +237,7 @@ export default function SIPCalculator() {
             {/* SIP Period */}
             <div className="mb-10">
               <div className="flex justify-between mb-2">
-                <p className="text-gray-400 text-sm">SIP Period (Years)</p>
+                <p className="text-gray-400 text-[18px]">SIP Period (Years)</p>
                 <p className="text-white font-semibold">{years} Years</p>
               </div>
 
@@ -254,7 +254,7 @@ export default function SIPCalculator() {
             {/* Rate */}
             <div>
               <div className="flex justify-between mb-2">
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 text-[18px]">
                   Expected return rate (p.a)
                 </p>
                 <p className="text-white font-semibold">{rate}%</p>
@@ -293,13 +293,13 @@ export default function SIPCalculator() {
             </PieChart>
 
             {/* Legend */}
-            <div className="flex gap-8 text-gray-400 text-sm mt-4">
+            <div className="flex gap-8 text-gray-400 text-[18px] mt-4">
               <span>● Principal</span>
               <span>● Interest</span>
             </div>
 
             {/* Values */}
-            <div className="grid grid-cols-2 gap-8 mt-8 text-gray-300 text-sm">
+            <div className="grid grid-cols-2 gap-8 mt-8 text-gray-300 text-[18px]">
               <div>
                 <p>Total SIP Amount invested</p>
                 <p className="text-white font-semibold">

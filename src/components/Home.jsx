@@ -103,7 +103,7 @@ const Home = () => {
             {count.map((item, index) => (
               <div key={index}>
                 <h3 className="text-3xl font-bold">{item.number}</h3>
-                <p className="text-xs text-gray-400 mt-2">{item.subtitle}</p>
+                <p className="text-[15px] text-gray-400 mt-2">{item.subtitle}</p>
               </div>
             ))}
           </div>
@@ -115,7 +115,7 @@ const Home = () => {
       blur-[120px] opacity-40"
           />
           <div className="max-w-5xl mx-auto px-6 mt-20  relative z-10">
-            <button className="px-6 py-2 border border-gray-500 rounded-full text-white text-sm mb-10">
+            <button className="px-6 py-2 border border-gray-500 rounded-full text-white text-[18px] mb-10">
               Who we are?
             </button>
 
@@ -152,7 +152,7 @@ const Home = () => {
           {/* Heading */}
           <div className="mb-16">
             <h2 className="text-white text-5xl font-bold mb-4">Process</h2>
-            <p className="text-gray-400 max-w-xs">
+            <p className="text-gray-400 max-w-xs text-[18px]">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry.
             </p>
@@ -172,7 +172,7 @@ const Home = () => {
               What our clien<span className="text-gray-400">t says</span>
             </h2>
 
-            <p className="text-gray-400 mt-4 max-w-xl mx-auto text-sm sm:text-base">
+            <p className="text-gray-400 mt-4 max-w-xl mx-auto text-[18px] sm:text-base">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry.
             </p>
@@ -214,7 +214,7 @@ const Home = () => {
 
                   {/* Content */}
                   <div className="text-center md:text-left">
-                    <p className="text-gray-300 leading-relaxed mb-6 md:mb-8 text-sm sm:text-base">
+                    <p className="text-gray-300 leading-relaxed mb-6 md:mb-8 text-[18px] sm:text-base">
                       {item.message}
                     </p>
 
@@ -226,11 +226,11 @@ const Home = () => {
                       />
 
                       <div>
-                        <h4 className="font-semibold text-sm sm:text-base">
+                        <h4 className="font-semibold text-[18px] sm:text-base">
                           {item.name}
                         </h4>
 
-                        <p className="text-xs sm:text-sm text-gray-400">
+                        <p className="text-xs sm:text-[18px] text-gray-400">
                           {item.designation}
                         </p>
                       </div>
@@ -247,7 +247,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Title */}
           <div className="text-center mb-10 md:mb-14">
-            <span className="border border-gray-600 px-4 py-1 rounded-full text-xs sm:text-sm">
+            <span className="border border-gray-600 px-4 py-1 rounded-full text-xs sm:text-[18px]">
               Testimonials
             </span>
           </div>
@@ -270,14 +270,14 @@ const Home = () => {
               <SwiperSlide key={index}>
                 <div className="bg-[#1c1c1c] p-5 md:p-6 rounded-xl border border-gray-800 h-full flex flex-col">
                   {/* Stars */}
-                  <div className="mb-4 text-yellow-400 text-sm md:text-base">
+                  <div className="mb-4 text-yellow-400 text-[18px] md:text-base">
                     {[...Array(item.rating)].map((_, i) => (
                       <span key={i}>★</span>
                     ))}
                   </div>
 
                   {/* Text */}
-                  <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                  <p className="text-gray-400 text-[18px] leading-relaxed mb-6 flex-grow">
                     {item.message}
                   </p>
 
@@ -290,7 +290,7 @@ const Home = () => {
                     />
 
                     <div>
-                      <h4 className="text-sm font-semibold">{item.name}</h4>
+                      <h4 className="text-[18px] font-semibold">{item.name}</h4>
                       <p className="text-xs text-gray-500">
                         {item.designation}
                       </p>

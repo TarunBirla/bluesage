@@ -88,7 +88,7 @@ const bottomRow = journeys.slice(3,6);
                     {clienttest[0]?.name}
                   </h4>
 
-                  <p className="text-sm text-gray-400">
+                  <p className="text-[18px] text-gray-400">
                     {clienttest[0]?.designation}
                   </p>
                 </div>
@@ -123,7 +123,7 @@ const bottomRow = journeys.slice(3,6);
                 {clienttest[0]?.name}
               </h4>
 
-              <p className="text-sm text-gray-400">
+              <p className="text-[18px] text-gray-400">
                 {clienttest[0]?.designation}
               </p>
             </div>
@@ -171,13 +171,13 @@ const bottomRow = journeys.slice(3,6);
           <div className="grid grid-cols-3 px-16 pr-20 gap-24 mb-32 relative z-10">
             {topRow.map((item) => (
               <div key={item.id}>
-                <p className="text-gray-400 text-sm mb-3">{item.period}</p>
+                <p className="text-gray-400 text-[18px] mb-3">{item.period}</p>
 
-                <h3 className="font-semibold text-sm mb-2">
+                <h3 className="font-semibold text-[18px] mb-2">
                   {item.title}
                 </h3>
 
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 text-[18px]">
                   {item.description}
                 </p>
               </div>
@@ -210,13 +210,13 @@ const bottomRow = journeys.slice(3,6);
          <div className="grid grid-cols-3 gap-24 px-16 pr-20 mt-28 relative z-10">
           {bottomRow.map((item) => (
             <div key={item.id}>
-              <p className="text-gray-400 text-sm mb-3">{item.period}</p>
+              <p className="text-gray-400 text-[18px] mb-3">{item.period}</p>
 
-              <h3 className="font-semibold mb-2 text-sm">
+              <h3 className="font-semibold mb-2 text-[18px]">
                 {item.title}
               </h3>
 
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-400 text-[18px]">
                 {item.description}
               </p>
             </div>
@@ -247,11 +247,11 @@ const bottomRow = journeys.slice(3,6);
                 {item.period}
               </p>
 
-              <h3 className="font-semibold text-sm mb-2">
+              <h3 className="font-semibold text-[18px] mb-2">
                 {item.title}
               </h3>
 
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-400 text-[18px]">
                 {item.description}
               </p>
 
@@ -289,7 +289,7 @@ const bottomRow = journeys.slice(3,6);
               </div>
 
               {/* Text */}
-              <p className="mt-4 text-sm text-gray-300 leading-relaxed">
+              <p className="mt-4 text-[18px] text-gray-300 leading-relaxed">
                 BSE Star <br />
                 Mutual Fund Award <br />
                 2019
@@ -306,7 +306,7 @@ const bottomRow = journeys.slice(3,6);
               </div>
 
               {/* Text */}
-              <p className="mt-4 text-sm text-gray-300 leading-relaxed">
+              <p className="mt-4 text-[18px] text-gray-300 leading-relaxed">
                 BSE Star <br />
                 Mutual Fund Award <br />
                 2019
@@ -323,7 +323,7 @@ const bottomRow = journeys.slice(3,6);
               </div>
 
               {/* Text */}
-              <p className="mt-4 text-sm text-gray-300 leading-relaxed">
+              <p className="mt-4 text-[18px] text-gray-300 leading-relaxed">
                 BSE Star <br />
                 Mutual Fund Award <br />
                 2019
@@ -340,7 +340,7 @@ const bottomRow = journeys.slice(3,6);
               </div>
 
               {/* Text */}
-              <p className="mt-4 text-sm text-gray-300 leading-relaxed">
+              <p className="mt-4 text-[18px] text-gray-300 leading-relaxed">
                 BSE Star <br />
                 Mutual Fund Award <br />
                 2019
@@ -378,7 +378,7 @@ const bottomRow = journeys.slice(3,6);
               <div className="p-5">
                 <h3 className="font-semibold text-gray-900">{item.name}</h3>
 
-                <p className="text-gray-500 text-sm">{item.designation}</p>
+                <p className="text-gray-500 text-[18px]">{item.designation}</p>
               </div>
             </div>
             ))}

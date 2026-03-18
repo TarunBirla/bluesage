@@ -79,7 +79,7 @@ const PortFolio = () => {
                 <h3 className="text-3xl font-semibold">
                   15,000<span className="text-lg">+ Cr</span>
                 </h3>
-                <p className="text-gray-400 text-sm mt-2">
+                <p className="text-gray-400 text-[18px] mt-2">
                   Client assets in 4 years
                 </p>
               </div>
@@ -90,7 +90,7 @@ const PortFolio = () => {
               {/* Stat 2 */}
               <div className="text-center">
                 <h3 className="text-3xl font-semibold">5,000+</h3>
-                <p className="text-gray-400 text-sm mt-2">
+                <p className="text-gray-400 text-[18px] mt-2">
                   Clients trust Blue Sage Wealth
                 </p>
               </div>
@@ -103,7 +103,7 @@ const PortFolio = () => {
                 <h3 className="text-3xl font-semibold">
                   20+ <span className="text-lg">Years</span>
                 </h3>
-                <p className="text-gray-400 text-sm mt-2">Of experience</p>
+                <p className="text-gray-400 text-[18px] mt-2">Of experience</p>
               </div>
             </div>
           </div>
@@ -133,7 +133,7 @@ const PortFolio = () => {
                 Risk Management & Insurance Solutions
               </h3>
 
-              <p className="text-gray-400 text-sm mt-3">
+              <p className="text-gray-400 text-[18px] mt-3">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
               </p>
@@ -146,7 +146,7 @@ const PortFolio = () => {
                 <img src="icon.png" />
               </div>
 
-              <ul className="mt-6 text-left space-y-3 text-sm text-gray-300">
+              <ul className="mt-6 text-left space-y-3 text-[18px] text-gray-300">
                 <li>✔ Clear, Actionable Financial Roadmaps</li>
                 <li>✔ Curated Investment Options</li>
                 <li>✔ Help in Avoiding Costly Mistakes</li>
@@ -167,7 +167,7 @@ const PortFolio = () => {
                 Tax Planning Services
               </h3>
 
-              <p className="text-gray-400 text-sm mt-3">
+              <p className="text-gray-400 text-[18px] mt-3">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
               </p>
@@ -184,7 +184,7 @@ const PortFolio = () => {
                 Risk Management & Insurance Solutions
               </h3>
 
-              <p className="text-gray-400 text-sm mt-3">
+              <p className="text-gray-400 text-[18px] mt-3">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
               </p>
@@ -197,7 +197,7 @@ const PortFolio = () => {
                 <img src="icon.png" />
               </div>
 
-              <ul className="mt-6 text-left space-y-3 text-sm text-gray-300">
+              <ul className="mt-6 text-left space-y-3 text-[18px] text-gray-300">
                 <li>✔ Clear, Actionable Financial Roadmaps</li>
                 <li>✔ Curated Investment Options</li>
                 <li>✔ Help in Avoiding Costly Mistakes</li>
@@ -218,7 +218,7 @@ const PortFolio = () => {
                 Tax Planning Services
               </h3>
 
-              <p className="text-gray-400 text-sm mt-3">
+              <p className="text-gray-400 text-[18px] mt-3">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
               </p>
@@ -234,7 +234,7 @@ const PortFolio = () => {
                 Risk Management & Insurance Solutions
               </h3>
 
-              <p className="text-gray-400 text-sm mt-3">
+              <p className="text-gray-400 text-[18px] mt-3">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
               </p>
@@ -247,7 +247,7 @@ const PortFolio = () => {
                 <img src="icon.png" />
               </div>
 
-              <ul className="mt-6 text-left space-y-3 text-sm text-gray-300">
+              <ul className="mt-6 text-left space-y-3 text-[18px] text-gray-300">
                 <li>✔ Clear, Actionable Financial Roadmaps</li>
                 <li>✔ Curated Investment Options</li>
                 <li>✔ Help in Avoiding Costly Mistakes</li>
@@ -268,7 +268,7 @@ const PortFolio = () => {
                 Tax Planning Services
               </h3>
 
-              <p className="text-gray-400 text-sm mt-3">
+              <p className="text-gray-400 text-[18px] mt-3">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
               </p>
@@ -300,7 +300,7 @@ const PortFolio = () => {
               50% of high-net worth portfolios fail to beat the benchmark
             </h2>
 
-            <p className="text-gray-400 mt-6 max-w-md text-sm">
+            <p className="text-gray-400 mt-6 max-w-md text-[18px]">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever when an unknown printer.

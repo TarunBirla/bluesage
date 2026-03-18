@@ -11,7 +11,7 @@ const Footer = () => {
             Journey Here
           </h2>
 
-          <button className="bg-[#303030] text-white px-6 py-3 rounded-full text-sm sm:text-base hover:bg-black transition w-full sm:w-auto">
+          <button className="bg-[#303030] text-white px-6 py-3 rounded-full text-[18px] sm:text-base hover:bg-black transition w-full sm:w-auto">
             Start your Investment →
           </button>
         </div>
@@ -22,7 +22,7 @@ const Footer = () => {
         {/* Company */}
         <div>
           <h3 className="font-semibold mb-4">Company</h3>
-          <ul className="space-y-3 text-gray-400 text-sm">
+          <ul className="space-y-3 text-gray-400 text-[18px]">
             <li>
               <Link to="/">About</Link>
             </li>
@@ -35,7 +35,7 @@ const Footer = () => {
         {/* Help */}
         <div>
           <h3 className="font-semibold mb-4">Help</h3>
-          <ul className="space-y-3 text-gray-400 text-sm">
+          <ul className="space-y-3 text-gray-400 text-[18px]">
             <li>Customer Support</li>
             <li>Delivery Details</li>
             <li>Terms & Conditions</li>
@@ -46,7 +46,7 @@ const Footer = () => {
         {/* Resources */}
         <div>
           <h3 className="font-semibold mb-4">Resources</h3>
-          <ul className="space-y-3 text-gray-400 text-sm">
+          <ul className="space-y-3 text-gray-400 text-[18px]">
             <li>Free eBooks</li>
             <li>Development Tutorial</li>
             <li>How to - Blog</li>
@@ -57,7 +57,7 @@ const Footer = () => {
         {/* Links */}
         <div>
           <h3 className="font-semibold mb-4">Links</h3>
-          <ul className="space-y-3 text-gray-400 text-sm">
+          <ul className="space-y-3 text-gray-400 text-[18px]">
             <li>Free eBooks</li>
             <li>Development Tutorial</li>
             <li>How to - Blog</li>

@@ -97,7 +97,7 @@ const Partner = () => {
           </h2>
 
           {/* Paragraphs */}
-          <p className="mb-6 text-[#C3C3C3] leading-relaxed"
+          <p className="mb-6 text-[#C3C3C3] text-[18px] leading-relaxed"
             dangerouslySetInnerHTML={{ __html: content_section?.content }}/>
            
 
@@ -145,7 +145,7 @@ const Partner = () => {
                   </h3>
 
                   {/* description */}
-                  <p className="text-sm text-gray-400 leading-relaxed">
+                  <p className="text-[18px] text-gray-400 leading-relaxed">
                     {item.description}
                   </p>
                 </div>

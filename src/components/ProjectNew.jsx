@@ -125,7 +125,7 @@ const ProjectNew = () => {
                 <h3 className="text-3xl font-semibold">
                   15,000<span className="text-lg">+ Cr</span>
                 </h3>
-                <p className="text-gray-400 text-sm mt-2">
+                <p className="text-gray-400 text-[18px] mt-2">
                   Client assets in 4 years
                 </p>
               </div>
@@ -136,7 +136,7 @@ const ProjectNew = () => {
               {/* Stat 2 */}
               <div className="text-center py-4 md:py-0 border-t border-b md:border-t-0 md:border-b-0 md:border-l md:border-r border-gray-600">
                 <h3 className="text-3xl font-semibold">5,000+</h3>
-                <p className="text-gray-400 text-sm mt-2">
+                <p className="text-gray-400 text-[18px] mt-2">
                   Clients trust Blue Sage Wealth
                 </p>
               </div>
@@ -149,7 +149,7 @@ const ProjectNew = () => {
                 <h3 className="text-3xl font-semibold">
                   20+ <span className="text-lg">Years</span>
                 </h3>
-                <p className="text-gray-400 text-sm mt-2">Of experience</p>
+                <p className="text-gray-400 text-[18px] mt-2">Of experience</p>
               </div>
             </div>
           </div>
@@ -186,7 +186,7 @@ const ProjectNew = () => {
                   {service.title}
                 </h3>
 
-                <p className="text-gray-300 text-sm leading-relaxed">
+                <p className="text-gray-300 text-[18px] leading-relaxed">
                   {service.description}
                 </p>
               </div>
@@ -222,7 +222,7 @@ const ProjectNew = () => {
         {highlight?.title || "Loading..."}
       </h2>
 
-      <p className="text-gray-400 mt-6 max-w-md text-sm">
+      <p className="text-gray-400 mt-6 max-w-md text-[18px]">
         {highlight?.description}
       </p>
 

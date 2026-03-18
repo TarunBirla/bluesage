@@ -29,53 +29,49 @@ const Header = () => {
           scrolled ? "bg-black shadow-lg" : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto py-4 px-6 md:px-2 flex items-center justify-between">
-          {/* LOGO */}
-          <Link to="/">
-            <img src="/Logo.png" alt="logo" className="h-12 w-auto" />
-          </Link>
+      <div className="max-w-7xl mx-auto py-4 px-6 flex items-center justify-between">
+  
+  {/* LEFT - LOGO */}
+  <div className="flex-shrink-0">
+    <Link to="/">
+      <img src="/Logo.png" alt="logo" className="h-18 w-auto" />
+    </Link>
+  </div>
 
-          {/* CENTER NAVBAR */}
-          <div className="hidden md:flex items-center px-8 py-3 rounded-full space-x-8 text-white text-sm">
-            <NavLink to="/" className="hover:text-gray-300">
-              Home
-            </NavLink>
-            <NavLink to="/abouts" className="hover:text-gray-300">
-              About us
-            </NavLink>
-            <NavLink to="/project" className="hover:text-gray-300">
-              Service
-            </NavLink>
-            <NavLink to="/partner" className="hover:text-gray-300">
-              Partner with us
-            </NavLink>
-            <NavLink to="/blog" className="hover:text-gray-300">
-              Blog
-            </NavLink>
+  {/* CENTER - NAV LINKS */}
+  <div className="hidden md:flex items-center space-x-8 text-white text-[20px]  font-normal  leading-[100%] tracking-[0%]">
+    <NavLink to="/" className="hover:text-gray-300">Home</NavLink>
+    <NavLink to="/abouts" className="hover:text-gray-300">About us</NavLink>
+    <NavLink to="/project" className="hover:text-gray-300">Service</NavLink>
+    <NavLink to="/partner" className="hover:text-gray-300">Partner with us</NavLink>
+    <NavLink to="/blog" className="hover:text-gray-300">Blog</NavLink>
+  </div>
 
-            <button
-              onClick={() => setOpenLogin(true)}
-              className="border border-white px-4 py-2 rounded-full text-xs hover:bg-[#303030] hover:text-white transition"
-            >
-              Investor login
-            </button>
+  {/* RIGHT - BUTTONS */}
+  <div className="hidden md:flex items-center space-x-4">
+    <button
+      onClick={() => setOpenLogin(true)}
+      className="border border-white px-4 py-2 rounded-full text-[20px] hover:bg-[#303030] text-white transition"
+    >
+      Investor login
+    </button>
 
-            <Link
-              to="/project"
-              className="bg-[#303030] text-white px-4 py-2 rounded-full text-xs"
-            >
-              Review my portfolio
-            </Link>
-          </div>
+    <Link
+      to="/project"
+      className="bg-[#303030] text-white px-4 py-2 rounded-full text-[20px]"
+    >
+      Review my portfolio
+    </Link>
+  </div>
 
-          {/* MOBILE MENU ICON */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-white"
-          >
-            {menuOpen ? <X size={26} /> : <Menu size={26} />}
-          </button>
-        </div>
+  {/* MOBILE MENU ICON */}
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="md:hidden text-white"
+  >
+    {menuOpen ? <X size={26} /> : <Menu size={26} />}
+  </button>
+</div>
 
         {/* MOBILE MENU */}
         {menuOpen && (
