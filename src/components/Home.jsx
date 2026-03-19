@@ -59,7 +59,8 @@ const Home = () => {
 
       <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[90vh] bg-black overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center mt-20 mb-10">
-          <img src="/2.png" alt="circle" className="w-[500px] md:w-[500px] " />
+          {/* <img src="/2.png" alt="circle" className="w-[500px] md:w-[500px] " /> */}
+          <video src="/video.mp4" autoPlay loop muted></video>
         </div>
 
         <div
