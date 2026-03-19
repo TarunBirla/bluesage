@@ -98,8 +98,8 @@ const Home = () => {
         <div className="max-w-5xl mx-auto px-6 relative">
           <div
             className="grid grid-cols-2 -mt-20 md:grid-cols-4 
-      bg-[#121212] border border-gray-700 rounded-2xl 
-      py-10 text-center text-white shadow-xl"
+          bg-[#121212] border border-gray-700 rounded-2xl 
+            py-10 text-center text-white shadow-xl"
           >
             {count.map((item, index) => (
               <div key={index}>
@@ -613,99 +613,167 @@ const Home = () => {
   );
 };
 
+// const lines = [
+//   { text: "Our bespoke wealth ", bold: true },
+//   {
+//     text: "management firm is built on ",
+//     bold: true,
+//   },
+//   {
+//     text: "the principles of transparency, ",
+//     bold: false,
+//   },
+//   {
+//     text: "trust, and long-term partnerships.",
+//     bold: false,
+//   },
+//   {
+//     text: "With over 20 years of experience, ",
+//     bold: false,
+//   },
+//   {
+//     text: "our team brings deep market ",
+//     bold: false,
+//   },
+//   {
+//     text: "insight, proven expertise, and a ",
+//     bold: false,
+//   },
+//   {
+//     text: "strong commitment to managing ",
+//     bold: false,
+//   },
+//   {
+//     text: "wealth for individuals, families,",
+//     bold: false,
+//   },
+//   {
+//     text: "and business owners.",
+//     bold: false,
+//   },
+// ];
+
+// const INTERVAL = 2000;
+// const PAUSE_AT_END = 3000;
+
+// function ScrollHighlightText() {
+//   const [activeIndex, setActiveIndex] = useState(0);
+
+//   useEffect(() => {
+//     let timeout;
+
+//     const next = (current) => {
+//       if (current >= lines.length - 1) {
+//         timeout = setTimeout(() => {
+//           setActiveIndex(0);
+//           scheduleNext(0);
+//         }, PAUSE_AT_END);
+//       } else {
+//         timeout = setTimeout(() => {
+//           const nextIndex = current + 1;
+//           setActiveIndex(nextIndex);
+//           scheduleNext(nextIndex);
+//         }, INTERVAL);
+//       }
+//     };
+
+//     const scheduleNext = (current) => {
+//       next(current);
+//     };
+
+//     const initial = setTimeout(() => {
+//       setActiveIndex(1);
+//       scheduleNext(1);
+//     }, INTERVAL);
+
+//     return () => clearTimeout(timeout || initial);
+//   }, []);
+
+//   return (
+//     <div className="min-h-screen flex items-start  ">
+//       <div className=" w-full">
+//         <h2 className="text-xl md:text-[50px] leading-snug ">
+//           {lines.map((line, i) => (
+//             <span
+//               key={i}
+//               className={`
+//                 block transition-colors duration-500 font-medium
+//                 ${
+//                   i === activeIndex
+//                     ? "text-white"
+//                     : i < activeIndex
+//                       ? "text-[#888]"
+//                       : "text-[#333]"
+//                 }
+
+//               `}
+//             >
+//               {line.text}
+//             </span>
+//           ))}
+//         </h2>
+//       </div>
+//     </div>
+//   );
+// }
+
 const lines = [
   { text: "Our bespoke wealth ", bold: true },
-  {
-    text: "management firm is built on ",
-    bold: true,
-  },
-  {
-    text: "the principles of transparency, ",
-    bold: false,
-  },
-  {
-    text: "trust, and long-term partnerships.",
-    bold: false,
-  },
-  {
-    text: "With over 20 years of experience, ",
-    bold: false,
-  },
-  {
-    text: "our team brings deep market ",
-    bold: false,
-  },
-  {
-    text: "insight, proven expertise, and a ",
-    bold: false,
-  },
-  {
-    text: "strong commitment to managing ",
-    bold: false,
-  },
-  {
-    text: "wealth for individuals, families,",
-    bold: false,
-  },
-  {
-    text: "and business owners.",
-    bold: false,
-  },
+  { text: "management firm is built on ", bold: true },
+  { text: "the principles of transparency, ", bold: false },
+  { text: "trust, and long-term partnerships.", bold: false },
+  { text: "With over 20 years of experience, ", bold: false },
+  { text: "our team brings deep market ", bold: false },
+  { text: "insight, proven expertise, and a ", bold: false },
+  { text: "strong commitment to managing ", bold: false },
+  { text: "wealth for individuals, families,", bold: false },
+  { text: "and business owners.", bold: false },
 ];
-
-const INTERVAL = 2000;
-const PAUSE_AT_END = 3000;
 
 function ScrollHighlightText() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef(null);
 
+  // 👉 Scroll Logic
   useEffect(() => {
-    let timeout;
+    const handleScroll = () => {
+      if (!containerRef.current) return;
 
-    const next = (current) => {
-      if (current >= lines.length - 1) {
-        timeout = setTimeout(() => {
-          setActiveIndex(0);
-          scheduleNext(0);
-        }, PAUSE_AT_END);
-      } else {
-        timeout = setTimeout(() => {
-          const nextIndex = current + 1;
-          setActiveIndex(nextIndex);
-          scheduleNext(nextIndex);
-        }, INTERVAL);
+      const rect = containerRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+
+      const index = Math.floor(progress * lines.length);
+
+      if (index >= 0 && index < lines.length) {
+        setActiveIndex(index);
       }
     };
 
-    const scheduleNext = (current) => {
-      next(current);
-    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // initial call
 
-    const initial = setTimeout(() => {
-      setActiveIndex(1);
-      scheduleNext(1);
-    }, INTERVAL);
-
-    return () => clearTimeout(timeout || initial);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="min-h-screen flex items-start  ">
-      <div className=" w-full">
-        <h2 className="text-xl md:text-[50px] leading-snug ">
+    <div className=" flex items-center">
+      <div ref={containerRef} className="w-full px-4">
+        <h2 className="text-xl md:text-[50px] leading-snug">
           {lines.map((line, i) => (
             <span
               key={i}
+              onMouseEnter={() => setActiveIndex(i)} // 👉 Hover effect
               className={`
-                block transition-colors duration-500 font-medium
+                block transition-all duration-500 font-medium cursor-pointer
                 ${
                   i === activeIndex
-                    ? "text-white"
+                    ? "text-white scale-105"
                     : i < activeIndex
                       ? "text-[#888]"
                       : "text-[#333]"
                 }
-                
               `}
             >
               {line.text}
