@@ -56,10 +56,12 @@ const Abouts = () => {
         ></div>
 
         <div className="relative w-full max-w-7xl  mx-auto px-6 py-14">
-          <div
-            className="relative 
-            bg-contain bg-center h-[600px] w-full bg-no-repeat
-            flex items-center gap-40 px-16"
+              <div
+        className="relative 
+        bg-contain bg-center h-[600px] w-full bg-no-repeat
+        flex items-center gap-40 px-16
+        shadow-[0_20px_80px_rgba(255,255,255,0.15)]"
+
             style={{ backgroundImage: "url('/aboutimg.png')" }}
           >
             <div className="w-[350px] shrink-0 ml-10">
@@ -214,6 +216,7 @@ const Abouts = () => {
           </div>
         </div>
       </section>
+      
       <section className="bg-black py-16 text-white md:hidden">
         <h2
           className="text-center font-semibold mb-16
