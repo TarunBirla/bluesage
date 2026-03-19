@@ -190,7 +190,7 @@ const Home = () => {
             slidesPerView={1}
             spaceBetween={20}
             loop
-            autoplay={{ delay: 3500 }}
+            autoplay={{ delay: 3500, reverseDirection: true }}
             pagination={{ clickable: true }}
             breakpoints={{
               640: {
