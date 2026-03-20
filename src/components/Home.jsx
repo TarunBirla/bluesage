@@ -750,7 +750,7 @@ function ScrollHighlightText() {
   return (
     <div className="min-h-[120vh] flex items-center">
       <div ref={containerRef} className="w-full px-6">
-        <h2 className="text-[22px] md:text-[60px] leading-[1.2] font-small">
+        <h2 className="text-[28px] md:text-[60px] leading-[1.2] font-small">
           {lines.map((line, i) => {
             const start = i / lines.length;
             const end = (i + 1) / lines.length;
