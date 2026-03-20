@@ -194,7 +194,7 @@ export default function SIPCalculator() {
 
   return (
     <section className="bg-black py-24 px-4 flex justify-center overflow-hidden">
-      <div className="max-w-7xl w-full border border-gray-400 rounded-[40px] p-6 md:p-12">
+      <div className="max-w-7xl w-full border border-gray-400 rounded-[40px]  hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all p-6 md:p-12">
         <h2 className="text-white text-[18px] font-semibold mb-8">
           SIP Calculator
         </h2>

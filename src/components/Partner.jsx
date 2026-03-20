@@ -127,7 +127,7 @@ const Partner = () => {
             {card.map((item, index) => (
               <div
                 key={index}
-                className="relative w-full max-w-[320px] mx-auto text-white"
+                className="relative w-full max-w-[320px] mx-auto text-white hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
               >
                 {/* border box */}
                 <img src="/borderbox.png" alt="" className="w-full" />

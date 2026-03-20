@@ -103,7 +103,8 @@ const Home = () => {
           <div
             className="grid grid-cols-2 -mt-20 md:grid-cols-4 
           bg-[#121212] border border-gray-700 rounded-2xl 
-            py-10 text-center text-white shadow-xl"
+            py-10 text-center text-white shadow-xl
+              hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
           >
             {count.map((item, index) => (
               <div key={index}>
@@ -135,8 +136,8 @@ const Home = () => {
 
       <section className="bg-black  pb-20 overflow-hidden">
         {/* Stats Card */}
-        <div className="max-w-7xl  mx-auto p-4 ">
-          <img src="/scnhome.png" className="w-full h-auto" />
+        <div className="max-w-7xl   mx-auto p-4 ">
+          <img src="/scnhome.png" className="w-full h-auto " />
         </div>
       </section>
 
@@ -154,7 +155,7 @@ const Home = () => {
             </p>
           </div>
 
-          <img src="line.png" />
+          <img src="line.png" className="" />
         </div>
       </section>
 
@@ -264,7 +265,7 @@ const Home = () => {
           >
             {testimonials.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-gradient-to-b from-[#303030] to-[#161616] p-5 md:p-6 rounded-xl border border-gray-800 h-full flex flex-col">
+                <div className="bg-gradient-to-b from-[#303030] to-[#161616] p-5 hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all md:p-6 rounded-xl border border-gray-800 h-full flex flex-col">
                   {/* Stars */}
                   <div className="mb-4 text-[#FFFFFF] text-[18px] md:text-base">
                     {[...Array(item.rating)].map((_, i) => (
@@ -401,13 +402,13 @@ const Home = () => {
           >
             {awards.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="flex flex-col items-center text-center">
+                <div className="flex flex-col items-center text-center 00  ">
                   {/* Trophy Section */}
-                  <div className="relative flex justify-center items-center mb-10">
+                  <div className="relative flex justify-center items-center mb-10 ">
                     {/* Ribbon / Badge Background */}
                     <img
                       src="/award.png"
-                      className="w-60 object-contain"
+                      className="w-60 object-contain  hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all "
                       alt="award background"
                     />
 
@@ -415,7 +416,7 @@ const Home = () => {
                     <img
                       src={`${baseURL}/${item.image}`}
                       alt={item.title}
-                      className="absolute -top-1 h-50 object-contain"
+                      className="absolute -top-1 h-50 object-contain "
                     />
 
                     {/* Year */}

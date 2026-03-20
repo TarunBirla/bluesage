@@ -84,7 +84,7 @@ export default function BlogGrid() {
     <section className="bg-black py-20 px-6">
       <div className="max-w-7xl mx-auto">
         {/* BLOG GRID */}
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-3 gap-10 ">
           {loading ? (
             <div className="col-span-3 text-center text-white py-20">
               Loading blogs...
@@ -98,7 +98,7 @@ export default function BlogGrid() {
               return (
                 <div
                   key={blog.id}
-                  className="relative rounded-[30px] overflow-hidden border border-white/10 bg-gradient-to-b from-[#414141] to-[#212121] "
+                  className="relative rounded-[30px] overflow-hidden border border-white/10 bg-gradient-to-b from-[#414141] to-[#212121]  hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
                 >
                   {/* IMAGE */}
                   <div className="relative">

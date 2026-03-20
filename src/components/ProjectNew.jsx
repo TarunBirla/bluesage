@@ -115,9 +115,9 @@ const ProjectNew = () => {
           {/* Stats Card */}
           <div
             className="border border-gray-600 rounded-[30px] py-10 px-6
-          backdrop-blur-md bg-black/60"
+          backdrop-blur-md bg-black/60 hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
           >
-            <div className="grid md:grid-cols-3 text-white items-center">
+            <div className="grid md:grid-cols-3 text-white items-center ">
               {/* Stat 1 */}
               <div className="text-center py-4 md:py-0">
                 <h3 className="text-3xl md:text-[55px] font-semibold">
@@ -173,7 +173,7 @@ const ProjectNew = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {/* CARD 1 */}
             {services.map((service, index) => (
-              <div className="relative w-[387px] mx-auto text-center text-white">
+              <div className="relative w-[387px] mx-auto text-center text-white hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
                 {/* Box */}
                 <img src="/box1.png" className="w-full" />
 
@@ -244,7 +244,7 @@ const ProjectNew = () => {
                     : "/img/default.jpg"
                 }
                 alt="highlight"
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
               />
             </div>
           </div>

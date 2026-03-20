@@ -55,16 +55,15 @@ const Abouts = () => {
           blur-[120px] opacity-40"
         ></div>
 
-        <div className="relative w-full max-w-7xl  mx-auto px-6 py-14">
+        <div className="relative w-full max-w-7xl mx-auto px-6 py-14">
               <div
         className="relative 
         bg-contain bg-center h-[600px] w-full bg-no-repeat
-        flex items-center gap-40 px-16
-        shadow-[0_20px_80px_rgba(255,255,255,0.15)]"
+        flex items-center gap-40 px-16 "
 
             style={{ backgroundImage: "url('/aboutimg.png')" }}
           >
-            <div className="w-[350px] shrink-0 ml-10">
+            <div className="w-[350px] shrink-0 ml-10 ">
               <img
                 src={`${baseURL}/${clienttest[0]?.image}`}
                 alt=""
@@ -141,32 +140,60 @@ const Abouts = () => {
           Our Journey
         </h2>
         <div className="max-w-7xl mx-auto px-6 relative">
-          {/* TIMELINE LINE */}
+         
           <svg
-            className="absolute left-0 top-[-6px] w-full h-[400px]"
-            viewBox="0 0 1200 400"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-          >
-            {/* TOP LINE */}
-            <path d="M20 30 H1080" />
+  className="absolute left-0 top-[-1px] w-full h-[400px]"
+  viewBox="0 0 1200 400"
+  fill="none"
+  stroke="white"
+  strokeWidth="2"
+> 
 
-            {/* ARROWS */}
-            <polygon points="280,26 260,30 280,34" fill="white" />
-            <polygon points="580,26 560,30 580,34" fill="white" />
-            <polygon points="880,26 860,30 880,34" fill="white" />
+  {/* MAIN PATH (FULL U SHAPE) */}
+  <path
+    id="motionPath"
+    d="M20 30 H1080 Q1150 30 1150 90 V260 Q1150 300 1120 300 H20"
+    fill="none"
+    stroke="white"
+    strokeWidth="2"
+  />
 
-            {/* CURVE */}
-            <path d="M1080 30 Q1150 30 1150 90" />
+  {/* ARROWS */}
+  <polygon points="280,26 260,30 280,34" fill="white" />
+  <polygon points="580,26 560,30 580,34" fill="white" />
+  <polygon points="880,26 860,30 880,34" fill="white" />
+  <polygon points="1145,120 1150,135 1155,120" fill="white" />
+  <polygon points="880,296 860,300 880,304" fill="white" />
+  <polygon points="580,296 560,300 580,304" fill="white" />
+  <polygon points="280,296 260,300 280,304" fill="white" />
 
-            {/* DOWN LINE */}
-            <path d="M1150 90 V260" />
+  {/* 🔴 BALL 1 */}
+  <circle r="5" fill="#ff4d4d">
+    <animateMotion dur="3s" repeatCount="indefinite"  keyPoints="1;0" keyTimes="0;1">
+      <mpath href="#motionPath" />
+    </animateMotion>
+  </circle>
+   <circle r="5" fill="#000">
+    <animateMotion dur="5s" repeatCount="indefinite"  keyPoints="1;0" keyTimes="0;1">
+      <mpath href="#motionPath" />
+    </animateMotion>
+  </circle>
 
-            {/* DOWN ARROWS */}
-            <polygon points="1145,120 1150,135 1155,120" fill="white" />
-            {/* <polygon points="1145,160 1150,175 1155,160" fill="white" /> */}
-          </svg>
+  {/* 🔵 BALL 2 */}
+  <circle r="5" fill="#00f0ff">
+    <animateMotion dur="6s" repeatCount="indefinite"  keyPoints="1;0" keyTimes="0;1">
+      <mpath href="#motionPath" />
+    </animateMotion>
+  </circle>
+
+  {/* 🟣 BALL 3 */}
+  <circle r="5" fill="#a855f7">
+    <animateMotion dur="8s" repeatCount="indefinite"  keyPoints="1;0" keyTimes="0;1">
+      <mpath href="#motionPath" />
+    </animateMotion>
+  </circle>
+
+</svg>
           {/* TOP ROW */}
           <div className="grid grid-cols-3 px-16 pr-20 gap-24 mb-32 relative z-10">
             {topRow.map((item) => (
@@ -181,29 +208,10 @@ const Abouts = () => {
           </div>
 
           {/* TIMELINE LINE */}
-          <svg
-            className="absolute left-0 top-[140px] w-full h-[180px]"
-            viewBox="0 0 1200 180"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-          >
-            {/* DOWN ARROW */}
-            <polygon points="1145,100 1150,115 1155,100" fill="white" />
-            {/* CURVE TO BOTTOM LINE */}
-            <path d="M1150 100 Q1150 130 1120 130" />
-            {/* BOTTOM LINE */}
-            {/* BOTTOM LINE */}
-            <path d="M1120 130 H20" />
-
-            {/* ARROWS BOTTOM */}
-            <polygon points="880,126 860,130 880,134" fill="white" />
-            <polygon points="580,126 560,130 580,134" fill="white" />
-            <polygon points="280,126 260,130 280,134" fill="white" />
-          </svg>
+         
 
           {/* BOTTOM ROW */}
-          <div className="grid grid-cols-3 gap-24 px-16 pr-20 mt-28 relative z-10">
+          <div className="grid grid-cols-3 gap-24 px-16 top-[-10px]   pr-20 mt-28 relative z-10">
             {bottomRow.map((item) => (
               <div key={item.id}>
                 <p className="text-gray-400 text-[18px] mb-3">{item.period}</p>
@@ -230,9 +238,9 @@ const Abouts = () => {
           {/* vertical line */}
           <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-white/30"></div>
 
-          <div className="space-y-12">
+          <div className="space-y-12 ">
             {journeys.map((item) => (
-              <div key={item.id} className="relative pl-10">
+              <div key={item.id} className="relative pl-10 ">
                 <div className="absolute left-0 top-2 w-3 h-3 bg-white rounded-full"></div>
 
                 <p className="text-gray-400 text-xs mb-2">{item.period}</p>
@@ -264,7 +272,7 @@ const Abouts = () => {
           {/* Awards Row */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 items-center">
             {/* Award Item */}
-            <div className="text-center relative w-fit mx-auto">
+            <div className="text-center relative w-fit mx-auto hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all hover:bg-transparent">
               {/* Laurels */}
               <img src="/10.png" className="mx-auto h-36 object-contain" />
 
@@ -281,7 +289,7 @@ const Abouts = () => {
               </p>
             </div>
 
-            <div className="text-center relative w-fit mx-auto">
+            <div className="text-center relative w-fit mx-auto hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
               {/* Laurels */}
               <img src="/10.png" className="mx-auto h-36 object-contain" />
 
@@ -298,7 +306,7 @@ const Abouts = () => {
               </p>
             </div>
 
-            <div className="text-center relative w-fit mx-auto">
+            <div className="text-center relative w-fit mx-auto hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
               {/* Laurels */}
               <img src="/10.png" className="mx-auto h-36 object-contain" />
 
@@ -315,7 +323,7 @@ const Abouts = () => {
               </p>
             </div>
 
-            <div className="text-center relative w-fit mx-auto">
+            <div className="text-center relative w-fit mx-auto hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
               {/* Laurels */}
               <img src="/10.png" className="mx-auto h-36 object-contain" />
 
@@ -338,7 +346,7 @@ const Abouts = () => {
             className="text-center font-semibold mt-16
            text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
           bg-gradient-to-b from-white to-[#999999]
-          bg-clip-text text-transparent"
+          bg-clip-text text-transparent "
           >
             Meet our team <br />
             of experts
@@ -352,7 +360,7 @@ const Abouts = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
               {/* Card */}
               {team.map((item, index) => (
-                <div className="bg-white rounded-[30px] overflow-hidden">
+                <div className="bg-white rounded-[30px] overflow-hidden hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
                   {/* Image */}
                   <img
                     src={`${baseURL}/${item.image}`}
