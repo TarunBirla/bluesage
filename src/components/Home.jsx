@@ -12,7 +12,9 @@ import SIPCalculator from "./SIPCalculator";
 import http from "../service/http";
 import { baseURL } from "../service/api";
 
+
 const Home = () => {
+  
   const data = [
     { name: "Principal", value: 40 },
     { name: "Interest", value: 60 },
@@ -54,7 +56,9 @@ const Home = () => {
     }
   };
   return (
+    
     <>
+    
       <Header />
 
       <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[90vh] bg-black overflow-hidden">
@@ -123,21 +127,6 @@ const Home = () => {
             <button className="px-6 py-2 border border-gray-500 rounded-full text-white text-[18px] mb-10">
               Who we are?
             </button>
-
-            {/* <h2
-              className="text-gray-300 font-[Syne] 
-              text-[26px] leading-[40px]
-              sm:text-[32px] sm:leading-[48px]
-              md:text-[40px] md:leading-[58px]"
-            >
-              <span className="text-white">
-                Our bespoke wealth management firm
-              </span>{" "}
-              is built on the principles of transparency, trust, and long-term
-              partnerships. With over 20 years of experience, our team brings
-              deep market insight, proven expertise, and a strong commitment to
-              managing wealth for individuals, families, and business owners.
-            </h2> */}
 
             <ScrollHighlightText />
           </div>
@@ -731,10 +720,9 @@ const lines = [
 ];
 
 function ScrollHighlightText() {
-  const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef(null);
+  const [progress, setProgress] = useState(0);
 
-  // 👉 Scroll Logic
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
@@ -742,43 +730,51 @@ function ScrollHighlightText() {
       const rect = containerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+      // progress from 0 → 1
+      const total = windowHeight + rect.height;
+      const current = windowHeight - rect.top;
 
-      const index = Math.floor(progress * lines.length);
+      let prog = current / total;
 
-      if (index >= 0 && index < lines.length) {
-        setActiveIndex(index);
-      }
+      prog = Math.max(0, Math.min(1, prog));
+
+      setProgress(prog);
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // initial call
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className=" flex items-center">
-      <div ref={containerRef} className="w-full px-4">
-        <h2 className="text-xl md:text-[50px] leading-snug">
-          {lines.map((line, i) => (
-            <span
-              key={i}
-              onMouseEnter={() => setActiveIndex(i)} // 👉 Hover effect
-              className={`
-                block transition-all duration-500 font-medium cursor-pointer
-                ${
-                  i === activeIndex
-                    ? "text-white scale-105"
-                    : i < activeIndex
-                      ? "text-[#888]"
-                      : "text-[#333]"
-                }
-              `}
-            >
-              {line.text}
-            </span>
-          ))}
+    <div className="min-h-[120vh] flex items-center">
+      <div ref={containerRef} className="w-full px-6">
+        <h2 className="text-[22px] md:text-[60px] leading-[1.2] font-small">
+          {lines.map((line, i) => {
+            const start = i / lines.length;
+            const end = (i + 1) / lines.length;
+            let opacity = 0.2;
+            if (progress >= start && progress <= end) {
+              const localProgress = (progress - start) / (end - start);
+              opacity = 0.2 + localProgress * 0.8; 
+            } else if (progress > end) {
+              opacity = 1; 
+            }
+
+            return (
+              <span
+                key={i}
+                className="block transition-all duration-300"
+                style={{
+                  opacity,
+                  color: `rgba(255,255,255,${opacity})`,
+                }}
+              >
+                {line.text}
+              </span>
+            );
+          })}
         </h2>
       </div>
     </div>
