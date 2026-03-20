@@ -40,11 +40,52 @@ const Header = () => {
 
   {/* CENTER - NAV LINKS */}
   <div className="hidden md:flex items-center space-x-8 text-white text-[20px]  font-normal  leading-[100%] tracking-[0%]">
-    <NavLink to="/" className="hover:text-gray-300">Home</NavLink>
-    <NavLink to="/abouts" className="hover:text-gray-300">About us</NavLink>
-    <NavLink to="/project" className="hover:text-gray-300">Service</NavLink>
+    {/* <NavLink to="/" className="hover:text-gray-300">Home</NavLink>
+    <NavLink to="/abouts" className="hover:text-gray-300">About us</NavLink> */}
+    <NavLink to="/">
+    {({ isActive }) => (
+      <div className="relative pb-1 text-white">
+        Home
+        <span className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}></span>
+      </div>
+    )}
+  </NavLink>
+
+  <NavLink to="/abouts">
+    {({ isActive }) => (
+      <div className="relative pb-1 text-white">
+        About us
+        <span className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}></span>
+      </div>
+    )}
+  </NavLink>
+  <NavLink to="/project">
+    {({ isActive }) => (
+      <div className="relative pb-1 text-white">
+      Service
+        <span className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}></span>
+      </div>
+    )}
+  </NavLink>
+  <NavLink to="/partner">
+    {({ isActive }) => (
+      <div className="relative pb-1 text-white">
+        Partner with us
+        <span className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}></span>
+      </div>
+    )}
+  </NavLink>
+  <NavLink to="/blog">
+    {({ isActive }) => (
+      <div className="relative pb-1 text-white">
+    Blog
+        <span className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}></span>
+      </div>
+    )}
+  </NavLink>
+    {/* <NavLink to="/project" className="hover:text-gray-300">Service</NavLink>
     <NavLink to="/partner" className="hover:text-gray-300">Partner with us</NavLink>
-    <NavLink to="/blog" className="hover:text-gray-300">Blog</NavLink>
+    <NavLink to="/blog" className="hover:text-gray-300">Blog</NavLink> */}
   </div>
 
   {/* RIGHT - BUTTONS */}
