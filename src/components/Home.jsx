@@ -64,7 +64,15 @@ const Home = () => {
       <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[90vh] bg-black overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center mt-20 mb-10">
           {/* <img src="/2.png" alt="circle" className="w-[500px] md:w-[500px] " /> */}
-          <video src="/video.mp4" autoPlay loop muted></video>
+          {/* <video src="/video.mp4" autoPlay loop muted></video> */}
+          <video
+            src="/video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          ></video>
         </div>
 
         <div
@@ -120,9 +128,9 @@ const Home = () => {
 
           <div
             className="absolute bottom-0 left-1/2 -translate-x-1/2 
-      w-[90vw] max-w-[600px] h-[200px] 
-      bg-gradient-to-t from-gray-200 to-transparent 
-      blur-[120px] opacity-40"
+            w-[90vw] max-w-[600px] h-[200px] 
+            bg-gradient-to-t from-gray-200 to-transparent 
+            blur-[120px] opacity-40"
           />
           <div className="max-w-5xl mx-auto px-6 mt-20  relative z-10">
             <button className="px-6 py-2 border border-gray-500 rounded-full text-white text-[18px] mb-10">
@@ -772,7 +780,7 @@ function ScrollHighlightText() {
                   color: `rgba(255,255,255,${opacity})`,
                 }}
               >
-                {line.text}
+                {line.text} 
               </span>
             );
           })}
