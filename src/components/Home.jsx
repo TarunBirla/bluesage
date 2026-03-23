@@ -64,15 +64,15 @@ const Home = () => {
       <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[90vh] bg-black overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center mt-20 mb-10">
           {/* <img src="/2.png" alt="circle" className="w-[500px] md:w-[500px] " /> */}
-          {/* <video src="/video.mp4" autoPlay loop muted></video> */}
-          <video
+          <video src="/video.mp4" autoPlay loop muted className="w-full h-full object-cover"></video>
+          {/* <video
             src="/video.mp4"
             autoPlay
             loop
             muted
             playsInline
             className="w-full h-full object-cover"
-          ></video>
+          ></video> */}
         </div>
 
         <div
