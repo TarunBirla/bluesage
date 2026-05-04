@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "https://bluesage.cybrical.co.uk";
+export const baseURL = "https://bluesage.infoharry.in";
 
 const api = axios.create({
   baseURL: `${baseURL}/api`, // reuse the baseURL here
