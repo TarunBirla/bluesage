@@ -61,11 +61,11 @@ const Home = () => {
     
       <Header />
 
-      <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[90vh] bg-black overflow-hidden">
+      <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[105vh] bg-black overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center mt-20 mb-10">
-          {/* <img src="/2.png" alt="circle" className="w-[500px] md:w-[500px] " /> */}
+          <img src="/2.png" alt="circle" className="w-[500px] md:w-[500px] " />
           {/* <video src="/video.mp4" autoPlay loop muted className="w-full h-full object-cover"></video> */}
-            <video
+            {/* <video
               src="/video.mp4"
               autoPlay
               loop
@@ -73,7 +73,7 @@ const Home = () => {
               playsInline
               preload="auto"
               className="w-full h-full object-cover"
-            />
+            /> */}
         </div>
 
         <div
@@ -85,10 +85,10 @@ const Home = () => {
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
           <h1
-            className="text-white font-[Syne] font-bold
+            className="text-white font-[Quicksand] font-bold
             text-[38px] leading-[46px]
             sm:text-[56px] sm:leading-[60px]
-            md:text-[105px] md:leading-[121px]"
+            md:text-[80px] md:leading-[121px]"
           >
             Your Trusted <br />
             Investment Partner
@@ -146,21 +146,20 @@ const Home = () => {
       <section className="bg-black  pb-20 overflow-hidden">
         {/* Stats Card */}
         <div className="max-w-7xl   mx-auto p-4 ">
-          <img src="/scnhome.png" className="w-full h-auto " />
+          <img src="/scnhome.png" className="w-full h-[85vh] " />
         </div>
       </section>
 
-      <section className="relative bg-black py-32 overflow-hidden">
+      <section className="relative bg-black py-25 overflow-hidden">
         {/* Glow */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gray-400 blur-[200px] opacity-20"></div>
+        <div className="absolute top-0 right-0 w-[600px] h-[200px] bg-gray-400 blur-[200px] opacity-20"></div>
 
-        <div className="max-w-7xl  mx-auto px-6">
+        <div className="max-w-5xl  mx-auto px-5">
           {/* Heading */}
-          <div className="mb-16">
-            <h2 className="text-white text-5xl font-bold mb-4">Process</h2>
+          <div className="mb-1">
+            <h2 className="text-white text-5xl font-bold mb-2">Process</h2>
             <p className="text-gray-400 max-w-xs text-[18px]">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              Process of how we work with you and your money
             </p>
           </div>
 

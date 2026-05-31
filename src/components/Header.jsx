@@ -39,7 +39,7 @@ const Header = () => {
   </div>
 
   {/* CENTER - NAV LINKS */}
-  <div className="hidden md:flex items-center space-x-8 text-white text-[20px]  font-normal  leading-[100%] tracking-[0%]">
+  <div className="hidden md:flex items-center space-x-8 text-white text-[15px]  font-normal leading-[100%] tracking-[0%]">
     {/* <NavLink to="/" className="hover:text-gray-300">Home</NavLink>
     <NavLink to="/abouts" className="hover:text-gray-300">About us</NavLink> */}
     <NavLink to="/">
@@ -63,6 +63,14 @@ const Header = () => {
     {({ isActive }) => (
       <div className="relative pb-1 text-white">
       Service
+        <span className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}></span>
+      </div>
+    )}
+  </NavLink>
+   <NavLink to="/project">
+    {({ isActive }) => (
+      <div className="relative pb-1 text-white">
+      Research
         <span className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}></span>
       </div>
     )}
@@ -125,6 +133,9 @@ const Header = () => {
             </NavLink>
             <NavLink to="/project" onClick={() => setMenuOpen(false)}>
               Service
+            </NavLink>
+            <NavLink to="/project" onClick={() => setMenuOpen(false)}>
+              Research
             </NavLink>
             <NavLink to="/partner" onClick={() => setMenuOpen(false)}>
               Partner with us
