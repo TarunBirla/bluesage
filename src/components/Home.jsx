@@ -62,66 +62,11 @@ const Home = () => {
       <Header />
 
       <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[105vh] bg-black overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center mt-20 mb-10">
-          <img src="/2.png" alt="circle" className="w-[500px] md:w-[500px] " />
-          {/* <video src="/video.mp4" autoPlay loop muted className="w-full h-full object-cover"></video> */}
-            {/* <video
-              src="/video.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="w-full h-full object-cover"
-            /> */}
-        </div>
-
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 
-          w-[1200px] h-[250px] 
-          bg-gradient-to-t from-gray-200 to-transparent 
-          blur-[120px] opacity-40"
-        ></div>
-
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-          {/* <h1
-            className="text-white font-[Quicksand] font-bold
-            font-weight-700
-            text-[38px] leading-[46px]
-            sm:text-[56px] sm:leading-[60px]
-            md:text-[80px] md:leading-[121px]"
-          >
-            Your Trusted <br />
-            Investment Partner
-          </h1> */}
-          <h1
-  className="
-  text-white
-    font-[Quicksand]
-    font-weight-700
-    text-center
-    tracking-[-0.04em]
-    text-[40px] leading-[121%]
-    sm:text-[60px]
-    md:text-[80px]
-    lg:text-[105.91px]
-  "
->
-  Your Trusted <br />
-  Investment Partner
-</h1>
-
-          <button
-            className="mt-8 px-6 py-3 rounded-full
-            border border-gray-400
-            text-white
-            bg-white/10 backdrop-blur-md
-            hover:bg-white hover:text-black
-            transition"
-          >
-            Review my portfolio ↓
-          </button>
-        </div>
+          <img
+    src="/homeimg.jpeg"
+    alt="Home Banner"
+    className="block w-full"
+  />
       </section>
 
       <section className="bg-black pb-20">
