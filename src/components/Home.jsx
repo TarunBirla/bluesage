@@ -229,7 +229,7 @@ const Home = () => {
                   <div className="w-full md:w-[260px] lg:w-[280px] shrink-0">
                     <img
                       src={`${baseURL}/${item.image}`} // 👈 image path item.image}
-                      className="rounded-2xl object-fill md:object-cover w-full h-[400px] md:h-[548px]"
+                      className="rounded-2xl object-fill md:object-cover w-full h-[400px] md:h-[400px]"
                       alt=""
                     />
                   </div>
@@ -351,7 +351,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-10 text-white bg-black overflow-hidden">
+      <section className="  py-10 text-white bg-black overflow-hidden">
         <div className="max-w-7xl  mx-auto px-6 bg-gradient-to-b from-[#0b0b0b] via-[#000000] to-[#050505] rounded-3xl py-10">
           {/* Heading */}
 

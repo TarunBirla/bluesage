@@ -254,7 +254,7 @@ const Abouts = () => {
         </div>
       </section>
 
-      <section className="bg-black text-white py-24 relative overflow-hidden">
+      <section className="bg-black text-white py-20 relative overflow-hidden">
         {/* bottom gradient glow */}
         <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-gray-600/40 to-transparent blur-2xl"></div>
 
@@ -348,7 +348,7 @@ const Abouts = () => {
           bg-gradient-to-b from-white to-[#999999]
           bg-clip-text text-transparent "
           >
-            Meet our team <br />
+            Meet our team 
             of experts
           </h2>
         </div>
