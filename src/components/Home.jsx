@@ -84,15 +84,32 @@ const Home = () => {
         ></div>
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-          <h1
+          {/* <h1
             className="text-white font-[Quicksand] font-bold
+            font-weight-700
             text-[38px] leading-[46px]
             sm:text-[56px] sm:leading-[60px]
             md:text-[80px] md:leading-[121px]"
           >
             Your Trusted <br />
             Investment Partner
-          </h1>
+          </h1> */}
+          <h1
+  className="
+  text-white
+    font-[Quicksand]
+    font-weight-700
+    text-center
+    tracking-[-0.04em]
+    text-[40px] leading-[121%]
+    sm:text-[60px]
+    md:text-[80px]
+    lg:text-[105.91px]
+  "
+>
+  Your Trusted <br />
+  Investment Partner
+</h1>
 
           <button
             className="mt-8 px-6 py-3 rounded-full
@@ -117,10 +134,10 @@ const Home = () => {
           >
             {count.map((item, index) => (
               <div key={index}>
-                <h3 className="text-[40px] md:text-[64px] text-[#FFFFFF] font-bold">
+                <h3 className="text-[40px] md:text-[64px] text-[#FFFFFF] font-weight-500 font-[Quicksand]">
                   {item.number}
                 </h3>
-                <p className="text-[13px] md:text-[18px] text-[#FFFFFF] mt-2">
+                <p className="text-[13px] md:text-[18px] text-[#FFFFFF] font-weight-500  mt-2 font-[Quicksand] uppercase">
                   {item.subtitle}
                 </p>
               </div>
@@ -157,7 +174,7 @@ const Home = () => {
         <div className="max-w-5xl  mx-auto px-5">
           {/* Heading */}
           <div className="mb-1">
-            <h2 className="text-white text-5xl font-bold mb-2">Process</h2>
+            <h2 className="text-gray-400 text-5xl font-weight-700 font-[Quicksand] mb-2">Process</h2>
             <p className="text-gray-400 max-w-xs text-[18px]">
               Process of how we work with you and your money
             </p>
@@ -173,11 +190,11 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Heading */}
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold">
+            <h2 className="text-3xl text-gray-400 sm:text-4xl md:text-[80px] font-weight-600  font-semibold font-[Quicksand]">
               What our clien<span className="text-gray-400">t says</span>
             </h2>
 
-            <p className="text-gray-400 mt-4 max-w-xl mx-auto text-[18px] sm:text-base">
+            <p className="text-gray-400 mt-4 max-w-xl mx-auto text-[22px] ">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry.
             </p>
@@ -219,7 +236,7 @@ const Home = () => {
 
                   {/* Content */}
                   <div className="text-center md:text-left mt-2 md:mt-4">
-                    <p className="text-gray-300 leading-relaxed mb-6 md:mb-8 text-[18px] sm:text-base md:text-[22px]">
+                    <p className="text-gray-300 leading-relaxed font-[Quicksand] font-weight-400 mb-6 md:mb-8 text-[18px] sm:text-base md:text-[22px]">
                       {item.message}
                     </p>
 
@@ -231,7 +248,7 @@ const Home = () => {
                       />
 
                       <div>
-                        <h4 className="font-semibold text-[18px] sm:text-base md:text-[23.87px]">
+                        <h4 className=" font-weight-500 font-[Quicksand] text-[18px] sm:text-base md:text-[23.87px]">
                           {item.name}
                         </h4>
 
@@ -295,7 +312,7 @@ const Home = () => {
                     />
 
                     <div>
-                      <h4 className="text-[18px] font-semibold">{item.name}</h4>
+                      <h4 className="text-[18px] font-weight-500">{item.name}</h4>
                       <p className="text-xs text-gray-500">
                         {item.designation}
                       </p>
@@ -338,7 +355,7 @@ const Home = () => {
         <div className="max-w-7xl  mx-auto px-6 bg-gradient-to-b from-[#0b0b0b] via-[#000000] to-[#050505] rounded-3xl py-10">
           {/* Heading */}
 
-          <h2 className="text-center text-5xl font-semibold mb-16 text-gray-300">
+          <h2 className="text-center text-[80px] font-semibold font-[Quicksand] font-weight-600 mb-16 text-gray-300">
             Award and achievement
           </h2>
 
@@ -435,12 +452,12 @@ const Home = () => {
 
                   {/* Title */}
                   <h3
-                    className="text-[24px] md:text-[28.18px] font-semibold mb-3"
+                    className="text-[24px] md:text-[28.18px] font-weight-500 font-[Quicksand] mb-3"
                     dangerouslySetInnerHTML={{ __html: item.title }}
                   />
 
                   {/* Description */}
-                  <p className="text-[#C8C8C8] text-xs px-8 leading-relaxed max-w-xs">
+                  <p className="text-[#C8C8C8] md:text-[14.18px] font-weight-300 font-[Quicksand] px-8 leading-relaxed max-w-xs">
                     {item.description}
                   </p>
                 </div>
@@ -774,7 +791,7 @@ function ScrollHighlightText() {
             return (
               <span
                 key={i}
-                className="block transition-all duration-300"
+                className="block transition-all duration-300 font-weight-500 font-[Quicksand]"
                 style={{
                   opacity,
                   color: `rgba(255,255,255,${opacity})`,

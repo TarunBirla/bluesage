@@ -72,7 +72,7 @@ const Abouts = () => {
             </div>
 
             <div className="text-gray-300 max-w-lg -mt-20">
-              <p className="leading-relaxed font-light mb-10 text-[28px] line-clamp-6">
+              <p className="leading-relaxed font-light mb-10 text-[28px] font-weight-300 font-[Quicksand] line-clamp-6">
                 {clienttest[0]?.message}
               </p>
 
@@ -83,7 +83,7 @@ const Abouts = () => {
                 />
 
                 <div>
-                  <h4 className="text-white text-[31px] font-semibold">
+                  <h4 className="text-white text-[31px] font-weight-300 font-[Quicksand]">
                     {clienttest[0]?.name}
                   </h4>
 
@@ -132,7 +132,7 @@ const Abouts = () => {
 
       <section className="bg-black py-24 text-white hidden md:block">
         <h2
-          className="text-center font-semibold mb-16
+          className="text-center font-semibold font-weight-600 font-[Quicksand] mb-16
           text-[80px] leading-[85px] tracking-[-0.02em]
           bg-gradient-to-b from-white to-[#999999]
           bg-clip-text text-transparent"
@@ -227,7 +227,7 @@ const Abouts = () => {
       
       <section className="bg-black py-16 text-white md:hidden">
         <h2
-          className="text-center font-semibold mb-16
+          className="text-center font-semibold font-weight-600 font-[Quicksand] mb-16
           text-[40px] leading-[45px] tracking-[-0.02em]
           bg-gradient-to-b from-white to-[#999999]
           bg-clip-text text-transparent"
@@ -261,7 +261,7 @@ const Abouts = () => {
         <div className="max-w-7xl  mx-auto px-6 text-center">
           {/* Heading */}
           <h2
-            className="text-center font-semibold mb-16
+            className="text-center font-semibold font-weight-600 font-[Quicksand] mb-16
            text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
           bg-gradient-to-b from-white to-[#999999]
           bg-clip-text text-transparent"
@@ -343,7 +343,7 @@ const Abouts = () => {
 
           {/* Next Section Title */}
           <h2
-            className="text-center font-semibold mt-16
+            className="text-center font-semibold mt-16 font-weight-600 font-[Quicksand]
            text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
           bg-gradient-to-b from-white to-[#999999]
           bg-clip-text text-transparent "

@@ -54,7 +54,7 @@ const Partner = () => {
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
           <h1
-            className="text-center font-semibold 
+            className="text-center font-semibold  font-weight-600 font-[Quicksand]
            text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
           bg-gradient-to-b from-white to-[#999999]
           bg-clip-text text-transparent"
@@ -92,7 +92,7 @@ const Partner = () => {
 
         <div className="max-w-7xl  mx-auto px-4 text-gray-300">
           {/* Heading */}
-          <h2 className="text-white text-3xl md:text-4xl font-semibold mb-8">
+          <h2 className="text-white text-3xl md:text-4xl  font-weight-500 font-[Quicksand] mb-8">
             {content_section?.title}
           </h2>
 
@@ -113,7 +113,7 @@ const Partner = () => {
         <div className="max-w-7xl  mx-auto px-3">
           {/* Heading */}
           <h2
-            className="text-center font-semibold mb-10 
+            className="text-center font-semibold font-weight-600 font-[Quicksand] mb-10 
            text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
           bg-gradient-to-b from-white to-[#999999]
           bg-clip-text text-transparent"
@@ -140,7 +140,7 @@ const Partner = () => {
                   </div>
 
                   {/* title */}
-                  <h3 className="font-semibold text-lg leading-snug mb-4">
+                  <h3 className="text-gray-400 text-[22px] font-weight-500 font-[Quicksand] leading-snug mb-4">
                     {item.title}
                   </h3>
 

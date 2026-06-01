@@ -50,7 +50,7 @@ const ProjectNew = () => {
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
           <h1
-            className="text-white font-[Syne] font-bold
+            className="text-white font-[Syne] font-semibold font-weight-600 font-[Outfit]
             text-[38px] leading-[46px]
             sm:text-[56px] sm:leading-[60px]
             md:text-[72px] md:leading-[78px]"
@@ -59,7 +59,7 @@ const ProjectNew = () => {
           </h1>
 
           <h2
-            className="text-white font-[Syne] font-semibold
+            className="text-white font-[Syne] font-weight-400 font-[Outfit]
             text-[28px] leading-[36px]
             sm:text-[46px] sm:leading-[50px]
             md:text-[52px] md:leading-[58px]"
@@ -104,7 +104,7 @@ const ProjectNew = () => {
         <div className="max-w-7xl  mx-auto px-6 text-center">
           {/* Heading */}
           <h2
-            className="text-center font-semibold mb-20
+            className="text-center font-semibold mb-20 font-weight-600 font-[Quicksand]
            text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
           bg-gradient-to-b from-white to-[#999999]
           bg-clip-text text-transparent"
@@ -203,7 +203,7 @@ const ProjectNew = () => {
       <section className="bg-black  pb-20 pt-20 ">
         {/* Stats Card */}
         <div className="max-w-7xl  mx-auto text-center ">
-          <h2 className="text-white text-4xl md:text-5xl font-semibold mb-14 ">
+          <h2 className=" text-4xl md:text-[85px] font-semibold mb-14 font-weight-600 font-[Quicksand] bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent">
             Schedule a call to align your
             <br /> investments with financial goals
           </h2>
@@ -221,7 +221,7 @@ const ProjectNew = () => {
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           {/* LEFT CONTENT */}
           <div>
-            <h2 className="text-white text-4xl md:text-5xl font-semibold leading-tight">
+            <h2 className="text-white text-4xl md:text-5xl font-weight-500 font-[Quicksand] leading-tight">
               {highlight?.title || "Loading..."}
             </h2>
 

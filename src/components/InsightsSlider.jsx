@@ -36,7 +36,7 @@ export default function InsightsSlider() {
     <section className="bg-black py-16 md:py-28 text-center overflow-hidden">
       
       {/* Heading */}
-      <h2 className="text-2xl sm:text-4xl md:text-5xl font-semibold text-gray-300 mb-10 md:mb-16">
+      <h2 className="text-2xl sm:text-4xl md:text-[80px] font-semibold font-weight-600 font-[Outfit] text-gray-400 mb-10 md:mb-16">
         Insights for our clients
       </h2>
 

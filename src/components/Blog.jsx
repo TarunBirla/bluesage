@@ -24,7 +24,7 @@ const Blog = () => {
         {/* Content */}
         <div className="relative z-10 mt-16  md:mt-28 flex flex-col items-center justify-center h-full text-center px-6">
           <h1
-            className="text-white font-[Syne] font-bold
+            className="text-white font-[Syne] font-semibold font-weight-600 font-[Quicksand]
       text-[38px] leading-[46px]
       sm:text-[56px] sm:leading-[60px]
       md:text-[72px] md:leading-[78px]"

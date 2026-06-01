@@ -35,7 +35,7 @@ export default function SIPCalculator() {
   return (
     <section className="bg-black py-5 px-4 flex justify-center overflow-hidden">
       <div className="max-w-6xl w-full border border-gray-400 rounded-[40px] hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all p-6 md:p-12">
-        <h2 className="text-white text-[18px] font-semibold mb-8">
+        <h2 className="text-white text-[35px] font-[Outfit] font-weight-600 mb-8">
           SIP Calculator
         </h2>
 
