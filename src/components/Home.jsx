@@ -305,11 +305,13 @@ const Home = () => {
 
                   {/* User */}
                   <div className="flex items-center gap-3">
-                    <img
-                      src={`${baseURL}/${item.image}`}
-                      alt={item.name}
-                      className="w-9 h-9 md:w-10 md:h-10 rounded-full object-cover"
-                    />
+                     <div className="w-15 h-15 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center shrink-0">
+  <img
+    src={`${baseURL}/${item.image}`}
+    alt={item.name}
+    className="w-8 h-8 md:w-8 md:h-8 object-contain"
+  />
+</div>
 
                     <div>
                       <h4 className="text-[18px] font-weight-500">{item.name}</h4>
@@ -429,11 +431,11 @@ const Home = () => {
               <SwiperSlide key={index}>
                 <div className="flex flex-col items-center text-center 00  ">
                   {/* Trophy Section */}
-                  <div className="relative flex justify-center items-center mb-10 ">
+                  <div className="relative flex justify-center items-center mb-10  hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
                     {/* Ribbon / Badge Background */}
                     <img
-                      src="/award.png"
-                      className="w-60 object-contain  hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all "
+                      src="/awd.png"
+                      className="w-60 object-contain  "
                       alt="award background"
                     />
 
@@ -441,13 +443,13 @@ const Home = () => {
                     <img
                       src={`${baseURL}/${item.image}`}
                       alt={item.title}
-                      className="absolute -top-1 h-50 object-contain "
+                      className="absolute  h-50 object-contain "
                     />
 
                     {/* Year */}
-                    <span className="absolute bottom-18 font-semibold text-[36px] bg-gradient-to-b from-[#000000] to-[#838383] bg-clip-text text-transparent">
+                    {/* <span className="absolute bottom-18 font-semibold text-[36px] bg-gradient-to-b from-[#000000] to-[#838383] bg-clip-text text-transparent">
                       {item.year}
-                    </span>
+                    </span> */}
                   </div>
 
                   {/* Title */}
@@ -457,9 +459,9 @@ const Home = () => {
                   />
 
                   {/* Description */}
-                  <p className="text-[#C8C8C8] md:text-[14.18px] font-weight-300 font-[Quicksand] px-8 leading-relaxed max-w-xs">
+                  {/* <p className="text-[#C8C8C8] md:text-[14.18px] font-weight-300 font-[Quicksand] px-8 leading-relaxed max-w-xs">
                     {item.description}
-                  </p>
+                  </p> */}
                 </div>
               </SwiperSlide>
             ))}
@@ -549,15 +551,14 @@ const Home = () => {
           </Swiper>
         </div>
       </section> */}
-      <section className="bg-black py-10">
-        <section className="bg-gradient-to-b from-[#161616] to-[#161616]/99 py-16 md:mx-8">
+      <section className="bg-gradient-to-b from-[#161616] to-[#000] py-10">
+        <section className=" py-16 md:mx-8">
           <div className="max-w-7xl mx-auto relative">
             {/* LEFT SHADOW */}
             <div className="pointer-events-none absolute left-0 top-0 h-full w-40 bg-gradient-to-r from-black/90 to-transparent z-10"></div>
 
             {/* RIGHT SHADOW */}
             <div className="pointer-events-none absolute right-0 top-0 h-full w-40 bg-gradient-to-l from-black/90 to-transparent z-10"></div>
-
             {/* Slider 1 */}
             <Swiper
               modules={[Autoplay]}
@@ -619,6 +620,78 @@ const Home = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
+
+            
+          </div>
+           <div className="max-w-7xl mt-6 mx-auto relative">
+            {/* LEFT SHADOW */}
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-40 bg-gradient-to-r from-black/90 to-transparent z-10"></div>
+
+            {/* RIGHT SHADOW */}
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-40 bg-gradient-to-l from-black/90 to-transparent z-10"></div>
+            {/* Slider 1 */}
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={30}
+              slidesPerView={6}
+              loop={true}
+              speed={3000}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+              }}
+              breakpoints={{
+                320: { slidesPerView: 2 },
+                640: { slidesPerView: 3 },
+                1024: { slidesPerView: 6 },
+              }}
+            >
+              {logos.map((logo, index) => (
+                <SwiperSlide key={index}>
+                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
+                    <img
+                      src={`${baseURL}/${logo?.logo}`}
+                      alt="logo"
+                      className="h-8 object-contain"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Slider 2 */}
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={30}
+              slidesPerView={6}
+              loop={true}
+              speed={3000}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+                reverseDirection: true,
+              }}
+              className="mt-6"
+              breakpoints={{
+                320: { slidesPerView: 2 },
+                640: { slidesPerView: 3 },
+                1024: { slidesPerView: 6 },
+              }}
+            >
+              {logos.map((logo, index) => (
+                <SwiperSlide key={index}>
+                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
+                    <img
+                      src={`${baseURL}/${logo?.logo}`}
+                      alt="logo"
+                      className="h-8 object-contain"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            
           </div>
         </section>
       </section>
@@ -774,34 +847,42 @@ function ScrollHighlightText() {
   }, []);
 
   return (
-    <div className="min-h-[120vh] flex items-center">
+    <div className=" flex items-center">
       <div ref={containerRef} className="w-full px-6">
-        <h2 className="text-[28px] md:text-[60px] leading-[1.2] font-small">
-          {lines.map((line, i) => {
-            const start = i / lines.length;
-            const end = (i + 1) / lines.length;
-            let opacity = 0.2;
-            if (progress >= start && progress <= end) {
-              const localProgress = (progress - start) / (end - start);
-              opacity = 0.2 + localProgress * 0.8; 
-            } else if (progress > end) {
-              opacity = 1; 
-            }
+       <h2>
+  {lines.map((line, i) => {
+    const start = i / lines.length;
+    const end = (i + 1) / lines.length;
 
-            return (
-              <span
-                key={i}
-                className="block transition-all duration-300 font-weight-500 font-[Quicksand]"
-                style={{
-                  opacity,
-                  color: `rgba(255,255,255,${opacity})`,
-                }}
-              >
-                {line.text} 
-              </span>
-            );
-          })}
-        </h2>
+    let opacity = 0.2;
+
+    if (progress >= start && progress <= end) {
+      const localProgress = (progress - start) / (end - start);
+      opacity = 0.2 + localProgress * 0.8;
+    } else if (progress > end) {
+      opacity = 1;
+    }
+
+    return (
+      <span
+        key={i}
+        className="block transition-all duration-300"
+        style={{
+          fontFamily: "'Quicksand', sans-serif",
+          fontWeight: 500,
+          fontSize: "48px",
+          lineHeight: "100%",
+          letterSpacing: "-0.04em", // -4%
+              
+          color: `rgba(255,255,255,${opacity})`,
+          opacity,
+        }}
+      >
+        {line.text}
+      </span>
+    );
+  })}
+</h2>
       </div>
     </div>
   );

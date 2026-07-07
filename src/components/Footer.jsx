@@ -1,72 +1,132 @@
 import { Link } from "react-router-dom";
-
+import footerBg from "/ftr.png"; // apne path ke hisab se change kar lo
 const Footer = () => {
   return (
-    <footer className="bg-black text-white  md:px-8">
-      <div className="bg-black bg-gradient-to-b from-[#161616] to-[#161616]/99 pt-20 pb-10">
-        {/* CTA CARD */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-16">
-          <div className="bg-white rounded-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 px-6 sm:px-8 py-6 sm:py-8">
-            <h2 className="text-gray-700 text-lg sm:text-xl md:text-2xl font-semibold leading-snug text-center sm:text-left">
-              Start Your Investment <br className="hidden sm:block" />
-              Journey Here
-            </h2>
+    <footer className=" text-white ">
+      <div
+        className="pt-20 pb-10 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${footerBg})`,
+        }}
+      >
+        <div className=" pt-20 pb-20">
+          {/* FOOTER LINKS */}
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10">
+            {/* Company */}
+            <div>
+              <h3 className="font-[Quicksand] font-weight-500 mb-4 text-[24px]">
+                Company
+              </h3>
+              <ul className="space-y-3  text-[18px]">
+                <li>
+                  <Link to="/">About Us</Link>
+                </li>
+                <li>Service</li>
+                <li>Research</li>
+                <li>Partner with us</li>
+                <li>Blog</li>
+              </ul>
+            </div>
 
-            <button className="bg-[#303030] text-white px-6 py-3 rounded-full text-[18px] sm:text-base hover:bg-black transition w-full sm:w-auto">
-              Start your Investment →
-            </button>
-          </div>
-        </div>
+            {/* Help */}
+            <div>
+              <h3 className="font-[Quicksand] font-weight-500 mb-4 text-[24px]">
+                Service
+              </h3>
+              <ul className="space-y-3  line-height-[40px] text-[18px]">
+                <li>
+                  Mutual Fund Investment Solutions Tax-Efficient Investment
+                  Support Retirement Investment Solutions Legacy & Succession
+                  Support Business & Investment Insights NRI Investment
+                  Solutions Family Investment Solutions
+                </li>
+              </ul>
+            </div>
 
-        {/* FOOTER LINKS */}
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10">
-          {/* Company */}
-          <div>
-            <h3 className="font-semibold mb-4">Company</h3>
-            <ul className="space-y-3 text-gray-400 text-[18px]">
-              <li>
-                <Link to="/">About</Link>
-              </li>
-              <li>Features</li>
-              <li>Works</li>
-              <li>Career</li>
-            </ul>
-          </div>
+            {/* Resources */}
+            <div>
+              <h3 className="font-[Quicksand] font-weight-500 mb-4 text-[24px]">
+                Latest News
+              </h3>
+              <ul className="space-y-3 text-[18px]">
+                <li>
+                  Understanding the Australia DTAA: A Lifesaver for Indian
+                  Investors
+                </li>
+                <li>
+                  SIP vs. Lump Sum: Choosing the Right Investment Strategy for
+                  Your Goals
+                </li>
+                <li>
+                  Saving Made Easy: Simple and Smart Ways to Save Income Tax in
+                  India
+                </li>
+              </ul>
+            </div>
 
-          {/* Help */}
-          <div>
-            <h3 className="font-semibold mb-4">Help</h3>
-            <ul className="space-y-3 text-gray-400 text-[18px]">
-              <li>Customer Support</li>
-              <li>Delivery Details</li>
-              <li>Terms & Conditions</li>
-              <li>Privacy Policy</li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="font-semibold mb-4">Resources</h3>
-            <ul className="space-y-3 text-gray-400 text-[18px]">
-              <li>Free eBooks</li>
-              <li>Development Tutorial</li>
-              <li>How to - Blog</li>
-              <li>Youtube Playlist</li>
-            </ul>
-          </div>
-
-          {/* Links */}
-          <div>
-            <h3 className="font-semibold mb-4">Links</h3>
-            <ul className="space-y-3 text-gray-400 text-[18px]">
-              <li>Free eBooks</li>
-              <li>Development Tutorial</li>
-              <li>How to - Blog</li>
-              <li>Youtube Playlist</li>
-            </ul>
+            {/* Links */}
+            <div>
+              <h3 className="font-[Quicksand] font-weight-500 mb-4 text-[24px]">
+                <Link to="/">
+                  <img
+                    src="/Logo.png"
+                    alt="logo"
+                    className="h-18 -mt-2 w-auto"
+                  />
+                </Link>
+              </h3>
+              <ul className="space-y-3  text-[18px]">
+                <li>
+                  At Blue Sage Wealth, we bring focus and simplicity to your
+                  finances. Every plan is personalized to your needs, lifestyle,
+                  and risk appetite. Our focus is on building, protecting, and
+                  preserving wealth today and for the future.
+                </li>
+              </ul>
+              <img src="/app.png" alt="logo" className=" mt-2 w-auto" />
+            </div>
           </div>
         </div>
       </div>
+
+<div className="bg-[#232323] border-t border-[#2f2f2f] py-3">
+  <div className="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center text-center">
+
+    {/* Top Line */}
+    <p className="text-[12px] md:text-[13px] text-[#9B9B9B] mb-2">
+      AMFI Registered Mutual Fund Distributor | ARN-152121 | ARN valid from:
+      14 Aug 2018 | Current Validity of ARN: 13 Aug 2027
+    </p>
+
+    {/* Bottom Line */}
+    <div className="flex flex-wrap justify-center items-center gap-2 text-[15px] md:text-[15px] text-[#9B9B9B]">
+
+      <span>© 2025 Blue Sage Wealth. All Rights Reserved.</span>
+
+      <span>|</span>
+      <a href="#" className="hover:text-white transition">Disclaimer</a>
+
+      <span>|</span>
+      <a href="#" className="hover:text-white transition">Disclosure</a>
+
+      <span>|</span>
+      <a href="#" className="hover:text-white transition">Privacy Policy</a>
+
+      <span>|</span>
+      <a href="#" className="hover:text-white transition">SID/SAI/KIM</a>
+
+      <span>|</span>
+      <a href="#" className="hover:text-white transition">Code of Conduct</a>
+
+      <span>|</span>
+      <a href="#" className="hover:text-white transition">AMFI Risk Factors</a>
+
+      <span>|</span>
+      <a href="#" className="hover:text-white transition">SEBI Circulars</a>
+
+    </div>
+  </div>
+</div>
     </footer>
   );
 };

@@ -67,7 +67,7 @@ const Header = () => {
       </div>
     )}
   </NavLink>
-   <NavLink to="/project">
+   <NavLink to="/reseach">
     {({ isActive }) => (
       <div className="relative pb-1 text-white">
       Research

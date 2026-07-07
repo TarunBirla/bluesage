@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import http from "../../service/http";
 import { baseURL } from "../../service/api";
+import { Link } from "react-router-dom";
 
 // const blogs = [
 //   {
@@ -172,12 +173,14 @@ export default function BlogGrid() {
 
                     {/* BUTTON */}
                     <div className="inline-block p-[1px] rounded-full bg-gradient-to-r from-black via-white/40 to-black">
+                    <Link to={`/blog/${blog.id}`}>
                       <button className="flex items-center gap-2 bg-[#141414] text-white text-xs font-normal px-5 py-2 rounded-full hover:bg-white hover:text-black transition">
                         Read more
                         <span className="text-sm text-[#424242] leading-none">
                           ›
                         </span>
                       </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

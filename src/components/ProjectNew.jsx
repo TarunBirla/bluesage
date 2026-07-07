@@ -38,8 +38,8 @@ const ProjectNew = () => {
     <>
       <Header />
 
-      <section className="relative w-full h-[80vh] md:h-[90vh] bg-black overflow-hidden ">
-        {/* Bottom Silver Glow */}
+      {/* <section className="relative w-full h-[80vh] md:h-[90vh] bg-black overflow-hidden ">
+       
         <div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 
           w-[700px] h-[250px] 
@@ -47,7 +47,7 @@ const ProjectNew = () => {
           blur-[120px] opacity-40"
         ></div>
 
-        {/* Content */}
+       
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
           <h1
             className="text-white font-[Syne] font-semibold font-weight-600 font-[Outfit]
@@ -71,8 +71,7 @@ const ProjectNew = () => {
             Helps in achieving your financial goals
           </p>
 
-          {/* Dropdown */}
-          {/* Dropdown Wrapper */}
+          
           <div className="relative mt-10">
             <select
               className="appearance-none px-8 py-3 pr-12 rounded-full
@@ -89,13 +88,20 @@ const ProjectNew = () => {
               <option className="text-black">Financial Consultation</option>
             </select>
 
-            {/* Custom Arrow */}
+            
             <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white pointer-events-none">
               <ChevronDown size={20} />
             </span>
           </div>
         </div>
-      </section>
+      </section> */}
+      <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[105vh] bg-black overflow-hidden">
+          <img
+    src="/homeimg.jpeg"
+    alt="Home Banner"
+    className="block w-full"
+  />
+       </section>
       <section className="bg-black py-24 relative overflow-hidden">
         {/* side glow */}
         <div className="absolute left-0 top-0 w-[300px] h-[300px] bg-gray-300 blur-[150px] opacity-20"></div>

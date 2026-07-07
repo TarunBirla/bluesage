@@ -11,6 +11,8 @@ import Partner from "./components/Partner";
 import Blog from "./components/Blog";
 import Abouts from "./components/Abouts";
 import ScrollToTop from "./service/ScrollToTop";
+import Research from "./components/Research";
+import Blogdetails from "./components/Blogdetails";
 
 function App() {
   return (
@@ -34,7 +36,9 @@ function App() {
         <Route path="/portfolio" element={<PortFolio />} />
         <Route path="/partner" element={<Partner />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<Blogdetails />} />
         <Route path="/abouts" element={<Abouts />} />
+        <Route path="/reseach" element={<Research />} />
       
 
         <Route
