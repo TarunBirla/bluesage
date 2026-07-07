@@ -95,13 +95,13 @@ const ProjectNew = () => {
           </div>
         </div>
       </section> */}
-      <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[105vh] bg-black overflow-hidden">
-          <img
+        <section className="relative w-full h-[60vh] sm:h-[75vh] md:h-[90vh] lg:h-screen overflow-hidden bg-black">
+  <img
     src="/homeimg.jpeg"
     alt="Home Banner"
-    className="block w-full"
+    className="absolute inset-0 w-full h-full object-cover object-center"
   />
-       </section>
+</section>
       <section className="bg-black py-24 relative overflow-hidden">
         {/* side glow */}
         <div className="absolute left-0 top-0 w-[300px] h-[300px] bg-gray-300 blur-[150px] opacity-20"></div>
@@ -176,14 +176,11 @@ const ProjectNew = () => {
 
         <div className="max-w-7xl  mx-auto px-6 text-center">
           {/* Cards */}
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* CARD 1 */}
+          {/* <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div className="relative w-[387px] mx-auto text-center text-white hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
-                {/* Box */}
                 <img src="/box1.png" className="w-full" />
 
-                {/* Icon */}
                 <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
                   <img
                     src={`${baseURL}/${service.icon_img}`}
@@ -191,7 +188,6 @@ const ProjectNew = () => {
                   />
                 </div>
 
-                {/* Content */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
                   <h3 className="text-2xl md:text-[22.18px] font-semibold mb-3">
                     {service.title}
@@ -203,7 +199,42 @@ const ProjectNew = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+  {services.map((service, index) => (
+    <div
+      key={index}
+      className="relative w-full max-w-[340px] md:max-w-[387px] mx-auto text-center text-white hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
+    >
+      {/* Box */}
+      <img
+        src="/box1.png"
+        alt=""
+        className="w-full h-auto"
+      />
+
+      {/* Icon */}
+      <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+        <img
+          src={`${baseURL}/${service.icon_img}`}
+          alt={service.title}
+          className="w-10 h-10"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-8">
+        <h3 className="text-[20px] md:text-[22px] font-semibold mb-3">
+          {service.title}
+        </h3>
+
+        <p className="text-[#C8C8C8] text-[15px] md:text-[21px] leading-relaxed">
+          {service.description}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
         </div>
       </section>
       <section className="bg-black  pb-20 pt-20 ">

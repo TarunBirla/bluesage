@@ -67,7 +67,7 @@ const Header = () => {
       </div>
     )}
   </NavLink>
-   <NavLink to="/reseach">
+   <NavLink to="/research">
     {({ isActive }) => (
       <div className="relative pb-1 text-white">
       Research
@@ -134,7 +134,7 @@ const Header = () => {
             <NavLink to="/project" onClick={() => setMenuOpen(false)}>
               Service
             </NavLink>
-            <NavLink to="/project" onClick={() => setMenuOpen(false)}>
+            <NavLink to="/research" onClick={() => setMenuOpen(false)}>
               Research
             </NavLink>
             <NavLink to="/partner" onClick={() => setMenuOpen(false)}>

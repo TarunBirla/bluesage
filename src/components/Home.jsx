@@ -115,13 +115,20 @@ const Home = () => {
         </div>
       </section> */}
 
-       <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[105vh] bg-black overflow-hidden">
+       {/* <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[105vh] bg-black overflow-hidden">
           <img
     src="/homeimg.jpeg"
     alt="Home Banner"
     className="block w-full"
   />
-       </section>
+       </section> */}
+       <section className="relative w-full h-[60vh] sm:h-[75vh] md:h-[90vh] lg:h-screen overflow-hidden bg-black">
+  <img
+    src="/homeimg.jpeg"
+    alt="Home Banner"
+    className="absolute inset-0 w-full h-full object-cover object-center"
+  />
+</section>
 
 
       <section className="bg-black pb-20">
@@ -161,11 +168,20 @@ const Home = () => {
       </section>
 
       <section className="bg-black  pb-20 overflow-hidden">
-        {/* Stats Card */}
+        
         <div className="max-w-7xl   mx-auto p-4 ">
-          <img src="/scnhome.png" className="w-full h-[85vh] " />
+          <img src="/scnhome.png" className="w-full h-[30vh] md:h-[85vh] lg:h-[85vh] " />
         </div>
       </section>
+      {/* <section className="bg-black pb-20 overflow-hidden">
+  <div className="max-w-7xl mx-auto p-4">
+    <img
+      src="/scnhome.png"
+      alt="Stats"
+      className="w-full h-[30vh] sm:h-[65vh] md:h-[100vh] lg:h-[85vh] object-cover rounded-2xl"
+    />
+  </div>
+</section> */}
 
       <section className="relative bg-black py-25 overflow-hidden">
         {/* Glow */}
@@ -357,7 +373,7 @@ const Home = () => {
         <div className="max-w-7xl  mx-auto px-6 bg-gradient-to-b from-[#0b0b0b] via-[#000000] to-[#050505] rounded-3xl py-10">
           {/* Heading */}
 
-          <h2 className="text-center text-[80px] font-semibold font-[Quicksand] font-weight-600 mb-16 text-gray-300">
+          <h2 className="text-center text-[40px] :md:text-[80px] lg:text-[80px] font-semibold font-[Quicksand] font-weight-600 mb-16 text-gray-300">
             Award and achievement
           </h2>
 
@@ -866,11 +882,10 @@ function ScrollHighlightText() {
     return (
       <span
         key={i}
-        className="block transition-all duration-300"
+        className="block transition-all duration-300 text-[26px] sm:text-[32px] md:text-[40px] lg:text-[48px]"
         style={{
           fontFamily: "'Quicksand', sans-serif",
           fontWeight: 500,
-          fontSize: "48px",
           lineHeight: "100%",
           letterSpacing: "-0.04em", // -4%
               

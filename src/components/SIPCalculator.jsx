@@ -141,15 +141,7 @@ const data = [
     value: growth,
   },
 ];
-if (loading) {
-  return (
-    <div className="bg-black min-h-screen flex items-center justify-center">
-      <div className="text-white text-xl">
-        Calculating...
-      </div>
-    </div>
-  );
-}
+
 if (error) {
   return (
     <div className="bg-black min-h-screen flex items-center justify-center">
@@ -216,9 +208,9 @@ return (
 
             <input
               type="range"
-              min={5000}
-              max={5000000}
-              step={500}
+               min={500}
+  max={100000}
+  step={500}
               value={amount}
               onChange={(e) => setAmount(Number(e.target.value))}
               className="slider w-full"
