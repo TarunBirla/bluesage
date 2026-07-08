@@ -122,16 +122,33 @@ const Home = () => {
     className="block w-full"
   />
        </section> */}
-       <section className="relative w-full h-[60vh] sm:h-[75vh] md:h-[90vh] lg:h-screen overflow-hidden bg-black">
+       {/* <section className="relative w-full h-[60vh] sm:h-[75vh] md:h-[90vh] lg:h-screen overflow-hidden bg-black">
   <img
     src="/homeimg.jpeg"
     alt="Home Banner"
     className="absolute inset-0 w-full h-full object-cover object-center"
   />
+</section> */}
+<section className="relative w-full overflow-hidden bg-black">
+
+  {/* Desktop Image */}
+  <img
+    src="/homeimg.jpeg"
+    alt="Home Banner"
+    className="hidden md:block w-full h-screen object-cover object-center"
+  />
+
+  {/* Mobile Image */}
+  <img
+    src="/mobile.png"
+    alt="Home Banner"
+    className="block md:hidden w-full h-[42vh] object-cover object-center"
+  />
+
 </section>
 
 
-      <section className="bg-black pb-20">
+      <section className="bg-black pb-20 hidden md:block">
         <div className="max-w-5xl mx-auto px-6 relative">
           <div
             className="grid grid-cols-2 -mt-20 md:grid-cols-4 
@@ -166,6 +183,38 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Mobile */}
+<div className="block bg-black md:hidden px-4 -mt-8">
+
+  <div className="relative grid grid-cols-2 gap-4 bg-[#121212] border border-gray-700 rounded-2xl py-4 text-center text-white  hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
+
+    {count.map((item, index) => (
+      <div key={index} className="py-1">
+
+        <h3 className="text-[28px] font-[Quicksand] font-semibold">
+          {item.number}
+        </h3>
+
+        <p className="text-[12px] uppercase mt-2 font-[Quicksand]">
+          {item.subtitle}
+        </p>
+
+      </div>
+    ))}
+
+  </div>
+
+  <div className="mt-12">
+
+    <button className="px-5 py-2 border border-gray-500 rounded-full text-white text-[15px] mb-8">
+      Who we are?
+    </button>
+
+    <ScrollHighlightText />
+
+  </div>
+
+</div>
 
       <section className="bg-black  pb-20 overflow-hidden">
         

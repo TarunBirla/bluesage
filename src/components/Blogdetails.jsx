@@ -129,7 +129,7 @@ if (loading) {
     <img
       src={`${baseURL}/${blog?.image}`}
       alt={blog?.title}
-      className="w-full h-[500px] object-cover rounded-3xl mb-10"
+      className="w-full h-[250px]  md:h-[500px] object-cover rounded-3xl mb-10"
     />
 
     {/* Description */}

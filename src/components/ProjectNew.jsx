@@ -95,14 +95,32 @@ const ProjectNew = () => {
           </div>
         </div>
       </section> */}
-        <section className="relative w-full h-[60vh] sm:h-[75vh] md:h-[90vh] lg:h-screen overflow-hidden bg-black">
+        {/* <section className="relative w-full h-[60vh] sm:h-[75vh] md:h-[90vh] lg:h-screen overflow-hidden bg-black">
   <img
     src="/homeimg.jpeg"
     alt="Home Banner"
     className="absolute inset-0 w-full h-full object-cover object-center"
   />
+</section> */}
+<section className="relative w-full overflow-hidden bg-black">
+
+  {/* Desktop Image */}
+  <img
+    src="/homeimg.jpeg"
+    alt="Home Banner"
+    className="hidden md:block w-full h-screen object-cover object-center"
+  />
+
+  {/* Mobile Image */}
+  <img
+    src="/mobile.png"
+    alt="Home Banner"
+    className="block md:hidden w-full h-[42vh] object-cover object-center"
+  />
+
 </section>
-      <section className="bg-black py-24 relative overflow-hidden">
+
+      <section className="bg-black  py-8 md:py-24 relative overflow-hidden">
         {/* side glow */}
         <div className="absolute left-0 top-0 w-[300px] h-[300px] bg-gray-300 blur-[150px] opacity-20"></div>
         <div className="absolute right-0 top-0 w-[300px] h-[300px] bg-gray-300 blur-[150px] opacity-20"></div>
@@ -110,7 +128,7 @@ const ProjectNew = () => {
         <div className="max-w-7xl  mx-auto px-6 text-center">
           {/* Heading */}
           <h2
-            className="text-center font-semibold mb-20 font-weight-600 font-[Quicksand]
+            className="text-center font-semibold mb-10 md:mb-20 font-weight-600 font-[Quicksand]
            text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
           bg-gradient-to-b from-white to-[#999999]
           bg-clip-text text-transparent"
