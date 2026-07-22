@@ -47,107 +47,106 @@ export default function Calculators() {
    1. LANDING PAGE GRID VIEW
 ───────────────────────────────────────────── */
 function CalculatorsLanding({ navigate }) {
-  const calculatorCards = [
-    {
-      id: "scheme-categories",
-      title: "Scheme Categories",
-      icon: (
-        <svg className="w-14 h-14 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-          <rect x="4" y="4" width="16" height="16" rx="2" />
-          <path d="M8 8h8M8 12h8M8 16h4" />
-        </svg>
-      )
-    },
-    {
-      id: "mf-trailing",
-      title: "MF Trailing Returns",
-      icon: (
-        <svg className="w-14 h-14 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
-        </svg>
-      )
-    },
-    {
-      id: "sip-annual",
-      title: "SIP with Annual Increase",
-      icon: (
-        <svg className="w-14 h-14 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-          <circle cx="12" cy="7" r="4" />
-          <path d="M5.5 21a8.38 8.38 0 0113 0" />
-          <path d="M18 11l3-3m0 0l-3-3m3 3h-6" />
-        </svg>
-      )
-    },
-    {
-      id: "crorepati",
-      title: "Become A Crorepati Calculator",
-      icon: (
-        <svg className="w-14 h-14 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-          <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-        </svg>
-      )
-    },
-    {
-      id: "composite-goal",
-      title: "Composite Financial Goal Planner Calculator",
-      icon: (
-        <svg className="w-14 h-14 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-          <path d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z" />
-        </svg>
-      )
-    }
-  ];
+ const calculatorCards = [
+  {
+    id: "scheme-categories",
+    title: "Scheme Categories",
+    image: "/c1.png",
+  },
+  {
+    id: "mf-trailing",
+    title: "MF Trailing Returns",
+    image: "/c2.png",
+  },
+  {
+    id: "sip-annual",
+    title: "SIP with Annual Increase",
+    image: "/c3.png",
+  },
+  {
+    id: "crorepati",
+    title: "Become A Crorepati Calculator",
+    image: "/c4.png",
+  },
+  {
+    id: "composite-goal",
+    title: "Composite Financial Goal Planner Calculator",
+    image: "/c5.png",
+  },
+];
 
   return (
     <>
-      <section className="relative w-full h-[65vh] md:h-[75vh] overflow-hidden flex items-center justify-center">
-        <img
-          src="/partner.png"
-          alt="Calculators Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black" />
-
-        <div className="relative z-10 text-center px-6 pt-16">
-          <h1 className="text-[44px] sm:text-[60px] md:text-[80px] font-bold tracking-[-0.03em] bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent mb-6">
-            Calculators
-          </h1>
-
-          <div className="relative inline-block mt-2">
-            <select
-              className="appearance-none px-8 py-3 pr-12 rounded-full border border-gray-400 text-white bg-[#252525] text-center outline-none cursor-pointer hover:bg-white hover:text-black transition duration-300 font-medium"
-            >
-              <option className="text-black">Book a free call</option>
-              <option className="text-black">Investment Planning</option>
-              <option className="text-black">Portfolio Review</option>
-              <option className="text-black">Financial Consultation</option>
-            </select>
-            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white pointer-events-none">
-              <ChevronDown size={18} />
-            </span>
-          </div>
-        </div>
-      </section>
+       <section className="relative w-full h-[70vh] md:h-[90vh] overflow-hidden">
+              {/* Background Image */}
+              <img
+                src="/partner.png"
+                alt="partner"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+      
+              {/* Dark Overlay */}
+      
+              {/* Content */}
+              <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+                <h1
+                  className="text-center font-semibold  font-weight-600 font-[Quicksand]
+                 text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
+                bg-gradient-to-b from-white to-[#999999]
+                bg-clip-text text-transparent"
+                >
+                  Calculators
+                </h1>
+      
+                {/* Dropdown */}
+                <div className="relative mt-4">
+                  <select
+                    className="appearance-none px-8 py-3 pr-12 rounded-full
+                              border border-gray-400
+                              text-white bg-[#252525]
+                              text-center
+                              outline-none cursor-pointer
+                              hover:bg-white hover:text-black
+                              transition"
+                  >
+                    <option className="text-black">Book a free call</option>
+                    <option className="text-black">Investment Planning</option>
+                    <option className="text-black">Portfolio Review</option>
+                    <option className="text-black">Financial Consultation</option>
+                  </select>
+      
+                  {/* Custom Arrow */}
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white pointer-events-none">
+                    <ChevronDown size={20} />
+                  </span>
+                </div>
+              </div>
+            </section>
 
       <section className="py-16 md:py-24 bg-black">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center">
-            {calculatorCards.map((card) => (
-              <div
-                key={card.id}
-                onClick={() => navigate(`/calculators/${card.id}`)}
-                className="bg-[#0c0c0c] border border-gray-800 rounded-3xl p-8 md:p-10 flex flex-col items-center justify-center text-center cursor-pointer hover:border-gray-500 hover:shadow-[0_0_50px_rgba(255,255,255,0.08)] hover:scale-[1.03] transition-all duration-300 min-h-[240px] group"
-              >
-                <div className="mb-6 p-4 rounded-2xl bg-[#141414] group-hover:bg-[#1f1f1f] transition-all duration-300">
-                  {card.icon}
-                </div>
-                <h3 className="text-white text-lg md:text-xl font-semibold leading-snug">
-                  {card.title}
-                </h3>
-              </div>
-            ))}
-          </div>
+         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+  {calculatorCards.map((card) => (
+    <div
+      key={card.id}
+      onClick={() => navigate(`/calculators/${card.id}`)}
+      className="w-[170px] h-[170px] bg-[#0a0a0a] border border-gray-700 rounded-2xl cursor-pointer
+                 flex flex-col items-center justify-center
+                 transition-all duration-300
+                 hover:border-white hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]"
+    >
+      <img
+        src={card.image}
+        alt={card.title}
+        className="w-20 h-20 object-contain mb-5"
+      />
+
+      <h3 className="text-white text-sm leading-5 font-medium text-center px-3">
+        {card.title}
+      </h3>
+    </div>
+  ))}
+</div>
         </div>
       </section>
     </>

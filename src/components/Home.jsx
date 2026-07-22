@@ -62,19 +62,21 @@ function ScrollHighlightText() {
             opacity = 1;
           }
           return (
-            <span
-              key={i}
-              className="block transition-all duration-300 text-[24px] sm:text-[30px] md:text-[38px] lg:text-[46px]"
-              style={{
-                fontFamily: "'Quicksand', sans-serif",
-                fontWeight: line.bold ? 700 : 500,
-                lineHeight: "126%",
-                letterSpacing: "-0.03em",
-                color: `rgba(255,255,255,${opacity})`,
-              }}
-            >
-              {line.text}
-            </span>
+           <span
+                key={i}
+                className="block transition-all duration-300 text-[26px] sm:text-[32px] md:text-[40px] lg:text-[48px]"
+                style={{
+                  fontFamily: "'Quicksand', sans-serif",
+                  fontWeight: 500,
+                  lineHeight: "126%",
+                  letterSpacing: "-0.04em", // -4%
+
+                  color: `rgba(255,255,255,${opacity})`,
+                  opacity,
+                }}
+              >
+                {line.text}
+              </span>
           );
         })}
       </h2>
@@ -82,36 +84,7 @@ function ScrollHighlightText() {
   );
 }
 
-/* ─────────────────────────────────────────────
-   Process Steps Data
-───────────────────────────────────────────── */
-const processSteps = [
-  {
-    number: "01",
-    title: "Initial Consultation",
-    desc: "We begin with a detailed discussion to understand your financial goals, risk appetite, and investment horizon.",
-  },
-  {
-    number: "02",
-    title: "Portfolio Analysis",
-    desc: "Our experts analyse your current portfolio and identify opportunities for growth and optimisation.",
-  },
-  {
-    number: "03",
-    title: "Strategy Design",
-    desc: "We design a customised investment strategy aligned with your unique financial objectives.",
-  },
-  {
-    number: "04",
-    title: "Implementation",
-    desc: "Your personalised plan is executed with precision, selecting the best-suited mutual fund solutions.",
-  },
-  {
-    number: "05",
-    title: "Ongoing Review",
-    desc: "We continuously monitor your portfolio and make adjustments to keep you on track toward your goals.",
-  },
-];
+
 
 /* ─────────────────────────────────────────────
    Main Home Component
@@ -172,96 +145,72 @@ const Home = () => {
       {/* ══════════════════════════════════════
           HERO SECTION
       ══════════════════════════════════════ */}
-      <section className="relative w-full overflow-hidden bg-black">
-        {/* Desktop Hero */}
-        <div className="hidden md:block relative w-full h-screen">
-          <img
-            src="/homeimg.jpeg"
-            alt="Your Trusted Investment Partner"
-            className="w-full h-full object-cover object-center"
-          />
-          {/* Overlay gradient */}
-          <div className="absolute" />
+     <section className="relative w-full overflow-hidden bg-black">
+        {/* Desktop Image */}
+        <img
+          src="/homeimg.jpeg"
+          alt="Home Banner"
+          className="hidden md:block w-full h-screen object-cover object-center"
+        />
 
-          {/* Bottom glow */}
-          {/* <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[180px] bg-gradient-to-t from-gray-300 to-transparent blur-[100px] opacity-20 pointer-events-none" /> */}
-        </div>
-
-        {/* Mobile Hero */}
-        <div className="block md:hidden relative">
-          <div className="h-[55vw] overflow-hidden mt-14">
-            <img
-              src="/mobile.png"
-              alt="Home Banner"
-              className="w-full h-full object-cover object-top"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/80" />
-          </div>
-          <div className="px-5 pt-6 pb-8 bg-black">
-            <h1 className="text-white font-[Quicksand] font-bold text-[32px] leading-tight tracking-[-0.03em]">
-              Your Trusted<br />Investment Partner
-            </h1>
-            <p className="text-gray-400 mt-3 text-sm font-[Quicksand]">
-              Building long-term wealth through transparency, trust, and disciplined investing.
-            </p>
-            <button className="mt-5 px-6 py-3 rounded-full bg-white text-black font-semibold text-[14px] font-[Quicksand]">
-              Review my portfolio
-            </button>
-          </div>
-        </div>
+        {/* Mobile Image */}
+        <img
+          src="/mobile.png"
+          alt="Home Banner"
+          className="block md:hidden w-full h-[30vh] mt-10 object-cover object-center"
+        />
       </section>
 
       {/* ══════════════════════════════════════
           STATS BAR
       ══════════════════════════════════════ */}
-      <section className="bg-black pb-16">
-        <div className="max-w-5xl mx-auto px-4">
+    <section className="bg-black pb-20 hidden md:block">
+        <div className="max-w-5xl mx-auto px-6 relative">
           <div
-            className="grid grid-cols-2 md:grid-cols-4 -mt-10 md:-mt-16 relative z-10
-              bg-[#111111] border border-gray-800 rounded-2xl
-              py-8 md:py-10 text-center text-white
-              shadow-2xl hover:shadow-[0_0_120px_rgba(200,200,200,0.12)]
-              hover:border-gray-600 transition-all duration-500"
+            className="grid grid-cols-2 -mt-20 md:grid-cols-4 
+          bg-[#121212] border border-gray-700 rounded-2xl 
+            py-10 text-center text-white shadow-xl
+              hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
           >
-            {count.length > 0
-              ? count.map((item, index) => (
-                  <div
-                    key={index}
-                    className={`py-3 md:py-0 ${
-                      index !== count.length - 1
-                        ? "border-r border-gray-700 md:border-r border-b md:border-b-0 border-gray-700"
-                        : ""
-                    }`}
-                  >
-                    <h3 className="text-[36px] md:text-[58px] text-white font-bold font-[Quicksand]">
-                      {item.number}
-                    </h3>
-                    <p className="text-[11px] md:text-[14px] text-gray-400 mt-1 font-[Quicksand] uppercase tracking-widest">
-                      {item.subtitle}
-                    </p>
-                  </div>
-                ))
-              : [
-                  { number: "20+", subtitle: "Years Experience" },
-                  { number: "1B+", subtitle: "Assets Managed" },
-                  { number: "13+", subtitle: "Partner" },
-                  { number: "350+", subtitle: "Happy Clients" },
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className={`py-3 md:py-0 ${index !== 3 ? "border-r border-gray-700" : ""}`}
-                  >
-                    <h3 className="text-[36px] md:text-[58px] text-white font-bold font-[Quicksand]">
-                      {item.number}
-                    </h3>
-                    <p className="text-[11px] md:text-[14px] text-gray-400 mt-1 font-[Quicksand] uppercase tracking-widest">
-                      {item.subtitle}
-                    </p>
-                  </div>
-                ))}
+            {count.map((item, index) => (
+              <div key={index}>
+                <h3 className="text-[40px] md:text-[64px] text-[#FFFFFF] font-weight-500 font-[Quicksand]">
+                  {item.number}
+                </h3>
+                <p className="text-[13px] md:text-[18px] text-[#FFFFFF] font-weight-500  mt-2 font-[Quicksand] uppercase">
+                  {item.subtitle}
+                </p>
+              </div>
+            ))}
           </div>
+
+          <div
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 
+            w-[90vw] max-w-[600px] h-[200px] 
+            bg-gradient-to-t from-gray-200 to-transparent 
+            blur-[120px] opacity-40"
+          />
+          
         </div>
       </section>
+      {/* Mobile */}
+      <div className="block bg-black md:hidden px-4 -mt-8">
+        <div className="relative grid grid-cols-2 gap-4 bg-[#121212] border border-gray-700 rounded-2xl py-4 text-center text-white  hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
+          {count.map((item, index) => (
+            <div key={index} className="py-1">
+              <h3 className="text-[28px] font-[Quicksand] font-semibold">
+                {item.number}
+              </h3>
+
+              <p className="text-[12px] uppercase mt-2 font-[Quicksand]">
+                {item.subtitle}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        
+      </div>
 
       {/* ══════════════════════════════════════
           WHO WE ARE — SCROLL HIGHLIGHT
@@ -271,9 +220,10 @@ const Home = () => {
           {/* Glow */}
           <div className="absolute top-0 right-0 w-[500px] h-[200px] bg-gray-400 blur-[200px] opacity-10 pointer-events-none" />
 
-          <button className="px-5 py-2 border border-gray-600 rounded-full text-white text-[14px] mb-10 font-[Quicksand] hover:border-gray-400 transition-all">
-            Who we are?
-          </button>
+           <button className="px-6 py-2 border border-gray-500 rounded-full text-white text-[18px] mb-10">
+              Who we are?
+            </button>
+
 
           <ScrollHighlightText />
         </div>
@@ -308,35 +258,14 @@ const Home = () => {
               Process
             </h2>
             <p className="text-gray-500 font-[Quicksand] max-w-sm text-[16px] md:text-[18px] leading-relaxed">
-              A structured approach to help you invest, track, and grow your wealth with clarity and confidence.
+              A structured approach to help<br/> you invest, track, and grow your <br/> wealth with clarity and <br/>confidence.
             </p>
           </div>
 
           {/* Timeline line image */}
           <img src="/line.png" alt="process line" className="w-full mb-0" />
 
-          {/* Steps */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
-            {processSteps.map((step, i) => (
-              <div
-                key={i}
-                className="relative group"
-              >
-                {/* Number bubble */}
-                <div className="w-12 h-12 rounded-full border border-gray-600 bg-[#111] flex items-center justify-center mb-5 group-hover:border-gray-400 group-hover:bg-[#1a1a1a] transition-all duration-300">
-                  <span className="text-white text-[13px] font-bold font-[Quicksand]">
-                    {step.number}
-                  </span>
-                </div>
-                <h3 className="text-white font-semibold font-[Quicksand] text-[16px] mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-gray-500 font-[Quicksand] text-[13px] leading-relaxed">
-                  {step.desc}
-                </p>
-              </div>
-            ))}
-          </div>
+          
         </div>
       </section>
 
@@ -386,7 +315,7 @@ const Home = () => {
                       {/* Content */}
                       <div className="text-center md:text-left mt-2 md:mt-4 flex-1">
                         {/* Quote icon */}
-                        <div className="text-gray-600 text-5xl font-serif mb-4 leading-none">"</div>
+                        <div className="text-gray-600 text-5xl font-serif mb-4 leading-none"></div>
                         <p className="text-gray-300 leading-relaxed font-[Quicksand] mb-8 text-[16px] sm:text-[18px] md:text-[20px]">
                           {item.message}
                         </p>
@@ -473,11 +402,11 @@ const Home = () => {
                     </p>
                     {/* User */}
                     <div className="flex items-center gap-3 mt-6">
-                      <div className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center shrink-0 overflow-hidden">
+                      <div className="w-12 h-12 rounded-full bg-[#FFFFFF] flex items-center justify-center shrink-0 overflow-hidden">
                         <img
                           src={`${baseURL}/${item.image}`}
                           alt={item.name}
-                          className="w-full h-full object-cover"
+                          className="w-8 h-8 object-cover"
                         />
                       </div>
                       <div>

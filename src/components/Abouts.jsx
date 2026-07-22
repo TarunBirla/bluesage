@@ -511,27 +511,27 @@ const Abouts = () => {
           </div>
 
           {/* Next Section Title */}
-          {/* <h2
-            className="text-center font-semibold mt-16 font-weight-600 font-[Quicksand]
+          <h2
+            className="text-center font-semibold mt-10 font-weight-600 font-[Quicksand]
            text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
           bg-gradient-to-b from-white to-[#999999]
           bg-clip-text text-transparent "
           >
-            Meet our team 
+            Meet our team <br/>
             of experts
-          </h2> */}
+          </h2>
         </div>
       </section>
 
       <section className=" py-10 bg-gradient-to-b from-[#161616] to-[#161616]/99">
-        <h2
+        {/* <h2
           className="text-center font-semibold mb-10 font-weight-600 font-[Quicksand]
            text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
           bg-gradient-to-b from-white to-[#999999]
           bg-clip-text text-transparent "
         >
           Meet our team of experts
-        </h2>
+        </h2> */}
         <div className="max-w-7xl px-20 mx-auto relative ">
           {/* Left Arrow */}
           <button className="team-prev absolute left-6 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded flex items-center justify-center hover:bg-gray-100 transition">
@@ -571,7 +571,7 @@ const Abouts = () => {
                   <img
                     src={`${baseURL}/${item.image}`}
                     alt={item.name}
-                    className="w-full h-[240px] sm:h-[260px] md:h-[300px] object-cover"
+                    className="w-full h-[240px] sm:h-[260px] rounded-[28px]  md:h-[300px] object-cover"
                   />
 
                   <div className="px-5 py-5 ">
@@ -588,7 +588,7 @@ const Abouts = () => {
             ))}
           </Swiper>
 
-          <p className="text-center font-weight-400 text-white text-[18px] md:text-[28px] lg:text-[28px] mt-12 max-w-5xl mx-auto leading-[1.4] font-light">
+          <p className="text-center font-weight-400 text-[#FFFFFF] text-[18px] md:text-[28px] lg:text-[28px] mt-12 max-w-5xl mx-auto leading-[1.4] font-light">
             Our team supports clients with investment facilitation, portfolio
             tracking, and ongoing service assistance.
           </p>

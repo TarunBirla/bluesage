@@ -13,7 +13,7 @@ const Footer = () => {
 
           {/* COL 1 — Company */}
           <div>
-            <h3 className="font-[Quicksand] font-semibold text-white text-[20px] mb-5">
+            <h3 className="font-[Quicksand] font-weight-500  text-white text-[20px] mb-5">
               Company
             </h3>
             <ul className="space-y-3 text-[15px] text-gray-300">
@@ -52,7 +52,7 @@ const Footer = () => {
 
           {/* COL 2 — Services */}
           <div>
-            <h3 className="font-[Quicksand] font-semibold text-white text-[20px] mb-5">
+            <h3 className="font-[Quicksand] font-weight-500  text-white text-[20px] mb-5">
               Services
             </h3>
             <ul className="space-y-3 text-[15px] text-gray-300">
@@ -85,13 +85,13 @@ const Footer = () => {
 
           {/* COL 3 — Contact Us */}
           <div>
-            <h3 className="font-[Quicksand] font-semibold text-white text-[20px] mb-5">
+            <h3 className="font-[Quicksand] font-weight-500 text-white text-[20px] mb-5">
               Contact Us
             </h3>
             <ul className="space-y-5 text-[15px] text-gray-300">
               {/* Phone */}
               <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 mt-0.5 shrink-0 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 mt-0.5 shrink-0 text-[#FFF]" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 5.5A2.5 2.5 0 015.5 3h.5a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 00-1 1v.5A9.5 9.5 0 0013.5 19h.5a1 1 0 001-1v-.5a1 1 0 011-1h3a1 1 0 011 1v.5A2.5 2.5 0 0118.5 21C9.94 21 3 14.06 3 5.5z" />
                 </svg>
                 <span>+91 9428129291</span>
@@ -99,7 +99,7 @@ const Footer = () => {
 
               {/* Email */}
               <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 mt-0.5 shrink-0 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 mt-0.5 shrink-0 text-[#FFF]" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 8l-9 6-9-6M3 8a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
                 </svg>
                 <span>support@desaiinvestment.in</span>
@@ -107,7 +107,7 @@ const Footer = () => {
 
               {/* Address */}
               <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 mt-0.5 shrink-0 text-gray-400" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 mt-0.5 shrink-0 text-[#FFF]" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8.686 2 6 4.686 6 8c0 5.25 6 14 6 14s6-8.75 6-14c0-3.314-2.686-6-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" />
                 </svg>
                 <span>11, Amritwadi Society Station Road Dahod, Gujarat – 389151 India</span>
@@ -125,10 +125,10 @@ const Footer = () => {
             </div>
 
             {/* Follow Us */}
-            <h3 className="font-[Quicksand] font-semibold text-white text-[20px] mb-4">
+            <h3 className="font-[Quicksand] font-weight-500  text-white text-[20px] mb-4">
               Follow Us
             </h3>
-            <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex items-center gap-1 flex-wrap">
               {/* Facebook */}
               <a href="#" aria-label="Facebook"
                 className="w-9 h-9 rounded-md flex items-center justify-center bg-[#1877F2] hover:opacity-90 transition">
