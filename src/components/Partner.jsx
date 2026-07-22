@@ -140,7 +140,7 @@ const Partner = () => {
                   </div>
 
                   {/* title */}
-                  <h3 className="text-gray-400 text-[22px] font-weight-500 font-[Quicksand] leading-snug mb-4">
+                  <h3 className="text-[#FFFFFF] text-[24px] font-weight-500 font-[Quicksand] leading-snug mb-4">
                     {item.title}
                   </h3>
 

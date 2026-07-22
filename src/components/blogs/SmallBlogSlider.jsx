@@ -1,35 +1,36 @@
-"use client";
-
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import "swiper/css";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+
+import http from "../../service/http";
+import { baseURL } from "../../service/api";
 
 export default function SmallBlogSlider() {
   const swiperRef = useRef(null);
-  const [isBeginning, setIsBeginning] = useState(true);
+const [isBeginning, setIsBeginning] = useState(true);
 
-  const blogs = [
-    {
-      img: "/b1.png",
-      date: "Apr. 14th, 2025",
-      category: "Technology",
-      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      img: "/b1.png",
-      date: "Apr. 14th, 2025",
-      category: "Technology",
-      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      img: "/b1.png",
-      date: "Apr. 14th, 2025",
-      category: "Technology",
-      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-  ];
+const [blogs, setBlogs] = useState([]);
+const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  fetchBlogs();
+}, []);
+
+const fetchBlogs = async () => {
+  try {
+    setLoading(true);
+
+    const res = await http.get("/blogs");
+
+    setBlogs(res.data.data);
+  } catch (error) {
+    console.error(error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <section className="bg-black py-12 px-6">
@@ -48,7 +49,8 @@ export default function SmallBlogSlider() {
             <SwiperSlide key={i}>
               <div className="relative rounded-[30px] overflow-hidden">
                 {/* Image */}
-                <img src={blog.img} className="w-full h-[260px] object-cover" />
+                <img src={`${baseURL}/${blog.image}`}
+                alt={blog.title} className="w-full h-[260px] object-cover" />
 
                 {/* Bottom Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent "></div>
@@ -56,7 +58,8 @@ export default function SmallBlogSlider() {
                 {/* Text */}
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <p className="text-xs opacity-80 mb-1">
-                    {blog.date} | {blog.category}
+                    {new Date(blog.published_date).toLocaleDateString()}{" "}
+                  | {blog.category}
                   </p>
 
                   <h3 className="text-sm font-semibold leading-snug">

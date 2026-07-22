@@ -11,7 +11,15 @@ import { baseURL } from "../service/api";
 
 const Abouts = () => {
   const awordref = useRef(null);
+  const swiper1 = useRef(null);
+  const swiper2 = useRef(null);
 
+  useEffect(() => {
+    setTimeout(() => {
+      swiper1.current?.swiper?.autoplay?.start();
+      swiper2.current?.swiper?.autoplay?.start();
+    }, 100);
+  }, []);
   const [logos, setLogos] = useState([]);
   const [clienttest, setClientTest] = useState([]);
   const [journeys, setJourneys] = useState([]);
@@ -47,14 +55,14 @@ const Abouts = () => {
   };
 
   const topRow = journeys.slice(0, 3);
-  const bottomRow = journeys.slice(3, 6);
+  const bottomRow = journeys.slice(3, 6).reverse();
 
   const testimonials = [
     {
       image: "/sarikaa.png",
       avatar: "/sarikaa.png",
       name: "Sarikaa",
-      designation: "managing director",
+      designation: "Managing Director",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores necessitatibus molestias dignissimos quas exercitationem doloremque.",
     },
@@ -62,7 +70,7 @@ const Abouts = () => {
       image: "/rajeev.png",
       avatar: "/rajeev.png",
       name: "Rajeev Arora",
-      designation: "managing director",
+      designation: "Managing Director",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores necessitatibus molestias dignissimos quas exercitationem doloremque.",
     },
@@ -182,60 +190,60 @@ const Abouts = () => {
         </div>
       </section>
 
-     <section className="bg-black text-white py-12 md:hidden overflow-hidden">
-  <div className="px-5">
-    <Swiper
-      modules={[Autoplay]}
-      slidesPerView={1}
-      loop={true}
-      speed={1000}
-      spaceBetween={20}
-      autoplay={{
-        delay: 3000,
-        disableOnInteraction: false,
-      }}
-    >
-      {testimonials?.map((item, index) => (
-        <SwiperSlide key={index}>
-          <div className="bg-[#111111] border border-[#2A2A2A] mt-10 rounded-3xl p-5">
-            {/* Image */}
-            <div className="w-[300px] ">
-            <img
-              src={`${item.image}`}
-              alt={item.name}
-              className="w-full h-full rounded-2xl object-cover"
-            />
-            </div>
+      <section className="bg-black text-white py-12 md:hidden overflow-hidden">
+        <div className="px-5">
+          <Swiper
+            modules={[Autoplay]}
+            slidesPerView={1}
+            loop={true}
+            speed={1000}
+            spaceBetween={20}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+          >
+            {testimonials?.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-[#111111] border border-[#2A2A2A] mt-10 rounded-3xl p-5">
+                  {/* Image */}
+                  <div className="w-[300px] ">
+                    <img
+                      src={`${item.image}`}
+                      alt={item.name}
+                      className="w-full h-full rounded-2xl object-cover"
+                    />
+                  </div>
 
-            {/* Message */}
-            <p className="text-gray-300 text-[15px] leading-7 mt-6 min-h-[150px]">
-              {item.message}
-            </p>
+                  {/* Message */}
+                  <p className="text-gray-300 text-[15px] leading-7 mt-6 min-h-[150px]">
+                    {item.message}
+                  </p>
 
-            {/* User */}
-            <div className="flex items-center gap-3 mt-6">
-              <img
-                src={`${item.avatar}`}
-                alt={item.name}
-                className="w-12 h-12 rounded-full object-cover"
-              />
+                  {/* User */}
+                  <div className="flex items-center gap-3 mt-6">
+                    <img
+                      src={`${item.avatar}`}
+                      alt={item.name}
+                      className="w-12 h-12 rounded-full object-cover"
+                    />
 
-              <div>
-                <h4 className="text-white text-lg font-semibold">
-                  {item.name}
-                </h4>
+                    <div>
+                      <h4 className="text-white text-lg font-semibold">
+                        {item.name}
+                      </h4>
 
-                <p className="text-sm text-gray-400">
-                  {item.designation}
-                </p>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  </div>
-</section>
+                      <p className="text-sm text-gray-400">
+                        {item.designation}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
 
       <section className="bg-black py-24 text-white hidden md:block">
         <h2
@@ -324,7 +332,9 @@ const Abouts = () => {
               <div key={item.id}>
                 <p className="text-gray-400 text-[18px] mb-3">{item.period}</p>
 
-                <h3 className="font-semibold text-[18px] mb-2">{item.title}</h3>
+                <h3 className="font-semibold text-[18px] mb-5 mt-5">
+                  {item.title}
+                </h3>
 
                 <p className="text-gray-400 text-[18px]">{item.description}</p>
               </div>
@@ -334,12 +344,14 @@ const Abouts = () => {
           {/* TIMELINE LINE */}
 
           {/* BOTTOM ROW */}
-          <div className="grid grid-cols-3 gap-24 px-16 top-[-10px]   pr-20 mt-28 relative z-10">
+          <div className="grid grid-cols-3 gap-24 px-16 top-[-65px]   pr-20 mt-28 relative z-10">
             {bottomRow.map((item) => (
               <div key={item.id}>
                 <p className="text-gray-400 text-[18px] mb-3">{item.period}</p>
 
-                <h3 className="font-semibold mb-2 text-[18px]">{item.title}</h3>
+                <h3 className="font-semibold mb-5 mt-5 text-[18px]">
+                  {item.title}
+                </h3>
 
                 <p className="text-gray-400 text-[18px]">{item.description}</p>
               </div>
@@ -386,98 +398,140 @@ const Abouts = () => {
           <div className="max-w-7xl  mx-auto px-6 bg-gradient-to-b from-[#0b0b0b] via-[#000000] to-[#050505] rounded-3xl py-10">
             {/* Heading */}
 
-            <h2 className="text-center text-[40px] :md:text-[80px] lg:text-[80px] font-semibold font-[Quicksand] font-weight-600 text-gray-300">
-              AWARDS & RECOGNITIONS
+            <h2 className="text-center text-[40px] uppercase :md:text-[50px] lg:text-[50px] font-semibold font-[Quicksand] font-weight-600 text-gray-300">
+              {/* AWARDS & RECOGNITIONS */}
+              Awards and achievement
             </h2>
             <p className="mb-16 text-[20px] font-semibold font-[Quicksand] font-weight-600 text-gray-300 ">
               Recognized by leading mutual fund houses and industry platforms:
             </p>
-
             <Swiper
-              modules={[Navigation]}
+              ref={swiper1}
+              modules={[Autoplay]}
               slidesPerView={3}
-              spaceBetween={50}
+              spaceBetween={40}
               loop={true}
-              onSwiper={(swiper) => (awordref.current = swiper)}
+              speed={3500}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+              }}
               breakpoints={{
-                320: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
+                320: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
               }}
             >
-              {awards.map((item, index) => (
+              {awards
+                .slice(0, Math.ceil(awards.length / 2))
+                .map((item, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="flex flex-col items-center text-center">
+                      <div className="relative flex justify-center items-center mb-8 hover:scale-105 transition duration-300">
+                        <img
+                          src="/awd.png"
+                          className="w-35 object-contain"
+                          alt=""
+                        />
+
+                        <img
+                          src={`${baseURL}/${item.image}`}
+                          alt={item.title}
+                          className="absolute h-25 object-contain"
+                        />
+                      </div>
+
+                      <h3
+                        className="text-[20px] font-medium"
+                        dangerouslySetInnerHTML={{ __html: item.title }}
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+            </Swiper>
+
+            {/* ================= SECOND ROW ================= */}
+
+            <Swiper
+              ref={swiper2}
+              className="mt-12"
+              modules={[Autoplay]}
+              slidesPerView={3}
+              spaceBetween={40}
+              loop={true}
+              speed={3500}
+              autoplay={{
+                delay: 0,
+                reverseDirection: true,
+                disableOnInteraction: false,
+              }}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
+            >
+              {awards.slice(Math.ceil(awards.length / 2)).map((item, index) => (
                 <SwiperSlide key={index}>
-                  <div className="flex flex-col items-center text-center 00  ">
-                    {/* Trophy Section */}
-                    <div className="relative flex justify-center items-center mb-10  hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
-                      {/* Ribbon / Badge Background */}
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative flex justify-center items-center mb-8 hover:scale-105 transition duration-300">
                       <img
                         src="/awd.png"
-                        className="w-60 object-contain  "
-                        alt="award background"
+                        className="w-35 object-contain"
+                        alt=""
                       />
 
-                      {/* Trophy */}
                       <img
                         src={`${baseURL}/${item.image}`}
                         alt={item.title}
-                        className="absolute  h-50 object-contain "
+                        className="absolute h-25 object-contain"
                       />
-
-                      {/* Year */}
-                      {/* <span className="absolute bottom-18 font-semibold text-[36px] bg-gradient-to-b from-[#000000] to-[#838383] bg-clip-text text-transparent">
-                               {item.year}
-                             </span> */}
                     </div>
 
-                    {/* Title */}
                     <h3
-                      className="text-[24px] md:text-[28.18px] font-weight-500 font-[Quicksand] mb-3"
+                      className="text-[20px] font-medium"
                       dangerouslySetInnerHTML={{ __html: item.title }}
                     />
-
-                    {/* Description */}
-                    {/* <p className="text-[#C8C8C8] md:text-[14.18px] font-weight-300 font-[Quicksand] px-8 leading-relaxed max-w-xs">
-                             {item.description}
-                           </p> */}
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
-
-            {/* arrows */}
-
-            <div className="flex justify-center gap-4 mt-14">
-              <button
-                onClick={() => awordref.current.slidePrev()}
-                className="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
-              >
-                ‹
-              </button>
-
-              <button
-                onClick={() => awordref.current.slideNext()}
-                className="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
-              >
-                ›
-              </button>
-            </div>
           </div>
 
           {/* Next Section Title */}
-          <h2
+          {/* <h2
             className="text-center font-semibold mt-16 font-weight-600 font-[Quicksand]
            text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
           bg-gradient-to-b from-white to-[#999999]
           bg-clip-text text-transparent "
           >
-            Meet our team <br />
+            Meet our team 
             of experts
-          </h2>
+          </h2> */}
         </div>
       </section>
 
-      <section className=" py-20 bg-gradient-to-b from-[#161616] to-[#161616]/99">
+      <section className=" py-10 bg-gradient-to-b from-[#161616] to-[#161616]/99">
+        <h2
+          className="text-center font-semibold mb-10 font-weight-600 font-[Quicksand]
+           text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
+          bg-gradient-to-b from-white to-[#999999]
+          bg-clip-text text-transparent "
+        >
+          Meet our team of experts
+        </h2>
         <div className="max-w-7xl px-20 mx-auto relative ">
           {/* Left Arrow */}
           <button className="team-prev absolute left-6 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded flex items-center justify-center hover:bg-gray-100 transition">
@@ -495,7 +549,8 @@ const Abouts = () => {
               nextEl: ".team-next",
             }}
             loop={true}
-            centeredSlides={true}
+            // centeredSlides={true}
+            centeredSlides={false}
             spaceBetween={40}
             slidesPerView={3}
             breakpoints={{
@@ -513,27 +568,26 @@ const Abouts = () => {
             {team.map((item, index) => (
               <SwiperSlide key={index}>
                 <div className="w-full max-w-[225px] sm:max-w-[240px] md:max-w-[265px] mx-auto bg-white rounded-[28px] overflow-hidden shadow-lg transition-all duration-300 hover:scale-105">
-  <img
-    src={`${baseURL}/${item.image}`}
-    alt={item.name}
-    className="w-full h-[240px] sm:h-[260px] md:h-[300px] object-cover"
-  />
+                  <img
+                    src={`${baseURL}/${item.image}`}
+                    alt={item.name}
+                    className="w-full h-[240px] sm:h-[260px] md:h-[300px] object-cover"
+                  />
 
-  <div className="px-5 py-5 ">
-    <h3 className="text-[18px] sm:text-[20px] md:text-[22px] font-semibold text-[#202020]">
-      {item.name}
-    </h3>
+                  <div className="px-5 py-5 ">
+                    <h3 className="text-[18px] sm:text-[20px] md:text-[22px] font-semibold text-[#202020]">
+                      {item.name}
+                    </h3>
 
-    <p className="mt-2 text-[13px] sm:text-[14px] leading-5 text-[#666666]">
-      {item.designation}
-    </p>
-  </div>
-</div>
+                    <p className="mt-2 text-[13px] sm:text-[14px] leading-5 text-[#666666]">
+                      {item.designation}
+                    </p>
+                  </div>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
 
-          {/* Bottom Text */}
           <p className="text-center font-weight-400 text-white text-[18px] md:text-[28px] lg:text-[28px] mt-12 max-w-5xl mx-auto leading-[1.4] font-light">
             Our team supports clients with investment facilitation, portfolio
             tracking, and ongoing service assistance.
@@ -568,11 +622,11 @@ const Abouts = () => {
             >
               {logos.map((logo, index) => (
                 <SwiperSlide key={index}>
-                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
+                  <div className="bg-white h-20 w-full rounded-xl flex items-center justify-center p-2">
                     <img
                       src={`${baseURL}/${logo?.logo}`}
                       alt="logo"
-                      className="h-8 object-contain"
+                      className="h-full w-full object-contain"
                     />
                   </div>
                 </SwiperSlide>
@@ -600,79 +654,11 @@ const Abouts = () => {
             >
               {logos.map((logo, index) => (
                 <SwiperSlide key={index}>
-                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
+                  <div className="bg-white h-20 w-full rounded-xl flex items-center justify-center p-2">
                     <img
                       src={`${baseURL}/${logo?.logo}`}
                       alt="logo"
-                      className="h-8 object-contain"
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-          <div className="max-w-7xl mt-6 mx-auto relative">
-            {/* LEFT SHADOW */}
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-40 bg-gradient-to-r from-black/90 to-transparent z-10"></div>
-
-            {/* RIGHT SHADOW */}
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-40 bg-gradient-to-l from-black/90 to-transparent z-10"></div>
-            {/* Slider 1 */}
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={30}
-              slidesPerView={6}
-              loop={true}
-              speed={3000}
-              autoplay={{
-                delay: 0,
-                disableOnInteraction: false,
-              }}
-              breakpoints={{
-                320: { slidesPerView: 2 },
-                640: { slidesPerView: 3 },
-                1024: { slidesPerView: 6 },
-              }}
-            >
-              {logos.map((logo, index) => (
-                <SwiperSlide key={index}>
-                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
-                    <img
-                      src={`${baseURL}/${logo?.logo}`}
-                      alt="logo"
-                      className="h-8 object-contain"
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            {/* Slider 2 */}
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={30}
-              slidesPerView={6}
-              loop={true}
-              speed={3000}
-              autoplay={{
-                delay: 0,
-                disableOnInteraction: false,
-                reverseDirection: true,
-              }}
-              className="mt-6"
-              breakpoints={{
-                320: { slidesPerView: 2 },
-                640: { slidesPerView: 3 },
-                1024: { slidesPerView: 6 },
-              }}
-            >
-              {logos.map((logo, index) => (
-                <SwiperSlide key={index}>
-                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
-                    <img
-                      src={`${baseURL}/${logo?.logo}`}
-                      alt="logo"
-                      className="h-8 object-contain"
+                      className="h-full w-full object-contain"
                     />
                   </div>
                 </SwiperSlide>

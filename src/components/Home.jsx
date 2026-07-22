@@ -7,20 +7,29 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
+import "swiper/css/autoplay";
 import InsightsSlider from "./InsightsSlider";
 import SIPCalculator from "./SIPCalculator";
 import http from "../service/http";
 import { baseURL } from "../service/api";
 
-
 const Home = () => {
-  
   const data = [
     { name: "Principal", value: 40 },
     { name: "Interest", value: 60 },
   ];
   const swiperRef = useRef(null);
+  const partnerRef = useRef(null);
   const awordref = useRef(null);
+  const swiper1 = useRef(null);
+  const swiper2 = useRef(null);
+
+useEffect(() => {
+  setTimeout(() => {
+    swiper1.current?.swiper?.autoplay?.start();
+    swiper2.current?.swiper?.autoplay?.start();
+  }, 100);
+}, []);
 
   const COLORS = ["#949494", "#ffffff"];
 
@@ -55,10 +64,9 @@ const Home = () => {
       setLoading(false);
     }
   };
+
   return (
-    
     <>
-    
       <Header />
 
       {/* <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[105vh] bg-black overflow-hidden">
@@ -115,38 +123,35 @@ const Home = () => {
         </div>
       </section> */}
 
-       {/* <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[105vh] bg-black overflow-hidden">
+      {/* <section className="relative w-full h-[80vh] sm:h-[80vh] md:h-[105vh] bg-black overflow-hidden">
           <img
     src="/homeimg.jpeg"
     alt="Home Banner"
     className="block w-full"
   />
        </section> */}
-       {/* <section className="relative w-full h-[60vh] sm:h-[75vh] md:h-[90vh] lg:h-screen overflow-hidden bg-black">
+      {/* <section className="relative w-full h-[60vh] sm:h-[75vh] md:h-[90vh] lg:h-screen overflow-hidden bg-black">
   <img
     src="/homeimg.jpeg"
     alt="Home Banner"
     className="absolute inset-0 w-full h-full object-cover object-center"
   />
 </section> */}
-<section className="relative w-full overflow-hidden bg-black">
+      <section className="relative w-full overflow-hidden bg-black">
+        {/* Desktop Image */}
+        <img
+          src="/homeimg.jpeg"
+          alt="Home Banner"
+          className="hidden md:block w-full h-screen object-cover object-center"
+        />
 
-  {/* Desktop Image */}
-  <img
-    src="/homeimg.jpeg"
-    alt="Home Banner"
-    className="hidden md:block w-full h-screen object-cover object-center"
-  />
-
-  {/* Mobile Image */}
-  <img
-    src="/mobile.png"
-    alt="Home Banner"
-    className="block md:hidden w-full h-[42vh] object-cover object-center"
-  />
-
-</section>
-
+        {/* Mobile Image */}
+        <img
+          src="/mobile.png"
+          alt="Home Banner"
+          className="block md:hidden w-full h-[30vh] mt-10 object-cover object-center"
+        />
+      </section>
 
       <section className="bg-black pb-20 hidden md:block">
         <div className="max-w-5xl mx-auto px-6 relative">
@@ -184,42 +189,45 @@ const Home = () => {
         </div>
       </section>
       {/* Mobile */}
-<div className="block bg-black md:hidden px-4 -mt-8">
+      <div className="block bg-black md:hidden px-4 -mt-8">
+        <div className="relative grid grid-cols-2 gap-4 bg-[#121212] border border-gray-700 rounded-2xl py-4 text-center text-white  hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
+          {count.map((item, index) => (
+            <div key={index} className="py-1">
+              <h3 className="text-[28px] font-[Quicksand] font-semibold">
+                {item.number}
+              </h3>
 
-  <div className="relative grid grid-cols-2 gap-4 bg-[#121212] border border-gray-700 rounded-2xl py-4 text-center text-white  hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
+              <p className="text-[12px] uppercase mt-2 font-[Quicksand]">
+                {item.subtitle}
+              </p>
+            </div>
+          ))}
+        </div>
 
-    {count.map((item, index) => (
-      <div key={index} className="py-1">
+        <div className="mt-12">
+          <button className="px-5 py-2 border border-gray-500 rounded-full text-white text-[15px] mb-8">
+            Who we are?
+          </button>
 
-        <h3 className="text-[28px] font-[Quicksand] font-semibold">
-          {item.number}
-        </h3>
-
-        <p className="text-[12px] uppercase mt-2 font-[Quicksand]">
-          {item.subtitle}
-        </p>
-
+          <ScrollHighlightText />
+        </div>
       </div>
-    ))}
 
-  </div>
-
-  <div className="mt-12">
-
-    <button className="px-5 py-2 border border-gray-500 rounded-full text-white text-[15px] mb-8">
-      Who we are?
-    </button>
-
-    <ScrollHighlightText />
-
-  </div>
-
-</div>
-
-      <section className="bg-black  pb-20 overflow-hidden">
+      {/* <section className="bg-black  pb-20 overflow-hidden">
         
         <div className="max-w-7xl   mx-auto p-4 ">
           <img src="/scnhome.png" className="w-full h-[30vh] md:h-[85vh] lg:h-[85vh] " />
+        </div>
+      </section> */}
+      <section className="bg-black pb-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="w-full h-[220px] sm:h-[350px] md:h-[550px] lg:h-[700px]  rounded-2xl overflow-hidden flex items-center justify-center">
+            <img
+              src="/scnhome.png"
+              alt="SCN Home"
+              className="max-w-full max-h-full object-contain"
+            />
+          </div>
         </div>
       </section>
       {/* <section className="bg-black pb-20 overflow-hidden">
@@ -239,10 +247,11 @@ const Home = () => {
         <div className="max-w-5xl  mx-auto px-5">
           {/* Heading */}
           <div className="mb-1">
-            <h2 className="text-gray-400 text-5xl font-weight-700 font-[Quicksand] mb-2">Process</h2>
-            <p className="text-gray-400 max-w-xs text-[18px]">
-              Process of how we work with you and your money
-            </p>
+            <h2 className="text-gray-400 text-5xl font-weight-700 font-semibold font-[Quicksand] mb-2">
+              Process
+            </h2>
+            <p className="text-gray-400 font-[Quicksand]  max-w-xs text-[18px]">
+A structured approach to help you invest, track, and grow your wealth with clarity and confidence.            </p>
           </div>
 
           <img src="line.png" className="" />
@@ -255,14 +264,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Heading */}
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl text-gray-400 sm:text-4xl md:text-[80px] font-weight-600  font-semibold font-[Quicksand]">
-              What our clien<span className="text-gray-400">t says</span>
+            <h2 className="text-3xl text-gray-400 sm:text-4xl md:text-[80px] font-weight-600   font-[Quicksand]">
+              {/* What our clien<span className="text-gray-400">t says</span> */}
+              What our Partner says
             </h2>
-
-            <p className="text-gray-400 mt-4 max-w-xl mx-auto text-[22px] ">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
-            </p>
           </div>
 
           <Swiper
@@ -270,6 +275,8 @@ const Home = () => {
             slidesPerView={1}
             spaceBetween={20}
             loop
+            onSwiper={(swiper) => (partnerRef.current = swiper)}
+
             autoplay={{ delay: 3500, reverseDirection: true }}
             pagination={{ clickable: true }}
             breakpoints={{
@@ -327,6 +334,21 @@ const Home = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+           <div className="flex justify-center gap-4 mt-8 md:mt-10">
+            <button
+              onClick={() => partnerRef.current.slidePrev()}
+              className="w-9 h-9 md:w-10 md:h-10 border border-gray-500 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
+            >
+              ‹
+            </button>
+
+            <button
+              onClick={() => partnerRef.current.slideNext()}
+              className="w-9 h-9 md:w-10 md:h-10 border border-gray-500 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
+            >
+              ›
+            </button>
+          </div>
         </div>
       </section>
 
@@ -339,12 +361,13 @@ const Home = () => {
             </span>
           </div>
 
-          {/* Slider */}
+          
           <Swiper
             modules={[Navigation, Autoplay]}
             spaceBetween={20}
             slidesPerView={1}
             loop
+            className="testimonialSwiper"
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             autoplay={{ delay: 3500 }}
             breakpoints={{
@@ -354,33 +377,56 @@ const Home = () => {
             }}
           >
             {testimonials.map((item, index) => (
-              <SwiperSlide key={index}>
-                <div className="bg-gradient-to-b from-[#303030] to-[#161616] p-5 hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all md:p-6 rounded-xl border border-gray-800 h-full flex flex-col">
+              <SwiperSlide key={index} className="!h-auto flex">
+                <div
+                  className="
+          w-full
+          h-full
+          min-h-[380px]
+          bg-gradient-to-b
+          from-[#303030]
+          to-[#161616]
+          rounded-2xl
+          border
+          border-gray-800
+          p-6
+          flex
+          flex-col
+          transition-all
+          duration-300
+          hover:shadow-[0_0_80px_#C2C2C2]
+          hover:border-gray-600
+          hover:scale-[1.02]
+        "
+                >
                   {/* Stars */}
-                  <div className="mb-4 text-[#FFFFFF] text-[18px] md:text-base">
+                  <div className="mb-4 text-white text-lg">
                     {[...Array(item.rating)].map((_, i) => (
                       <span key={i}>★</span>
                     ))}
                   </div>
 
-                  {/* Text */}
-                  <p className="text-gray-400 text-[18px] leading-relaxed mb-6 flex-grow">
+                  {/* Message */}
+                  <p className="text-gray-400 text-[18px] leading-8 flex-grow">
                     {item.message}
                   </p>
 
                   {/* User */}
-                  <div className="flex items-center gap-3">
-                     <div className="w-15 h-15 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center shrink-0">
-  <img
-    src={`${baseURL}/${item.image}`}
-    alt={item.name}
-    className="w-8 h-8 md:w-8 md:h-8 object-contain"
-  />
-</div>
+                  <div className="flex items-center gap-4 mt-6">
+                    <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden">
+                      <img
+                        src={`${baseURL}/${item.image}`}
+                        alt={item.name}
+                        className="w-10 h-10 object-contain"
+                      />
+                    </div>
 
                     <div>
-                      <h4 className="text-[18px] font-weight-500">{item.name}</h4>
-                      <p className="text-xs text-gray-500">
+                      <h4 className="text-white text-lg font-medium">
+                        {item.name}
+                      </h4>
+
+                      <p className="text-sm text-gray-500">
                         {item.designation}
                       </p>
                     </div>
@@ -413,75 +459,21 @@ const Home = () => {
 
       <section className="py-10 text-white bg-black overflow-hidden">
         <div className="max-w-7xl  mx-auto  py-10">
-          {/* Heading */}
           <img src="/map.png" />
         </div>
       </section>
 
-      <section className="  py-10 text-white bg-black overflow-hidden">
+      {/* <section className="  py-10 text-white bg-black overflow-hidden">
         <div className="max-w-7xl  mx-auto px-6 bg-gradient-to-b from-[#0b0b0b] via-[#000000] to-[#050505] rounded-3xl py-10">
-          {/* Heading */}
+          
 
           <h2 className="text-center text-[40px] :md:text-[80px] lg:text-[80px] font-semibold font-[Quicksand] font-weight-600 mb-16 text-gray-300">
             Award and achievement
           </h2>
 
-          {/* Slider */}
-
-          {/* <Swiper
-            modules={[Navigation]}
-            slidesPerView={3}
-            spaceBetween={50}
-            loop={true}
-            onSwiper={(swiper) => (awordref.current = swiper)}
-            breakpoints={{
-              320: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-          >
-            {awards.map((item, index) => (
-              <SwiperSlide key={index}>
-                <div className="text-center relative flex flex-col items-center">
-                  
-                  <div className="relative flex justify-center mt-10 items-center mb-10">
-                    
-                    <img src="/outerborder.png" className="absolute w-40 z-1" />
-
-                    
-                    <img
-                      src={`${baseURL}/${item.image}`}
-                      alt={item.title}
-                      className="relative z-10 h-40 -top-8 object-contain"
-                    />
-
-                   
-                    <div className="absolute -bottom-20 flex flex-col items-center z-0">
-                      <img src="/ribbon.png" className="w-24" />
-
-                      
-                      <span className="absolute top-8 text-gray-700 font-semibold text-xl">
-                        {item.year}
-                      </span>
-                    </div>
-                  </div>
-
-                 
-                  <h3
-                    className="text-lg font-semibold mb-3 mt-16"
-                    dangerouslySetInnerHTML={{ __html: item.title }}
-                  />
-
-                  
-                  <p className="text-gray-400 text-xs px-8 leading-relaxed max-w-xs mx-auto">
-                    {item.description}
-                  </p>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper> */}
+         
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation,Autoplay]}
             slidesPerView={3}
             spaceBetween={50}
             loop={true}
@@ -495,127 +487,158 @@ const Home = () => {
             {awards.map((item, index) => (
               <SwiperSlide key={index}>
                 <div className="flex flex-col items-center text-center 00  ">
-                  {/* Trophy Section */}
                   <div className="relative flex justify-center items-center mb-10  hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
-                    {/* Ribbon / Badge Background */}
                     <img
                       src="/awd.png"
                       className="w-60 object-contain  "
                       alt="award background"
                     />
 
-                    {/* Trophy */}
+                   
                     <img
                       src={`${baseURL}/${item.image}`}
                       alt={item.title}
                       className="absolute  h-50 object-contain "
                     />
 
-                    {/* Year */}
-                    {/* <span className="absolute bottom-18 font-semibold text-[36px] bg-gradient-to-b from-[#000000] to-[#838383] bg-clip-text text-transparent">
-                      {item.year}
-                    </span> */}
+                   
                   </div>
 
-                  {/* Title */}
+                  
                   <h3
                     className="text-[24px] md:text-[28.18px] font-weight-500 font-[Quicksand] mb-3"
                     dangerouslySetInnerHTML={{ __html: item.title }}
                   />
 
-                  {/* Description */}
-                  {/* <p className="text-[#C8C8C8] md:text-[14.18px] font-weight-300 font-[Quicksand] px-8 leading-relaxed max-w-xs">
-                    {item.description}
-                  </p> */}
+                  
                 </div>
               </SwiperSlide>
             ))}
-          </Swiper>
+          </Swiper>     
+          
+        </div>
+      </section> */}
+      <section className="py-16 text-white bg-black overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-center uppercase text-[40px] md:text-[50px] font-[Quicksand] font-weight-600 font-semibold mb-16 text-gray-300">
+            Awards and Achievement
+          </h2>
 
-          {/* arrows */}
+          {/* LEFT SHADOW */}
+          <div className="relative">
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-20"></div>
 
-          <div className="flex justify-center gap-4 mt-14">
-            <button
-              onClick={() => awordref.current.slidePrev()}
-              className="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-black to-transparent z-20"></div>
+
+            {/* ================= FIRST ROW ================= */}
+
+            <Swiper
+            ref={swiper1}
+              modules={[Autoplay]}
+              slidesPerView={3}
+              spaceBetween={40}
+              loop={true}
+              speed={3500}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+              }}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
             >
-              ‹
-            </button>
+              {awards
+                .slice(0, Math.ceil(awards.length / 2))
+                .map((item, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="flex flex-col items-center text-center">
+                      <div className="relative flex justify-center items-center mb-8 hover:scale-105 transition duration-300">
+                        <img
+                          src="/awd.png"
+                          className="w-35 object-contain"
+                          alt=""
+                        />
 
-            <button
-              onClick={() => awordref.current.slideNext()}
-              className="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
+                        <img
+                          src={`${baseURL}/${item.image}`}
+                          alt={item.title}
+                          className="absolute h-25 object-contain"
+                        />
+                      </div>
+
+                      <h3
+                        className="text-[20px] font-medium"
+                        dangerouslySetInnerHTML={{ __html: item.title }}
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+            </Swiper>
+
+            {/* ================= SECOND ROW ================= */}
+
+            <Swiper
+            ref={swiper2}
+              className="mt-12"
+              modules={[Autoplay]}
+              slidesPerView={3}
+              spaceBetween={40}
+              loop={true}
+              speed={3500}
+              autoplay={{
+                delay: 0,
+                reverseDirection: true,
+                disableOnInteraction: false,
+              }}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
             >
-              ›
-            </button>
+              {awards.slice(Math.ceil(awards.length / 2)).map((item, index) => (
+                <SwiperSlide key={index}>
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative flex justify-center items-center mb-8 hover:scale-105 transition duration-300">
+                      <img
+                        src="/awd.png"
+                        className="w-35 object-contain"
+                        alt=""
+                      />
+
+                      <img
+                        src={`${baseURL}/${item.image}`}
+                        alt={item.title}
+                        className="absolute h-25 object-contain"
+                      />
+                    </div>
+
+                    <h3
+                      className="text-[20px] font-medium"
+                      dangerouslySetInnerHTML={{ __html: item.title }}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       </section>
 
-      {/* <section className="bg-black py-10 overflow-hidden">
-        <div className="max-w-7xl  mx-auto">
-          <Swiper
-            modules={[Autoplay]}
-            spaceBetween={30}
-            slidesPerView={6}
-            loop={true}
-            speed={3000}
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-            }}
-            breakpoints={{
-              320: { slidesPerView: 2 },
-              640: { slidesPerView: 3 },
-              1024: { slidesPerView: 6 },
-            }}
-          >
-            {logos.map((logo, index) => (
-              <SwiperSlide key={index}>
-                <div className="bg-white rounded-xl flex items-center justify-center p-4">
-                  <img
-                    src={`${baseURL}/${logo?.logo}`}
-                    alt="logo"
-                    className="h-8 object-contain"
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          
-          <Swiper
-            modules={[Autoplay]}
-            spaceBetween={30}
-            slidesPerView={6}
-            loop={true}
-            speed={3000}
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-              reverseDirection: true,
-            }}
-            className="mt-6"
-            breakpoints={{
-              320: { slidesPerView: 2 },
-              640: { slidesPerView: 3 },
-              1024: { slidesPerView: 6 },
-            }}
-          >
-            {logos.map((logo, index) => (
-              <SwiperSlide key={index}>
-                <div className="bg-white rounded-xl flex items-center justify-center p-4">
-                  <img
-                    src={`${baseURL}/${logo?.logo}`}
-                    alt="logo"
-                    className="h-8 object-contain"
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section> */}
       <section className="bg-gradient-to-b from-[#161616] to-[#000] py-10">
         <section className=" py-16 md:mx-8">
           <div className="max-w-7xl mx-auto relative">
@@ -630,10 +653,13 @@ const Home = () => {
               spaceBetween={30}
               slidesPerView={6}
               loop={true}
+              loopAdditionalSlides={logos.length}
+              watchSlidesProgress={true}
               speed={3000}
               autoplay={{
-                delay: 0,
+                delay: 1,
                 disableOnInteraction: false,
+                pauseOnMouseEnter: false,
               }}
               breakpoints={{
                 320: { slidesPerView: 2 },
@@ -643,11 +669,11 @@ const Home = () => {
             >
               {logos.map((logo, index) => (
                 <SwiperSlide key={index}>
-                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
+                  <div className="bg-white h-20 w-full rounded-xl flex items-center justify-center p-2">
                     <img
                       src={`${baseURL}/${logo?.logo}`}
                       alt="logo"
-                      className="h-8 object-contain"
+                      className="h-full w-full object-contain"
                     />
                   </div>
                 </SwiperSlide>
@@ -660,10 +686,13 @@ const Home = () => {
               spaceBetween={30}
               slidesPerView={6}
               loop={true}
+              loopAdditionalSlides={logos.length}
+              watchSlidesProgress={true}
               speed={3000}
               autoplay={{
-                delay: 0,
+                delay: 1,
                 disableOnInteraction: false,
+                pauseOnMouseEnter: false,
                 reverseDirection: true,
               }}
               className="mt-6"
@@ -675,88 +704,16 @@ const Home = () => {
             >
               {logos.map((logo, index) => (
                 <SwiperSlide key={index}>
-                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
+                  <div className="bg-white h-20 w-full rounded-xl flex items-center justify-center p-2">
                     <img
                       src={`${baseURL}/${logo?.logo}`}
                       alt="logo"
-                      className="h-8 object-contain"
+                      className="h-full w-full object-contain"
                     />
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
-
-            
-          </div>
-           <div className="max-w-7xl mt-6 mx-auto relative">
-            {/* LEFT SHADOW */}
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-40 bg-gradient-to-r from-black/90 to-transparent z-10"></div>
-
-            {/* RIGHT SHADOW */}
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-40 bg-gradient-to-l from-black/90 to-transparent z-10"></div>
-            {/* Slider 1 */}
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={30}
-              slidesPerView={6}
-              loop={true}
-              speed={3000}
-              autoplay={{
-                delay: 0,
-                disableOnInteraction: false,
-              }}
-              breakpoints={{
-                320: { slidesPerView: 2 },
-                640: { slidesPerView: 3 },
-                1024: { slidesPerView: 6 },
-              }}
-            >
-              {logos.map((logo, index) => (
-                <SwiperSlide key={index}>
-                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
-                    <img
-                      src={`${baseURL}/${logo?.logo}`}
-                      alt="logo"
-                      className="h-8 object-contain"
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            {/* Slider 2 */}
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={30}
-              slidesPerView={6}
-              loop={true}
-              speed={3000}
-              autoplay={{
-                delay: 0,
-                disableOnInteraction: false,
-                reverseDirection: true,
-              }}
-              className="mt-6"
-              breakpoints={{
-                320: { slidesPerView: 2 },
-                640: { slidesPerView: 3 },
-                1024: { slidesPerView: 6 },
-              }}
-            >
-              {logos.map((logo, index) => (
-                <SwiperSlide key={index}>
-                  <div className="bg-white rounded-xl flex items-center justify-center p-4">
-                    <img
-                      src={`${baseURL}/${logo?.logo}`}
-                      alt="logo"
-                      className="h-8 object-contain"
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            
           </div>
         </section>
       </section>
@@ -766,121 +723,20 @@ const Home = () => {
   );
 };
 
-// const lines = [
-//   { text: "Our bespoke wealth ", bold: true },
-//   {
-//     text: "management firm is built on ",
-//     bold: true,
-//   },
-//   {
-//     text: "the principles of transparency, ",
-//     bold: false,
-//   },
-//   {
-//     text: "trust, and long-term partnerships.",
-//     bold: false,
-//   },
-//   {
-//     text: "With over 20 years of experience, ",
-//     bold: false,
-//   },
-//   {
-//     text: "our team brings deep market ",
-//     bold: false,
-//   },
-//   {
-//     text: "insight, proven expertise, and a ",
-//     bold: false,
-//   },
-//   {
-//     text: "strong commitment to managing ",
-//     bold: false,
-//   },
-//   {
-//     text: "wealth for individuals, families,",
-//     bold: false,
-//   },
-//   {
-//     text: "and business owners.",
-//     bold: false,
-//   },
-// ];
-
-// const INTERVAL = 2000;
-// const PAUSE_AT_END = 3000;
-
-// function ScrollHighlightText() {
-//   const [activeIndex, setActiveIndex] = useState(0);
-
-//   useEffect(() => {
-//     let timeout;
-
-//     const next = (current) => {
-//       if (current >= lines.length - 1) {
-//         timeout = setTimeout(() => {
-//           setActiveIndex(0);
-//           scheduleNext(0);
-//         }, PAUSE_AT_END);
-//       } else {
-//         timeout = setTimeout(() => {
-//           const nextIndex = current + 1;
-//           setActiveIndex(nextIndex);
-//           scheduleNext(nextIndex);
-//         }, INTERVAL);
-//       }
-//     };
-
-//     const scheduleNext = (current) => {
-//       next(current);
-//     };
-
-//     const initial = setTimeout(() => {
-//       setActiveIndex(1);
-//       scheduleNext(1);
-//     }, INTERVAL);
-
-//     return () => clearTimeout(timeout || initial);
-//   }, []);
-
-//   return (
-//     <div className="min-h-screen flex items-start  ">
-//       <div className=" w-full">
-//         <h2 className="text-xl md:text-[50px] leading-snug ">
-//           {lines.map((line, i) => (
-//             <span
-//               key={i}
-//               className={`
-//                 block transition-colors duration-500 font-medium
-//                 ${
-//                   i === activeIndex
-//                     ? "text-white"
-//                     : i < activeIndex
-//                       ? "text-[#888]"
-//                       : "text-[#333]"
-//                 }
-
-//               `}
-//             >
-//               {line.text}
-//             </span>
-//           ))}
-//         </h2>
-//       </div>
-//     </div>
-//   );
-// }
-
 const lines = [
-  { text: "Our bespoke wealth ", bold: true },
-  { text: "management firm is built on ", bold: true },
-  { text: "the principles of transparency, ", bold: false },
-  { text: "trust, and long-term partnerships.", bold: false },
-  { text: "With over 20 years of experience, ", bold: false },
-  { text: "our team brings deep market ", bold: false },
-  { text: "insight, proven expertise, and a ", bold: false },
-  { text: "strong commitment to managing ", bold: false },
-  { text: "wealth for individuals, families,", bold: false },
-  { text: "and business owners.", bold: false },
+  { text: "Blue Sage Wealth is a trusted ", bold: true },
+  { text: "investment distribution firm built on ", bold: true },
+  { text: "transparency, trust, and long-term", bold: false },
+  { text: "relationships.", bold: false },
+  { text: "With over 20 years of experience, we  ", bold: false },
+  { text: "help individuals, families, and business ", bold: false },
+  { text: "owners invest in suitable mutual fund ", bold: false },
+  { text: "solutions and build long-term wealth  ", bold: false },
+  { text: "through disciplined investing.", bold: false },
+  { text: "Our approach focuses on simplifying", bold: false },
+  { text: "investments, providing ongoing support,", bold: false },
+  { text: "and helping you stay aligned with your", bold: false },
+  { text: "financial goals.", bold: false },
 ];
 
 function ScrollHighlightText() {
@@ -914,39 +770,39 @@ function ScrollHighlightText() {
   return (
     <div className=" flex items-center">
       <div ref={containerRef} className="w-full px-6">
-       <h2>
-  {lines.map((line, i) => {
-    const start = i / lines.length;
-    const end = (i + 1) / lines.length;
+        <h2>
+          {lines.map((line, i) => {
+            const start = i / lines.length;
+            const end = (i + 1) / lines.length;
 
-    let opacity = 0.2;
+            let opacity = 0.2;
 
-    if (progress >= start && progress <= end) {
-      const localProgress = (progress - start) / (end - start);
-      opacity = 0.2 + localProgress * 0.8;
-    } else if (progress > end) {
-      opacity = 1;
-    }
+            if (progress >= start && progress <= end) {
+              const localProgress = (progress - start) / (end - start);
+              opacity = 0.2 + localProgress * 0.8;
+            } else if (progress > end) {
+              opacity = 1;
+            }
 
-    return (
-      <span
-        key={i}
-        className="block transition-all duration-300 text-[26px] sm:text-[32px] md:text-[40px] lg:text-[48px]"
-        style={{
-          fontFamily: "'Quicksand', sans-serif",
-          fontWeight: 500,
-          lineHeight: "100%",
-          letterSpacing: "-0.04em", // -4%
-              
-          color: `rgba(255,255,255,${opacity})`,
-          opacity,
-        }}
-      >
-        {line.text}
-      </span>
-    );
-  })}
-</h2>
+            return (
+              <span
+                key={i}
+                className="block transition-all duration-300 text-[26px] sm:text-[32px] md:text-[40px] lg:text-[48px]"
+                style={{
+                  fontFamily: "'Quicksand', sans-serif",
+                  fontWeight: 500,
+                  lineHeight: "126%",
+                  letterSpacing: "-0.04em", // -4%
+
+                  color: `rgba(255,255,255,${opacity})`,
+                  opacity,
+                }}
+              >
+                {line.text}
+              </span>
+            );
+          })}
+        </h2>
       </div>
     </div>
   );

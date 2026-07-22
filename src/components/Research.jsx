@@ -26,7 +26,7 @@ const Research = () => {
       console.log("AllData", AllData);
 
       setContent_section(AllData?.content_section);
-      setCard(AllData?.offerings);
+      setCard(AllData?.offerings.reverse());
     } catch (error) {
       console.error(error);
     } finally {
@@ -153,7 +153,7 @@ const Research = () => {
                 {/* content */}
                 <div className="absolute inset-0 p-8 flex flex-col justify-start">
                   {/* icon */}
-                  <div className="mb-6">
+                  <div className="mb-6 ">
                     <img
                       src={`${baseURL}/${item.icon_img}`}
                       alt=""
@@ -162,7 +162,7 @@ const Research = () => {
                   </div>
 
                   {/* title */}
-                  <h3 className="text-gray-400 text-[22px] font-weight-500 font-[Quicksand] leading-snug mb-4">
+                  <h3 className="text-[#FFFFFF] text-[24px] font-weight-500 font-[Quicksand] leading-snug mb-4">
                     {item.title}
                   </h3>
 

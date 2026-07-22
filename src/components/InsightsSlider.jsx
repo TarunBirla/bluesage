@@ -33,14 +33,13 @@ export default function InsightsSlider() {
   };
 
   return (
-    <section className="bg-black py-16 md:py-28 text-center overflow-hidden">
+    <section className="bg-black py-16 md:py-15 text-center overflow-hidden">
       
       {/* Heading */}
       <h2 className="text-2xl sm:text-4xl md:text-[80px] font-semibold font-weight-600 font-[Outfit] text-gray-400 mb-10 md:mb-16">
-        Insights for our clients
+        Insights for our Vlog
       </h2>
 
-      {/* Slider */}
       <Swiper
         modules={[EffectCoverflow, Autoplay]}
         effect="coverflow"

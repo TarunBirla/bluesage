@@ -1,35 +1,44 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState ,useEffect} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { baseURL } from "../../service/api";
+import http from "../../service/http";
 
 export default function BlogSlider() {
   const swiperRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
 
-  const blogs = [
-    {
-      img: "/b1.png",
-      date: "Apr. 14th, 2025",
-      category: "Technology",
-      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      img: "/b1.png",
-      date: "Apr. 14th, 2025",
-      category: "Technology",
-      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      img: "/b1.png",
-      date: "Apr. 14th, 2025",
-      category: "Technology",
-      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-  ];
+  
+
+    const [blogs, setBlogs] = useState([]);
+    const [page, setPage] = useState(1);
+    const [lastPage, setLastPage] = useState(1);
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      fetchBlogs(page);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, [page]);
+  
+    const fetchBlogs = async (pageNumber) => {
+      try {
+        setLoading(true);
+  
+        const res = await http.get(`/blogs?page=${pageNumber}`);
+  
+        setBlogs(res.data.data);
+        setLastPage(res.data.last_page);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
 
   return (
     <section className="bg-black py-20 px-6 overflow-hidden">
@@ -47,13 +56,15 @@ export default function BlogSlider() {
           {blogs.map((blog, i) => (
             <SwiperSlide key={i}>
               <div className="relative rounded-[30px] overflow-hidden">
-                <img src={blog.img} className="w-full h-[420px] object-cover" />
+                <img src={`${baseURL}/${blog.image || ""}`} className="w-full h-[420px] object-cover" />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
 
                 <div className="absolute bottom-6 left-6 right-6 text-white">
                   <p className="text-sm opacity-80 mb-2">
-                    {blog.date} | {blog.category}
+                    {new Date(blog.published_date).toLocaleDateString()}
+              {" • "}
+              {blog.category}
                   </p>
 
                   <h3 className="text-xl font-semibold">{blog.title}</h3>

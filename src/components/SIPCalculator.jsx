@@ -48,9 +48,9 @@ export default function SIPCalculator() {
     return `${dd}-${mm}-${yyyy}`;
   };
 
-  const start_date = formatDate(start);
+  const start_date = formatDate(today);
 
-  const end_date = formatDate(today);
+  const end_date = formatDate(start);
 
   const calculate = async () => {
   try {
@@ -152,41 +152,117 @@ if (error) {
   );
 }
 return (
-  <section className="bg-black py-5 px-4 flex justify-center overflow-hidden">
-    <div className="max-w-6xl w-full border border-gray-600 rounded-[32px]  hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all p-6 md:p-12">
+  <section className="bg-black py-1 px-4 flex justify-center overflow-hidden">
+    <div className="max-w-6xl w-full border border-white rounded-[32px]  hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all p-5 md:p-5">
 
-      <h2 className="text-white text-3xl md:text-4xl font-semibold mb-8">
+      <h2 className="text-white text-3xl md:text-4xl font-semibold mb-2">
         SIP Calculator
       </h2>
 
       {/* Toggle */}
-      <div className="flex gap-8 mb-10 text-white">
+     <div className="flex gap-8 mb-2 text-white">
 
-        <label className="flex items-center gap-2 cursor-pointer">
-          <input
-            type="radio"
-            checked={mode === "sip"}
-            onChange={() => setMode("sip")}
-          />
-          SIP Calculator
-        </label>
+  {/* SIP */}
+  <label className="flex items-center gap-3 cursor-pointer">
 
-        <label className="flex items-center gap-2 cursor-pointer">
-          <input
-            type="radio"
-            checked={mode === "lumpsum"}
-            onChange={() => setMode("lumpsum")}
-          />
-          Lumpsum
-        </label>
+    <input
+      type="radio"
+      name="calculatorMode"
+      value="sip"
+      checked={mode === "sip"}
+      onChange={() => setMode("sip")}
+      className="hidden"
+    />
 
-      </div>
+    {/* Custom Radio */}
+    <span
+      className={`
+        w-[34px] h-[34px]
+        rounded-full
+        flex items-center justify-center
+        shrink-0
+        transition-all duration-300
+        ${
+          mode === "sip"
+            ? "bg-[#a7a7a7]"
+            : "bg-transparent border-[4px] border-[#a7a7a7]"
+        }
+      `}
+    >
+      <span
+        className={`
+          bg-white rounded-full
+          transition-all duration-300
+          ${
+            mode === "sip"
+              ? "w-[19px] h-[19px]"
+              : "w-[24px] h-[24px]"
+          }
+        `}
+      ></span>
+    </span>
+
+    <span className="text-[18px] md:text-[20px]">
+      SIP Calculator
+    </span>
+
+  </label>
+
+
+  {/* LUMPSUM */}
+  <label className="flex items-center gap-3 cursor-pointer">
+
+    <input
+      type="radio"
+      name="calculatorMode"
+      value="lumpsum"
+      checked={mode === "lumpsum"}
+      onChange={() => setMode("lumpsum")}
+      className="hidden"
+    />
+
+    {/* Custom Radio */}
+    <span
+      className={`
+        w-[34px] h-[34px]
+        rounded-full
+        flex items-center justify-center
+        shrink-0
+        transition-all duration-300
+        ${
+          mode === "lumpsum"
+            ? "bg-[#a7a7a7]"
+            : "bg-transparent border-[4px] border-[#a7a7a7]"
+        }
+      `}
+    >
+      <span
+        className={`
+          bg-white rounded-full
+          transition-all duration-300
+          ${
+            mode === "lumpsum"
+              ? "w-[19px] h-[19px]"
+              : "w-[24px] h-[24px]"
+          }
+        `}
+      ></span>
+    </span>
+
+    <span className="text-[18px] md:text-[20px]">
+      Lumpsum
+    </span>
+
+  </label>
+
+</div>
+    
 
       <div className="grid md:grid-cols-2 gap-12">
 
         {/* LEFT */}
 
-        <div className="border border-gray-700 rounded-2xl p-8">
+        <div className="border border-gray-700 rounded-2xl p-5">
 
           {/* Amount */}
 
@@ -225,7 +301,7 @@ return (
             <div className="flex justify-between mb-3">
 
               <span className="text-gray-400">
-                Investment Period
+                SIP Period
               </span>
 
               <span className="text-white font-semibold">
@@ -252,8 +328,7 @@ return (
             <div className="flex justify-between mb-3">
 
               <span className="text-gray-400">
-                Expected Return
-              </span>
+Expected return rate (p.a)              </span>
 
               <span className="text-white font-semibold">
                 {rate}%
@@ -278,7 +353,7 @@ return (
 
         <div className="flex flex-col items-center justify-center">
 
-          <PieChart width={260} height={260}>
+          <PieChart width={200} height={200}>
             <Pie
               data={data}
               cx="50%"
@@ -303,7 +378,7 @@ return (
             />
           </PieChart>
 
-          <div className="flex gap-8 mt-5">
+          <div className="flex gap-8 mt-2">
 
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 rounded-full bg-gray-300"></div>
@@ -321,7 +396,7 @@ return (
 
           </div>
 
-          <div className="grid grid-cols-2 gap-8 mt-10 w-full">
+          <div className="grid grid-cols-2 gap-8 mt-4 w-full">
 
             <div>
 
@@ -349,13 +424,13 @@ return (
 
           </div>
 
-          <div className="w-full mt-8 border-t border-gray-700 pt-6">
+          <div className="w-full mt-4">
 
-            <p className="text-gray-400 text-center">
+            <p className="text-gray-400 ">
               Total Future Value
             </p>
 
-            <h2 className="text-center text-white text-3xl font-bold mt-2">
+            <h2 className=" text-white text-xl font-bold mt-2">
               ₹ {Math.round(futureValue).toLocaleString("en-IN")}
             </h2>
 

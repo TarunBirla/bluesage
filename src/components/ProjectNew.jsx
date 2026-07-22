@@ -145,10 +145,10 @@ const ProjectNew = () => {
               {/* Stat 1 */}
               <div className="text-center py-4 md:py-0">
                 <h3 className="text-3xl md:text-[55px] font-semibold">
-                  15,000<span className="text-lg">+ Cr</span>
+                  250<span className="text-lg">+ Cr</span>
                 </h3>
                 <p className="text-[#AAAAAA] text-[18px] md:text-[22px] mt-2">
-                  Client assets in 4 years
+                  Assets undermanagement 
                 </p>
               </div>
 
@@ -158,10 +158,10 @@ const ProjectNew = () => {
               {/* Stat 2 */}
               <div className="text-center py-4 md:py-0 border-t border-b md:border-t-0 md:border-b-0 md:border-l md:border-r border-gray-600">
                 <h3 className="text-3xl md:text-[55px] font-semibold">
-                  5,000+
+                  350+
                 </h3>
                 <p className="text-[#AAAAAA] text-[18px] md:text-[22px] mt-2">
-                  Clients trust Blue Sage Wealth
+                 Clients trust Blue Sage Wealth
                 </p>
               </div>
 
@@ -219,7 +219,7 @@ const ProjectNew = () => {
             ))}
           </div> */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
-  {services.map((service, index) => (
+  {services.slice(0, 6).map((service, index) => (
     <div
       key={index}
       className="relative w-full max-w-[340px] md:max-w-[387px] mx-auto text-center text-white hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
@@ -253,14 +253,87 @@ const ProjectNew = () => {
     </div>
   ))}
 </div>
+     {/* <div className="mt-8 flex flex-col md:flex-row justify-center items-center gap-4"> */}
+      {/* <div className="mt-10 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
+  {services.slice(6, 8).map((service, index) => (
+    <div
+      key={index}
+      className="relative w-full max-w-[340px] md:max-w-[387px] mx-auto text-center text-white hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
+    >
+      
+      <img
+        src="/box1.png"
+        alt=""
+        className="w-full h-auto"
+      />
+
+      
+      <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+        <img
+          src={`${baseURL}/${service.icon_img}`}
+          alt={service.title}
+          className="w-10 h-10"
+        />
+      </div>
+
+      
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-8">
+        <h3 className="text-[20px] md:text-[22px] font-semibold mb-3">
+          {service.title}
+        </h3>
+
+        <p className="text-[#C8C8C8] text-[15px] md:text-[21px] leading-relaxed">
+          {service.description}
+        </p>
+      </div>
+    </div>
+  ))}
+</div> */}
+<div className="mt-10 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
+  {services.slice(6, 8).map((service, index) => (
+    <div
+      key={index}
+      className="relative w-full max-w-[340px] md:max-w-[387px] text-center text-white group hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
+    >
+      {/* Background */}
+      <img
+        src="/box1.png"
+        alt=""
+        className="w-full h-auto"
+      />
+
+      {/* Icon */}
+       {/* Icon */}
+      <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+        <img
+          src={`${baseURL}/${service.icon_img}`}
+          alt={service.title}
+          className="w-10 h-10"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-8">
+        <h3 className="text-[20px] md:text-[22px] font-semibold mb-3">
+          {service.title}
+        </h3>
+
+        <p className="text-[#C8C8C8] text-[15px] md:text-[21px] leading-relaxed">
+          {service.description}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
         </div>
       </section>
       <section className="bg-black  pb-20 pt-20 ">
         {/* Stats Card */}
         <div className="max-w-7xl  mx-auto text-center ">
-          <h2 className=" text-4xl md:text-[85px] font-semibold mb-14 font-weight-600 font-[Quicksand] bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent">
-            Schedule a call to align your
-            <br /> investments with financial goals
+          <h2 className=" text-4xl md:text-[50px] font-semibold mb-14 font-weight-600 font-[Quicksand] bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent">
+            Schedule a consultation to begin your investment 
+            <br /> 
+journey aligned with your financial goals
           </h2>
           <img src="/scnhome.png" className="w-full h-auto" />
         </div>

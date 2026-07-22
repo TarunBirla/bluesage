@@ -57,8 +57,8 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* <BlogSlider /> */}
-      {/* <SmallBlogSlider /> */}
+      <BlogSlider /> 
+       <SmallBlogSlider />
       <BlogGrid />
 
       <Footer />
