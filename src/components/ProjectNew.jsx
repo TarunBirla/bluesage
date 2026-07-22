@@ -22,7 +22,7 @@ const ProjectNew = () => {
       const res = await http.get(`/home`);
       const AllData = res.data?.data;
       console.log("AllData", AllData);
-      setServices(AllData?.services);
+      setServices(AllData?.services || []);
       setHighlight(AllData?.highlight);
       setCount(AllData?.counters || []);
     } catch (error) {
@@ -31,15 +31,6 @@ const ProjectNew = () => {
       setLoading(false);
     }
   };
-
-  const stats =
-    count.length > 0
-      ? count
-      : [
-          { number: "250+", subtitle: "Cr Assets managed" },
-          { number: "350+", subtitle: "Clients" },
-          { number: "20+", subtitle: "Years" },
-        ];
 
   return (
     <>
@@ -67,70 +58,47 @@ const ProjectNew = () => {
       {/* ══════════════════════════════════════
           WHY CHOOSE BLUE SAGE?
       ══════════════════════════════════════ */}
-      <section className="bg-black py-16 overflow-hidden">
+      <section className="bg-black pt-8 md:pt-12 pb-4 md:pb-6 overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
           <h2
-            className="text-center font-semibold mb-10 md:mb-20 font-weight-600 font-[Quicksand]
-           text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
-          bg-gradient-to-b from-white to-[#999999]
-          bg-clip-text text-transparent"
+            className="text-center font-semibold mb-6 md:mb-8 font-[Quicksand]
+            text-[36px] md:text-[60px] leading-tight tracking-[-0.02em]
+            bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent"
           >
             Why choose Blue Sage?
           </h2>
 
-          {/* Stats row */}
-          {/* <div className="grid grid-cols-3 gap-4 bg-[#111] border border-gray-800 rounded-2xl py-8 px-4 mb-8">
-            {stats.slice(0, 3).map((item, i) => (
-              <div
-                key={i}
-                className={`text-center ${i !== 2 ? "border-r border-gray-700" : ""}`}
-              >
-                <h3 className="text-white font-bold font-[Quicksand] text-[32px] md:text-[48px]">
-                  {item.number}
-                </h3>
-                <p className="text-gray-400 text-[12px] md:text-[14px] font-[Quicksand] uppercase tracking-wide mt-1">
-                  {item.subtitle}
-                </p>
-              </div>
-            ))}
-          </div> */}
           <div
-            className="border border-gray-600 rounded-[30px] py-10 px-6
-          backdrop-blur-md bg-black/60 hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
+            className="border border-gray-600 rounded-[28px] py-6 md:py-8 px-6
+            backdrop-blur-md bg-black/60 hover:shadow-[0_0_120px_rgba(200,200,200,0.1)] hover:border-gray-500 transition-all duration-300"
           >
-            <div className="grid md:grid-cols-3 text-white items-center ">
+            <div className="grid md:grid-cols-3 text-white items-center">
               {/* Stat 1 */}
-              <div className="text-center py-4 md:py-0">
-                <h3 className="text-3xl md:text-[55px] font-weight-400">
+              <div className="text-center py-3 md:py-0">
+                <h3 className="text-3xl md:text-[44px] font-semibold font-[Quicksand]">
                   250<span className="text-lg">+ Cr</span>
                 </h3>
-                <p className="text-[#AAAAAA] text-[18px] md:text-[22px] mt-2">
-                  Assets undermanagement
+                <p className="text-[#AAAAAA] text-[14px] md:text-[16px] mt-1 font-[Quicksand]">
+                  Assets under management
                 </p>
               </div>
-
-              {/* Divider */}
-              {/* <div className="hidden md:block border-l border-gray-600 h-14 mx-auto"></div> */}
 
               {/* Stat 2 */}
-              <div className="text-center py-4 md:py-0 border-t border-b md:border-t-0 md:border-b-0 md:border-l md:border-r border-gray-600">
-                <h3 className="text-3xl md:text-[55px] font-weight-400">
+              <div className="text-center py-3 md:py-0 border-t border-b md:border-t-0 md:border-b-0 md:border-l md:border-r border-gray-600">
+                <h3 className="text-3xl md:text-[44px] font-semibold font-[Quicksand]">
                   350+
                 </h3>
-                <p className="text-[#AAAAAA] text-[18px] md:text-[22px] mt-2">
-                  Clients trust Blue Sage <br /> Wealth
+                <p className="text-[#AAAAAA] text-[14px] md:text-[16px] mt-1 font-[Quicksand]">
+                  Clients trust Blue Sage Wealth
                 </p>
               </div>
 
-              {/* Divider */}
-              {/* <div className="hidden md:block border-l border-gray-600 h-14 mx-auto"></div> */}
-
               {/* Stat 3 */}
-              <div className="text-center py-4 md:py-0">
-                <h3 className="text-3xl md:text-[55px] font-weight-400">
+              <div className="text-center py-3 md:py-0">
+                <h3 className="text-3xl md:text-[44px] font-semibold font-[Quicksand]">
                   20+ <span className="text-lg">Years</span>
                 </h3>
-                <p className="text-[#AAAAAA] text-[18px] md:text-[22px] mt-2">
+                <p className="text-[#AAAAAA] text-[14px] md:text-[16px] mt-1 font-[Quicksand]">
                   Of experience
                 </p>
               </div>
@@ -138,118 +106,48 @@ const ProjectNew = () => {
           </div>
 
           {/* Schedule button */}
-          <div className="flex items-center justify-center mt-24">
-            <button className="border flex items-center gap-2 border-gray-500 text-white px-3 py-3 rounded-full mb-16 bg-white/10 backdrop-blur-md">
-              Schedule an expert call <ChevronDown size={20} />
+          <div className="flex items-center justify-center mt-6 md:mt-8">
+            <button className="border flex items-center gap-2 border-gray-500 text-white px-6 py-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white hover:text-black transition-all duration-300 text-sm font-medium font-[Quicksand]">
+              Schedule an expert call <ChevronDown size={18} />
             </button>
           </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════
-          SERVICE CARDS GRID
+          SERVICE CARDS GRID (MINIMAL VERTICAL GAPS)
       ══════════════════════════════════════ */}
-      <section className="bg-black py-10 relative overflow-hidden">
+      <section className="bg-black pt-4 pb-8 md:pt-6 md:pb-10 relative overflow-hidden">
         {/* Bottom Glow */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gray-300 blur-[160px] opacity-20"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-gray-400 blur-[180px] opacity-15 pointer-events-none" />
 
-        <div className="max-w-7xl  mx-auto px-6 text-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
-            {services.slice(0, 6).map((service, index) => (
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-8 justify-items-center pt-4">
+            {services.map((service, index) => (
               <div
                 key={index}
-                className="relative w-full max-w-[340px] md:max-w-[387px] mx-auto text-center text-white hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
+                className="group relative w-full max-w-[350px] md:max-w-[370px] mx-auto text-center text-white
+                  bg-gradient-to-b from-[#181818] via-[#111111] to-[#0a0a0a] border border-gray-800 rounded-[28px] px-6 pt-10 pb-6
+                  hover:border-gray-500 hover:shadow-[0_0_50px_rgba(200,200,200,0.12)]
+                  hover:scale-[1.02] transition-all duration-300 flex flex-col items-center justify-start min-h-[190px] md:min-h-[210px]"
               >
-                {/* Box */}
-                <img src="/box1.png" alt="" className="w-full h-auto" />
-
-                {/* Icon */}
-                <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+                {/* Top Center Icon Badge */}
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#1c1c1c] border border-gray-700 flex items-center justify-center shadow-lg group-hover:border-gray-500 group-hover:bg-[#252525] transition-all duration-300">
                   <img
                     src={`${baseURL}/${service.icon_img}`}
                     alt={service.title}
-                    className="w-10 h-10"
+                    className="w-7 h-7 object-contain"
                   />
                 </div>
 
                 {/* Content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-8">
-                  <h3 className="text-[20px] md:text-[22px] font-semibold mb-3">
-                    {service.title}
-                  </h3>
+                <h3 className="text-[17px] md:text-[19px] font-bold font-[Quicksand] mb-2.5 text-white mt-1 leading-snug">
+                  {service.title}
+                </h3>
 
-                  <p className="text-[#C8C8C8] text-[15px] md:text-[21px] leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* <div className="mt-8 flex flex-col md:flex-row justify-center items-center gap-4"> */}
-          {/* <div className="mt-10 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
-  {services.slice(6, 8).map((service, index) => (
-    <div
-      key={index}
-      className="relative w-full max-w-[340px] md:max-w-[387px] mx-auto text-center text-white hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
-    >
-      
-      <img
-        src="/box1.png"
-        alt=""
-        className="w-full h-auto"
-      />
-
-      
-      <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
-        <img
-          src={`${baseURL}/${service.icon_img}`}
-          alt={service.title}
-          className="w-10 h-10"
-        />
-      </div>
-
-      
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-8">
-        <h3 className="text-[20px] md:text-[22px] font-semibold mb-3">
-          {service.title}
-        </h3>
-
-        <p className="text-[#C8C8C8] text-[15px] md:text-[21px] leading-relaxed">
-          {service.description}
-        </p>
-      </div>
-    </div>
-  ))}
-</div> */}
-          <div className="mt-10 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
-            {services.slice(6, 8).map((service, index) => (
-              <div
-                key={index}
-                className="relative w-full max-w-[340px] md:max-w-[387px] text-center text-white group hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
-              >
-                {/* Background */}
-                <img src="/box1.png" alt="" className="w-full h-auto" />
-
-                {/* Icon */}
-                {/* Icon */}
-                <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
-                  <img
-                    src={`${baseURL}/${service.icon_img}`}
-                    alt={service.title}
-                    className="w-10 h-10"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-8">
-                  <h3 className="text-[20px] md:text-[22px] font-semibold mb-3">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-[#C8C8C8] text-[15px] md:text-[21px] leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
+                <p className="text-gray-400 text-[13px] md:text-[14px] leading-relaxed font-[Quicksand]">
+                  {service.description}
+                </p>
               </div>
             ))}
           </div>
@@ -257,28 +155,25 @@ const ProjectNew = () => {
       </section>
 
       {/* ══════════════════════════════════════
-          CONSULTATION QUOTE TEXT
+          CONSULTATION & RUPEE VISUAL (Single Screen on Desktop, Compact on Mobile)
       ══════════════════════════════════════ */}
-      <section className="bg-black py-16 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className=" text-4xl md:text-[50px] font-semibold mb-14 font-weight-600 font-[Quicksand] bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent">
-            Schedule a consultation to begin your investment
-            <br />
-            journey aligned with your financial goals
-          </h2>
-        </div>
-      </section>
+      <section className="relative bg-black py-8 sm:py-10 md:h-screen md:py-6 overflow-hidden flex flex-col items-center justify-center">
+        <div className="max-w-7xl mx-auto px-6 w-full flex flex-col items-center justify-between md:h-full md:max-h-[86vh]">
+          {/* Quote Heading */}
+          <div className="text-center pt-2 pb-2">
+            <h2 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[40px] font-semibold font-[Quicksand] bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent leading-tight max-w-5xl mx-auto">
+              Schedule a consultation to begin your investment
+              <br className="hidden md:block" />
+              journey aligned with your financial goals
+            </h2>
+          </div>
 
-      {/* ══════════════════════════════════════
-          RUPEE VISUAL + QR (scnhome image)
-      ══════════════════════════════════════ */}
-      <section className="bg-black pb-16 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-center">
+          {/* Rupee Visual Image */}
+          <div className="w-full flex-1 flex items-center justify-center overflow-hidden py-3 md:py-0">
             <img
               src="/scnhome.png"
               alt="Investment Visual"
-              className="max-w-full w-full md:w-[85%] object-contain"
+              className="max-w-full max-h-[35vh] sm:max-h-[45vh] md:max-h-[54vh] object-contain object-center"
             />
           </div>
         </div>
@@ -288,25 +183,21 @@ const ProjectNew = () => {
           HIGHLIGHT — "Most portfolios fail..."
       ══════════════════════════════════════ */}
       {highlight && (
-        <section className="bg-black py-24 relative overflow-hidden">
-          {/* Bottom Glow */}
-          <div
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 
-  w-[700px] h-[300px] bg-gray-300 blur-[160px] opacity-20"
-          ></div>
+        <section className="bg-black py-10 md:py-14 relative overflow-hidden">
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-gray-400 blur-[180px] opacity-15 pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
             {/* LEFT CONTENT */}
             <div>
-              <h2 className="text-white text-4xl md:text-5xl font-weight-500 font-[Quicksand] leading-tight">
+              <h2 className="text-white text-3xl md:text-4xl font-semibold font-[Quicksand] leading-tight">
                 {highlight?.title || "Loading..."}
               </h2>
 
-              <p className="text-gray-400 mt-6 max-w-md text-[18px]">
+              <p className="text-gray-400 mt-4 max-w-md text-[14px] md:text-[16px] font-[Quicksand] leading-relaxed">
                 {highlight?.description}
               </p>
 
-              <button className="mt-8 border border-gray-500 text-white px-6 py-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white hover:text-black transition">
+              <button className="mt-6 border border-gray-500 text-white px-6 py-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white hover:text-black transition-all duration-300 text-sm font-medium font-[Quicksand]">
                 Read more →
               </button>
             </div>
@@ -321,7 +212,7 @@ const ProjectNew = () => {
                       : "/img/default.jpg"
                   }
                   alt="highlight"
-                  className="w-full h-auto object-contain hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
+                  className="w-full h-auto object-contain hover:scale-[1.02] transition-all duration-300"
                 />
               </div>
             </div>
