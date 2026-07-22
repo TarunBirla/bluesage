@@ -291,12 +291,6 @@ export default function ServiceBarList() {
                         >
                           <Edit size={16} />
                         </button>
-                        {/* <button
-                          onClick={() => handleDeleteBanner(banner.id)}
-                          className="bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition-colors"
-                        >
-                          <Trash2 size={16} />
-                        </button> */}
 
                         <button
                           className={`bg-red-500  h-8 w-8 cursor-pointer flex items-center justify-center  text-white p-2 rounded-full hover:bg-red-600 transition-colors

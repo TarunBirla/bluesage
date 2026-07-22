@@ -8,9 +8,56 @@ const api = axios.create({
 });
 
 /**
- * ===========================================
- * SIP WITH ANNUAL INCREASE
- * ===========================================
+ * 1) SCHEME CATEGORIES
+ */
+export const getAllSchemeCategories = async () => {
+  try {
+    const { data } = await api.post("/getAllSchemeCategories", null, {
+      params: { key: API_KEY },
+    });
+    return data;
+  } catch (error) {
+    console.error("getAllSchemeCategories Error:", error);
+    throw error;
+  }
+};
+
+/**
+ * 2) GET ALL SCHEMES BY CATEGORY
+ */
+export const getMutualFundSchemesByCategory = async (category) => {
+  try {
+    const { data } = await api.post(
+      "/getAllMutualFundSchemesRegAndDirByCategory",
+      null,
+      {
+        params: { key: API_KEY, category },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.error("getMutualFundSchemesByCategory Error:", error);
+    throw error;
+  }
+};
+
+/**
+ * 3) MF TRAILING RETURNS
+ */
+export const getSchemePerformanceReturnsNew = async ({ category, period = "1y" }) => {
+  try {
+    const { data } = await api.post("/getSchemePerformanceReturnsNew", null, {
+      params: { key: API_KEY, category, period },
+    });
+    return data;
+  } catch (error) {
+    console.error("getSchemePerformanceReturnsNew Error:", error);
+    throw error;
+  }
+};
+
+/**
+ * 4) SIP WITH ANNUAL INCREASE
  */
 export const getSIPReturnWithAnnualIncrease = async ({
   scheme,
@@ -36,18 +83,45 @@ export const getSIPReturnWithAnnualIncrease = async ({
         },
       }
     );
-
     return data;
   } catch (error) {
-    console.error("SIP API Error :", error);
+    console.error("getSIPReturnWithAnnualIncrease Error:", error);
     throw error;
   }
 };
 
 /**
- * ===========================================
- * TARGET AMOUNT SIP CALCULATOR
- * ===========================================
+ * 5) BECOME A CROREPATI CALCULATOR
+ */
+export const getCrorepatiResult = async ({
+  current_age,
+  retirement_age,
+  wealth_amount,
+  inflation_rate,
+  expected_return,
+  savings_amount,
+}) => {
+  try {
+    const { data } = await api.post("/calc/getCrorepatiResult", null, {
+      params: {
+        key: API_KEY,
+        current_age,
+        retirement_age,
+        wealth_amount,
+        inflation_rate,
+        expected_return,
+        savings_amount,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.error("getCrorepatiResult Error:", error);
+    throw error;
+  }
+};
+
+/**
+ * 6) TARGET AMOUNT SIP CALCULATOR
  */
 export const getTargetAmountSIP = async ({
   wealth_amount,
@@ -56,23 +130,40 @@ export const getTargetAmountSIP = async ({
   period,
 }) => {
   try {
+    const { data } = await api.post("/calc/getTargetAmountSIPCalcResult", null, {
+      params: {
+        key: API_KEY,
+        wealth_amount,
+        inflation_rate,
+        expected_return,
+        period,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.error("getTargetAmountSIP Error:", error);
+    throw error;
+  }
+};
+
+/**
+ * 7) COMPOSITE FINANCIAL GOAL PLANNER CALCULATOR
+ */
+export const getCompositeFinancialGoalPlanner = async (params) => {
+  try {
     const { data } = await api.post(
-      "/calc/getTargetAmountSIPCalcResult",
+      "/calc/getCompositeFinancialGoalPlannerMFTools",
       null,
       {
         params: {
-          wealth_amount,
-          inflation_rate,
-          expected_return,
-          period,
           key: API_KEY,
+          ...params,
         },
       }
     );
-
     return data;
   } catch (error) {
-    console.error("Target SIP API Error :", error);
+    console.error("getCompositeFinancialGoalPlanner Error:", error);
     throw error;
   }
 };

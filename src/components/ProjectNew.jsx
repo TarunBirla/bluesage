@@ -1,16 +1,13 @@
-import React, { useState, useRef, useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { ChevronDown } from "lucide-react";
 import http from "../service/http";
 import { baseURL } from "../service/api";
 
 const ProjectNew = () => {
-  const [logos, setLogos] = useState([]);
   const [services, setServices] = useState([]);
   const [highlight, setHighlight] = useState(null);
-
+  const [count, setCount] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,363 +18,172 @@ const ProjectNew = () => {
   const fetchHomes = async () => {
     try {
       setLoading(true);
-
       const res = await http.get(`/home`);
       const AllData = res.data?.data;
       console.log("AllData", AllData);
-
       setServices(AllData?.services);
       setHighlight(AllData?.highlight);
+      setCount(AllData?.counters || []);
     } catch (error) {
       console.error(error);
     } finally {
       setLoading(false);
     }
   };
+
+  const stats = count.length > 0
+    ? count
+    : [
+        { number: "250+", subtitle: "Cr Assets managed" },
+        { number: "350+", subtitle: "Clients" },
+        { number: "20+", subtitle: "Years" },
+      ];
+
   return (
     <>
       <Header />
 
-      {/* <section className="relative w-full h-[80vh] md:h-[90vh] bg-black overflow-hidden ">
-       
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 
-          w-[700px] h-[250px] 
-          bg-gradient-to-t from-gray-200 to-transparent 
-          blur-[120px] opacity-40"
-        ></div>
-
-       
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-          <h1
-            className="text-white font-[Syne] font-semibold font-weight-600 font-[Outfit]
-            text-[38px] leading-[46px]
-            sm:text-[56px] sm:leading-[60px]
-            md:text-[72px] md:leading-[78px]"
-          >
-            Blue Sage Wealth:
-          </h1>
-
-          <h2
-            className="text-white font-[Syne] font-weight-400 font-[Outfit]
-            text-[28px] leading-[36px]
-            sm:text-[46px] sm:leading-[50px]
-            md:text-[52px] md:leading-[58px]"
-          >
-            Your Family’s Wealth Partner
-          </h2>
-
-          <p className="text-gray-300 text-[18px] mt-3">
-            Helps in achieving your financial goals
-          </p>
-
-          
-          <div className="relative mt-10">
-            <select
-              className="appearance-none px-8 py-3 pr-12 rounded-full
-              border border-gray-400
-              text-white bg-[#252525]
-              text-center
-              outline-none cursor-pointer
-              hover:bg-white hover:text-black
-              transition"
-            >
-              <option className="text-black">Book a free call</option>
-              <option className="text-black">Investment Planning</option>
-              <option className="text-black">Portfolio Review</option>
-              <option className="text-black">Financial Consultation</option>
-            </select>
-
-            
-            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white pointer-events-none">
-              <ChevronDown size={20} />
-            </span>
-          </div>
+      {/* ══════════════════════════════════════
+          HERO — text left, image right
+      ══════════════════════════════════════ */}
+      <section className="relative w-full min-h-screen bg-black overflow-hidden flex items-center">
+        {/* Right side couple image */}
+        <div className="absolute  top-0 h-full w-full md:w-[100%] pointer-events-none">
+          <img
+            src="/homeimg.jpeg"
+            alt="Blue Sage Wealth"
+            className="w-full h-full object-cover object-center opacity-80"
+          />
         </div>
-      </section> */}
-        {/* <section className="relative w-full h-[60vh] sm:h-[75vh] md:h-[90vh] lg:h-screen overflow-hidden bg-black">
-  <img
-    src="/homeimg.jpeg"
-    alt="Home Banner"
-    className="absolute inset-0 w-full h-full object-cover object-center"
-  />
-</section> */}
-<section className="relative w-full overflow-hidden bg-black">
 
-  {/* Desktop Image */}
-  <img
-    src="/homeimg.jpeg"
-    alt="Home Banner"
-    className="hidden md:block w-full h-screen object-cover object-center"
-  />
+      </section>
 
-  {/* Mobile Image */}
-  <img
-    src="/mobile.png"
-    alt="Home Banner"
-    className="block md:hidden w-full h-[42vh] object-cover object-center"
-  />
-
-</section>
-
-      <section className="bg-black  py-8 md:py-24 relative overflow-hidden">
-        {/* side glow */}
-        <div className="absolute left-0 top-0 w-[300px] h-[300px] bg-gray-300 blur-[150px] opacity-20"></div>
-        <div className="absolute right-0 top-0 w-[300px] h-[300px] bg-gray-300 blur-[150px] opacity-20"></div>
-
-        <div className="max-w-7xl  mx-auto px-6 text-center">
-          {/* Heading */}
-          <h2
-            className="text-center font-semibold mb-10 md:mb-20 font-weight-600 font-[Quicksand]
-           text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
-          bg-gradient-to-b from-white to-[#999999]
-          bg-clip-text text-transparent"
-          >
+      {/* ══════════════════════════════════════
+          WHY CHOOSE BLUE SAGE?
+      ══════════════════════════════════════ */}
+      <section className="bg-black py-16 overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-center text-white font-bold font-[Quicksand] text-[32px] md:text-[48px] mb-10">
             Why choose Blue Sage?
           </h2>
 
-          {/* Stats Card */}
-          <div
-            className="border border-gray-600 rounded-[30px] py-10 px-6
-          backdrop-blur-md bg-black/60 hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
-          >
-            <div className="grid md:grid-cols-3 text-white items-center ">
-              {/* Stat 1 */}
-              <div className="text-center py-4 md:py-0">
-                <h3 className="text-3xl md:text-[55px] font-semibold">
-                  250<span className="text-lg">+ Cr</span>
+          {/* Stats row */}
+          <div className="grid grid-cols-3 gap-4 bg-[#111] border border-gray-800 rounded-2xl py-8 px-4 mb-8">
+            {stats.slice(0, 3).map((item, i) => (
+              <div
+                key={i}
+                className={`text-center ${i !== 2 ? "border-r border-gray-700" : ""}`}
+              >
+                <h3 className="text-white font-bold font-[Quicksand] text-[32px] md:text-[48px]">
+                  {item.number}
                 </h3>
-                <p className="text-[#AAAAAA] text-[18px] md:text-[22px] mt-2">
-                  Assets undermanagement 
+                <p className="text-gray-400 text-[12px] md:text-[14px] font-[Quicksand] uppercase tracking-wide mt-1">
+                  {item.subtitle}
                 </p>
-              </div>
-
-              {/* Divider */}
-              {/* <div className="hidden md:block border-l border-gray-600 h-14 mx-auto"></div> */}
-
-              {/* Stat 2 */}
-              <div className="text-center py-4 md:py-0 border-t border-b md:border-t-0 md:border-b-0 md:border-l md:border-r border-gray-600">
-                <h3 className="text-3xl md:text-[55px] font-semibold">
-                  350+
-                </h3>
-                <p className="text-[#AAAAAA] text-[18px] md:text-[22px] mt-2">
-                 Clients trust Blue Sage Wealth
-                </p>
-              </div>
-
-              {/* Divider */}
-              {/* <div className="hidden md:block border-l border-gray-600 h-14 mx-auto"></div> */}
-
-              {/* Stat 3 */}
-              <div className="text-center py-4 md:py-0">
-                <h3 className="text-3xl md:text-[55px] font-semibold">
-                  20+ <span className="text-lg">Years</span>
-                </h3>
-                <p className="text-[#AAAAAA] text-[18px] md:text-[22px] mt-2">
-                  Of experience
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Top Button */}
-        <div className="flex items-center justify-center mt-24">
-          <button className="border flex items-center gap-2 border-gray-500 text-white px-6 py-3 rounded-full mb-16 bg-white/10 backdrop-blur-md">
-            Schedule an expert call <ChevronDown size={20} />
-          </button>
-        </div>
-      </section>
-
-      <section className="bg-black py-10 relative overflow-hidden">
-        {/* Bottom Glow */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gray-300 blur-[160px] opacity-20"></div>
-
-        <div className="max-w-7xl  mx-auto px-6 text-center">
-          {/* Cards */}
-          {/* <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div className="relative w-[387px] mx-auto text-center text-white hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all">
-                <img src="/box1.png" className="w-full" />
-
-                <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
-                  <img
-                    src={`${baseURL}/${service.icon_img}`}
-                    className="w-10 h-10"
-                  />
-                </div>
-
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
-                  <h3 className="text-2xl md:text-[22.18px] font-semibold mb-3">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-[#C8C8C8] text-[18px] md:text-[21px] leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
               </div>
             ))}
-          </div> */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
-  {services.slice(0, 6).map((service, index) => (
-    <div
-      key={index}
-      className="relative w-full max-w-[340px] md:max-w-[387px] mx-auto text-center text-white hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
-    >
-      {/* Box */}
-      <img
-        src="/box1.png"
-        alt=""
-        className="w-full h-auto"
-      />
+          </div>
 
-      {/* Icon */}
-      <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
-        <img
-          src={`${baseURL}/${service.icon_img}`}
-          alt={service.title}
-          className="w-10 h-10"
-        />
-      </div>
-
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-8">
-        <h3 className="text-[20px] md:text-[22px] font-semibold mb-3">
-          {service.title}
-        </h3>
-
-        <p className="text-[#C8C8C8] text-[15px] md:text-[21px] leading-relaxed">
-          {service.description}
-        </p>
-      </div>
-    </div>
-  ))}
-</div>
-     {/* <div className="mt-8 flex flex-col md:flex-row justify-center items-center gap-4"> */}
-      {/* <div className="mt-10 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
-  {services.slice(6, 8).map((service, index) => (
-    <div
-      key={index}
-      className="relative w-full max-w-[340px] md:max-w-[387px] mx-auto text-center text-white hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
-    >
-      
-      <img
-        src="/box1.png"
-        alt=""
-        className="w-full h-auto"
-      />
-
-      
-      <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
-        <img
-          src={`${baseURL}/${service.icon_img}`}
-          alt={service.title}
-          className="w-10 h-10"
-        />
-      </div>
-
-      
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-8">
-        <h3 className="text-[20px] md:text-[22px] font-semibold mb-3">
-          {service.title}
-        </h3>
-
-        <p className="text-[#C8C8C8] text-[15px] md:text-[21px] leading-relaxed">
-          {service.description}
-        </p>
-      </div>
-    </div>
-  ))}
-</div> */}
-<div className="mt-10 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
-  {services.slice(6, 8).map((service, index) => (
-    <div
-      key={index}
-      className="relative w-full max-w-[340px] md:max-w-[387px] text-center text-white group hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
-    >
-      {/* Background */}
-      <img
-        src="/box1.png"
-        alt=""
-        className="w-full h-auto"
-      />
-
-      {/* Icon */}
-       {/* Icon */}
-      <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
-        <img
-          src={`${baseURL}/${service.icon_img}`}
-          alt={service.title}
-          className="w-10 h-10"
-        />
-      </div>
-
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-8">
-        <h3 className="text-[20px] md:text-[22px] font-semibold mb-3">
-          {service.title}
-        </h3>
-
-        <p className="text-[#C8C8C8] text-[15px] md:text-[21px] leading-relaxed">
-          {service.description}
-        </p>
-      </div>
-    </div>
-  ))}
-</div>
-        </div>
-      </section>
-      <section className="bg-black  pb-20 pt-20 ">
-        {/* Stats Card */}
-        <div className="max-w-7xl  mx-auto text-center ">
-          <h2 className=" text-4xl md:text-[50px] font-semibold mb-14 font-weight-600 font-[Quicksand] bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent">
-            Schedule a consultation to begin your investment 
-            <br /> 
-journey aligned with your financial goals
-          </h2>
-          <img src="/scnhome.png" className="w-full h-auto" />
-        </div>
-      </section>
-
-      <section className="bg-black py-24 relative overflow-hidden">
-        {/* Bottom Glow */}
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 
-  w-[700px] h-[300px] bg-gray-300 blur-[160px] opacity-20"
-        ></div>
-
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          {/* LEFT CONTENT */}
-          <div>
-            <h2 className="text-white text-4xl md:text-5xl font-weight-500 font-[Quicksand] leading-tight">
-              {highlight?.title || "Loading..."}
-            </h2>
-
-            <p className="text-gray-400 mt-6 max-w-md text-[18px]">
-              {highlight?.description}
-            </p>
-
-            <button className="mt-8 border border-gray-500 text-white px-6 py-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white hover:text-black transition">
-              Read more →
+          {/* Schedule button */}
+          <div className="flex justify-center">
+            <button className="border border-gray-600 text-white text-[15px] font-[Quicksand] px-8 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300">
+              Schedule an appointment ↓
             </button>
           </div>
+        </div>
+      </section>
 
-          {/* RIGHT IMAGE */}
-          <div className="relative">
-            <div className="rounded-2xl overflow-hidden">
-              <img
-                src={
-                  highlight?.image
-                    ? `${baseURL}/${highlight.image}`
-                    : "/img/default.jpg"
-                }
-                alt="highlight"
-                className="w-full h-auto object-contain hover:shadow-[0_0_150px_#C2C2C2] hover:border-gray-600 hover:scale-105 hover:rounded-3xl transition-all"
-              />
-            </div>
+      {/* ══════════════════════════════════════
+          SERVICE CARDS GRID
+      ══════════════════════════════════════ */}
+      <section className="bg-black py-10 pb-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="bg-[#111] rounded-2xl border border-gray-800 p-6
+                  hover:border-gray-600 hover:shadow-[0_0_40px_rgba(200,200,200,0.07)]
+                  hover:scale-[1.02] transition-all duration-300"
+              >
+                {/* Icon */}
+                <div className="w-11 h-11 rounded-xl bg-[#1a1a1a] flex items-center justify-center mb-4">
+                  <img
+                    src={`${baseURL}/${service.icon_img}`}
+                    alt={service.title}
+                    className="w-7 h-7 object-contain"
+                  />
+                </div>
+                <h3 className="text-white text-[16px] font-semibold font-[Quicksand] mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-gray-400 text-[14px] leading-relaxed font-[Quicksand]">
+                  {service.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════
+          CONSULTATION QUOTE TEXT
+      ══════════════════════════════════════ */}
+      <section className="bg-black py-16 overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-white font-bold font-[Quicksand] text-[28px] sm:text-[36px] md:text-[48px] leading-tight tracking-[-0.02em]">
+            Schedule a consultation to begin your investment journey aligned with your financial goals
+          </h2>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          RUPEE VISUAL + QR (scnhome image)
+      ══════════════════════════════════════ */}
+      <section className="bg-black pb-16 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-center">
+            <img
+              src="/scnhome.png"
+              alt="Investment Visual"
+              className="max-w-full w-full md:w-[85%] object-contain"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          HIGHLIGHT — "Most portfolios fail..."
+      ══════════════════════════════════════ */}
+      {highlight && (
+        <section className="bg-black py-16 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              {/* Left text */}
+              <div>
+                <h2 className="text-white font-bold font-[Quicksand] text-[28px] sm:text-[36px] md:text-[44px] leading-tight mb-6">
+                  {highlight.title}
+                </h2>
+                <p className="text-gray-400 text-[15px] md:text-[16px] leading-relaxed font-[Quicksand] mb-6">
+                  {highlight.description}
+                </p>
+                <button className="border border-gray-600 text-white text-[14px] font-[Quicksand] px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300">
+                  Read more ↗
+                </button>
+              </div>
+              {/* Right image */}
+              <div className="flex justify-center md:justify-end">
+                <img
+                  src={highlight.image ? `${baseURL}/${highlight.image}` : "/bigimg.png"}
+                  alt={highlight.title}
+                  className="max-w-[320px] w-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       <Footer />
     </>
   );

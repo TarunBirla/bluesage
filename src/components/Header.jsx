@@ -3,146 +3,123 @@ import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import LoginModal from "./LoginModal";
 
+const navLinks = [
+  { to: "/", label: "Home" },
+  { to: "/abouts", label: "About us" },
+  { to: "/project", label: "Service" },
+  { to: "/research", label: "Research" },
+  { to: "/partner", label: "Partner with us" },
+  { to: "/calculators", label: "Calculators" },
+  { to: "/blog", label: "Blog" },
+];
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "bg-black shadow-lg" : "bg-transparent"
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-black/95 backdrop-blur-md shadow-[0_1px_0_rgba(255,255,255,0.06)]"
+            : "bg-transparent"
         }`}
       >
-      <div className="max-w-7xl mx-auto py-4 px-6 flex items-center justify-between">
-  
-  {/* LEFT - LOGO */}
-  <div className="flex-shrink-0">
-    <Link to="/">
-      <img src="/Logo.png" alt="logo" className="h-18 w-auto" />
-    </Link>
-  </div>
+        <div className="max-w-7xl mx-auto py-4 px-6 flex items-center justify-between">
 
-  {/* CENTER - NAV LINKS */}
-  <div className="hidden md:flex items-center space-x-8 text-white text-[15px]  font-normal leading-[100%] tracking-[0%]">
-    {/* <NavLink to="/" className="hover:text-gray-300">Home</NavLink>
-    <NavLink to="/abouts" className="hover:text-gray-300">About us</NavLink> */}
-    <NavLink to="/">
-    {({ isActive }) => (
-      <div className="relative pb-1 text-white">
-        Home
-        <span className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}></span>
-      </div>
-    )}
-  </NavLink>
+          {/* LEFT — LOGO */}
+          <div className="flex-shrink-0">
+            <Link to="/">
+              <img src="/Logo.png" alt="Blue Sage Wealth" className="h-14 w-auto" />
+            </Link>
+          </div>
 
-  <NavLink to="/abouts">
-    {({ isActive }) => (
-      <div className="relative pb-1 text-white">
-        About us
-        <span className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}></span>
-      </div>
-    )}
-  </NavLink>
-  <NavLink to="/project">
-    {({ isActive }) => (
-      <div className="relative pb-1 text-white">
-      Service
-        <span className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}></span>
-      </div>
-    )}
-  </NavLink>
-   <NavLink to="/research">
-    {({ isActive }) => (
-      <div className="relative pb-1 text-white">
-      Research
-        <span className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}></span>
-      </div>
-    )}
-  </NavLink>
-  <NavLink to="/partner">
-    {({ isActive }) => (
-      <div className="relative pb-1 text-white">
-        Partner with us
-        <span className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}></span>
-      </div>
-    )}
-  </NavLink>
-  <NavLink to="/blog">
-    {({ isActive }) => (
-      <div className="relative pb-1 text-white">
-    Blog
-        <span className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}></span>
-      </div>
-    )}
-  </NavLink>
-    {/* <NavLink to="/project" className="hover:text-gray-300">Service</NavLink>
-    <NavLink to="/partner" className="hover:text-gray-300">Partner with us</NavLink>
-    <NavLink to="/blog" className="hover:text-gray-300">Blog</NavLink> */}
-  </div>
+          {/* CENTER — NAV LINKS (desktop) */}
+          <nav className="hidden md:flex items-center gap-8 text-white text-[15px] font-normal font-[Quicksand]">
+            {navLinks.map(({ to, label }) => (
+              <NavLink key={to} to={to}>
+                {({ isActive }) => (
+                  <div className="relative pb-1 text-white hover:text-gray-300 transition-colors duration-200">
+                    {label}
+                    <span
+                      className={`absolute left-0 bottom-0 h-[2px] bg-white transition-all duration-300 ${
+                        isActive ? "w-full" : "w-0"
+                      }`}
+                    />
+                  </div>
+                )}
+              </NavLink>
+            ))}
+          </nav>
 
-  {/* RIGHT - BUTTONS */}
-  <div className="hidden md:flex items-center space-x-4">
-    <button
-      onClick={() => setOpenLogin(true)}
-      className="border border-white px-4 py-2 rounded-full text-[20px] hover:bg-[#303030] text-white transition"
-    >
-      Investor login
-    </button>
+          {/* RIGHT — BUTTONS (desktop) */}
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={() => setOpenLogin(true)}
+              className="border border-gray-600 px-5 py-2.5 rounded-full text-[15px] font-[Quicksand]
+                hover:border-white text-white transition-all duration-300"
+            >
+              Investor login
+            </button>
+            <Link
+              to="/project"
+              className="bg-white text-black px-5 py-2.5 rounded-full text-[15px] font-[Quicksand] font-semibold
+                hover:bg-gray-200 transition-all duration-300"
+            >
+              Review my portfolio
+            </Link>
+          </div>
 
-    <Link
-      to="/project"
-      className="bg-[#303030] text-white px-4 py-2 rounded-full text-[20px]"
-    >
-      Review my portfolio
-    </Link>
-  </div>
-
-  {/* MOBILE MENU ICON */}
-  <button
-    onClick={() => setMenuOpen(!menuOpen)}
-    className="md:hidden text-white"
-  >
-    {menuOpen ? <X size={26} /> : <Menu size={26} />}
-  </button>
-</div>
+          {/* MOBILE MENU TOGGLE */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden text-white p-1"
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={26} /> : <Menu size={26} />}
+          </button>
+        </div>
 
         {/* MOBILE MENU */}
         {menuOpen && (
-          <div className="flex flex-col md:hidden bg-black text-white px-6 py-6 space-y-4">
-            <NavLink to="/" onClick={() => setMenuOpen(false)}>
-              Home
-            </NavLink>
-            <NavLink to="/abouts" onClick={() => setMenuOpen(false)}>
-              About us
-            </NavLink>
-            <NavLink to="/project" onClick={() => setMenuOpen(false)}>
-              Service
-            </NavLink>
-            <NavLink to="/research" onClick={() => setMenuOpen(false)}>
-              Research
-            </NavLink>
-            <NavLink to="/partner" onClick={() => setMenuOpen(false)}>
-              Partner with us
-            </NavLink>
-            <NavLink to="/blog" onClick={() => setMenuOpen(false)}>
-              Blog
-            </NavLink>
+          <div className="md:hidden bg-black/98 backdrop-blur-md border-t border-gray-800 px-6 py-6 space-y-5">
+            {navLinks.map(({ to, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                onClick={() => setMenuOpen(false)}
+                className={({ isActive }) =>
+                  `block text-[16px] font-[Quicksand] transition-colors duration-200 ${
+                    isActive ? "text-white font-semibold" : "text-gray-400 hover:text-white"
+                  }`
+                }
+              >
+                {label}
+              </NavLink>
+            ))}
+            <div className="pt-4 flex flex-col gap-3 border-t border-gray-800">
+              <button
+                onClick={() => { setOpenLogin(true); setMenuOpen(false); }}
+                className="w-full border border-gray-600 px-5 py-3 rounded-full text-white text-[15px] font-[Quicksand] hover:border-white transition"
+              >
+                Investor login
+              </button>
+              <Link
+                to="/project"
+                onClick={() => setMenuOpen(false)}
+                className="w-full text-center bg-white text-black px-5 py-3 rounded-full text-[15px] font-[Quicksand] font-semibold hover:bg-gray-200 transition"
+              >
+                Review my portfolio
+              </Link>
+            </div>
           </div>
         )}
       </header>

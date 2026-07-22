@@ -13,6 +13,7 @@ import Abouts from "./components/Abouts";
 import ScrollToTop from "./service/ScrollToTop";
 import Research from "./components/Research";
 import Blogdetails from "./components/Blogdetails";
+import Calculators from "./components/Calculators";
 
 function App() {
   return (
@@ -39,6 +40,8 @@ function App() {
         <Route path="/blog/:id" element={<Blogdetails />} />
         <Route path="/abouts" element={<Abouts />} />
         <Route path="/research" element={<Research />} />
+        <Route path="/calculators" element={<Calculators />} />
+        <Route path="/calculators/:type" element={<Calculators />} />
       
 
         <Route
