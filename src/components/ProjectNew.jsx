@@ -115,39 +115,41 @@ const ProjectNew = () => {
       </section>
 
       {/* ══════════════════════════════════════
-          SERVICE CARDS GRID (MINIMAL VERTICAL GAPS)
+          SERVICE CARDS GRID (EXACT FIGMA DESIGN BOX1)
       ══════════════════════════════════════ */}
-      <section className="bg-black pt-4 pb-8 md:pt-6 md:pb-10 relative overflow-hidden">
+      <section className="bg-black py-8 md:py-12 relative overflow-hidden">
         {/* Bottom Glow */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-gray-400 blur-[180px] opacity-15 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-8 justify-items-center pt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 justify-items-center">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group relative w-full max-w-[350px] md:max-w-[370px] mx-auto text-center text-white
-                  bg-gradient-to-b from-[#181818] via-[#111111] to-[#0a0a0a] border border-gray-800 rounded-[28px] px-6 pt-10 pb-6
-                  hover:border-gray-500 hover:shadow-[0_0_50px_rgba(200,200,200,0.12)]
-                  hover:scale-[1.02] transition-all duration-300 flex flex-col items-center justify-start min-h-[190px] md:min-h-[210px]"
+                className="relative w-full max-w-[340px] md:max-w-[387px] mx-auto text-center text-white group hover:shadow-[0_0_150px_#C2C2C2] hover:scale-105 transition-all duration-300"
               >
-                {/* Top Center Icon Badge */}
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-[#1c1c1c] border border-gray-700 flex items-center justify-center shadow-lg group-hover:border-gray-500 group-hover:bg-[#252525] transition-all duration-300">
+                {/* Frame Image */}
+                <img src="/box1.png" alt="" className="w-full h-auto" />
+
+                {/* Top Circular Icon */}
+                <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center">
                   <img
                     src={`${baseURL}/${service.icon_img}`}
                     alt={service.title}
-                    className="w-7 h-7 object-contain"
+                    className="w-8 h-8 md:w-10 md:h-10 object-contain"
                   />
                 </div>
 
-                {/* Content */}
-                <h3 className="text-[17px] md:text-[19px] font-bold font-[Quicksand] mb-2.5 text-white mt-1 leading-snug">
-                  {service.title}
-                </h3>
+                {/* Card Content */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-8 pt-8 md:pt-10">
+                  <h3 className="text-[20px] md:text-[23px] font-bold mb-3 font-[Quicksand] text-white leading-snug">
+                    {service.title}
+                  </h3>
 
-                <p className="text-gray-400 text-[13px] md:text-[14px] leading-relaxed font-[Quicksand]">
-                  {service.description}
-                </p>
+                  <p className="text-[#E0E0E0] text-[16px] md:text-[18px] leading-relaxed font-[Quicksand] font-normal px-1">
+                    {service.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

@@ -4,17 +4,18 @@ import Header from "./Header";
 import Footer from "./Footer";
 import {
   ChevronDown,
-  ArrowLeft,
   Search,
-  Download,
   Loader2,
-  AlertCircle
+  AlertCircle,
+  TrendingUp,
+  Calculator,
+  Award,
+  Target
 } from "lucide-react";
 import {
   getAllSchemeCategories,
   getMutualFundSchemesByCategory,
   getSchemePerformanceReturnsNew,
-  getSIPReturnWithAnnualIncrease,
   getCrorepatiResult,
   getTargetAmountSIP,
   getCompositeFinancialGoalPlanner
@@ -22,21 +23,157 @@ import {
 
 export default function Calculators() {
   const { type } = useParams();
-  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState(type || "sip-annual");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [type]);
+  }, []);
+
+  const tabs = [
+    {
+      id: "sip-annual",
+      title: "SIP with Annual Increase",
+      subtitle: "Step-up SIP Calculator",
+      icon: Calculator
+    },
+    {
+      id: "crorepati",
+      title: "Become A Crorepati",
+      subtitle: "Retirement & Wealth Goal",
+      icon: Award
+    },
+    {
+      id: "target-amount",
+      title: "Target Amount Calculator",
+      subtitle: "Goal Wealth Calculator",
+      icon: TrendingUp
+    },
+    {
+      id: "composite-goal",
+      title: "Composite Goal Planner",
+      subtitle: "Multi-Goal Portfolio Plan",
+      icon: Target
+    }
+  ];
+
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    window.history.pushState(null, "", `/calculators/${tabId}`);
+  };
 
   return (
     <>
       <Header />
       <div className="bg-black min-h-screen text-white font-[Quicksand]">
-        {!type ? (
-          <CalculatorsLanding navigate={navigate} />
-        ) : (
-          <CalculatorDetail type={type} navigate={navigate} />
-        )}
+        {/* HERO BANNER */}
+        <section className="relative w-full h-[32vh] sm:h-[40vh] md:h-[45vh] overflow-hidden flex items-center justify-center">
+          <img
+            src="/partner.png"
+            alt="partner"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/70" />
+
+          <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-12">
+            <h1
+              className="text-center font-bold font-[Quicksand]
+              text-[36px] sm:text-[50px] md:text-[68px] leading-tight tracking-[-0.02em]
+              bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent"
+            >
+              Wealth Calculators
+            </h1>
+            <p className="text-gray-300 text-sm sm:text-base md:text-lg font-[Quicksand] mt-2 max-w-2xl">
+              Estimate and track your financial goals using our easy-to-use wealth calculators.
+            </p>
+          </div>
+        </section>
+
+        {/* MAIN SIDEBAR + CALCULATOR PANEL CONTAINER */}
+        <section className="py-10 md:py-16 bg-black">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            
+            {/* MOBILE HORIZONTAL SCROLLABLE TABS */}
+            <div className="flex md:hidden overflow-x-auto gap-2.5 pb-4 mb-8 border-b border-gray-800 scrollbar-none">
+              {tabs.map((tab) => {
+                const Icon = tab.icon;
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => handleTabClick(tab.id)}
+                    className={`shrink-0 px-4 py-3 rounded-xl font-bold text-sm flex items-center gap-2 transition-all duration-200 ${
+                      isActive
+                        ? "bg-white text-black shadow-lg"
+                        : "bg-[#141414] text-gray-400 border border-[#262626] hover:bg-[#202020]"
+                    }`}
+                  >
+                    <Icon size={16} />
+                    <span>{tab.title}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* DESKTOP LAYOUT (SIDEBAR LEFT + CONTENT RIGHT) */}
+            <div className="flex flex-col md:flex-row gap-8 lg:gap-10 items-start">
+              
+              {/* LEFT SIDEBAR TABS */}
+              <div className="hidden md:block w-72 lg:w-80 shrink-0 space-y-3 sticky top-28">
+                <h3 className="text-xs uppercase tracking-wider font-bold text-gray-500 px-3 mb-2">
+                  Select Calculator
+                </h3>
+                {tabs.map((tab) => {
+                  const Icon = tab.icon;
+                  const isActive = activeTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => handleTabClick(tab.id)}
+                      className={`w-full text-left px-5 py-4 rounded-2xl transition-all duration-200 flex items-center gap-4 cursor-pointer ${
+                        isActive
+                          ? "bg-gradient-to-r from-white to-gray-200 text-black shadow-xl scale-[1.02]"
+                          : "bg-[#121212] text-gray-300 border border-[#242424] hover:bg-[#1a1a1a] hover:text-white"
+                      }`}
+                    >
+                      <div
+                        className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                          isActive
+                            ? "bg-black text-white"
+                            : "bg-[#1a1a1a] border border-gray-700 text-gray-300"
+                        }`}
+                      >
+                        <Icon size={20} />
+                      </div>
+                      <div>
+                        <div className="font-bold text-base leading-snug">{tab.title}</div>
+                        <div
+                          className={`text-xs mt-0.5 ${
+                            isActive ? "text-gray-700" : "text-gray-500"
+                          }`}
+                        >
+                          {tab.subtitle}
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* RIGHT MAIN PANEL CALCULATOR DISPLAY WITH FADE ANIMATION */}
+              <div className="flex-1 w-full min-w-0 transition-opacity duration-300">
+                {activeTab === "sip-annual" && (
+                  <TargetAmountSIPCalculator title="SIP with Annual Increase" />
+                )}
+                {activeTab === "crorepati" && <CrorepatiCalculator />}
+                {activeTab === "target-amount" && (
+                  <TargetAmountSIPCalculator title="Target Amount Calculator" />
+                )}
+                {activeTab === "composite-goal" && <CompositeGoalCalculator />}
+              </div>
+
+            </div>
+          </div>
+        </section>
       </div>
       <Footer />
     </>
@@ -44,143 +181,7 @@ export default function Calculators() {
 }
 
 /* ─────────────────────────────────────────────
-   1. LANDING PAGE GRID VIEW
-───────────────────────────────────────────── */
-function CalculatorsLanding({ navigate }) {
- const calculatorCards = [
-  {
-    id: "scheme-categories",
-    title: "Scheme Categories",
-    image: "/c1.png",
-  },
-  {
-    id: "mf-trailing",
-    title: "MF Trailing Returns",
-    image: "/c2.png",
-  },
-  {
-    id: "sip-annual",
-    title: "SIP with Annual Increase",
-    image: "/c3.png",
-  },
-  {
-    id: "crorepati",
-    title: "Become A Crorepati Calculator",
-    image: "/c4.png",
-  },
-  {
-    id: "composite-goal",
-    title: "Composite Financial Goal Planner Calculator",
-    image: "/c5.png",
-  },
-];
-
-  return (
-    <>
-       <section className="relative w-full h-[70vh] md:h-[90vh] overflow-hidden">
-              {/* Background Image */}
-              <img
-                src="/partner.png"
-                alt="partner"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-      
-              {/* Dark Overlay */}
-      
-              {/* Content */}
-              <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-                <h1
-                  className="text-center font-semibold  font-weight-600 font-[Quicksand]
-                 text-[40px] md:text-[80px] leading-[45px] md:leading-[85px] tracking-[-0.02em]
-                bg-gradient-to-b from-white to-[#999999]
-                bg-clip-text text-transparent"
-                >
-                  Calculators
-                </h1>
-      
-                {/* Dropdown */}
-                <div className="relative mt-4">
-                  <select
-                    className="appearance-none px-8 py-3 pr-12 rounded-full
-                              border border-gray-400
-                              text-white bg-[#252525]
-                              text-center
-                              outline-none cursor-pointer
-                              hover:bg-white hover:text-black
-                              transition"
-                  >
-                    <option className="text-black">Book a free call</option>
-                    <option className="text-black">Investment Planning</option>
-                    <option className="text-black">Portfolio Review</option>
-                    <option className="text-black">Financial Consultation</option>
-                  </select>
-      
-                  {/* Custom Arrow */}
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white pointer-events-none">
-                    <ChevronDown size={20} />
-                  </span>
-                </div>
-              </div>
-            </section>
-
-      <section className="py-16 md:py-24 bg-black">
-        <div className="max-w-6xl mx-auto px-6">
-         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
-  {calculatorCards.map((card) => (
-    <div
-      key={card.id}
-      onClick={() => navigate(`/calculators/${card.id}`)}
-      className="w-[170px] h-[170px] bg-[#0a0a0a] border border-gray-700 rounded-2xl cursor-pointer
-                 flex flex-col items-center justify-center
-                 transition-all duration-300
-                 hover:border-white hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]"
-    >
-      <img
-        src={card.image}
-        alt={card.title}
-        className="w-20 h-20 object-contain mb-5"
-      />
-
-      <h3 className="text-white text-sm leading-5 font-medium text-center px-3">
-        {card.title}
-      </h3>
-    </div>
-  ))}
-</div>
-        </div>
-      </section>
-    </>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   2. CALCULATOR DETAIL ROUTER & VIEWS
-───────────────────────────────────────────── */
-function CalculatorDetail({ type, navigate }) {
-  return (
-    <section className="pt-28 pb-20 px-4 sm:px-6 bg-black min-h-screen">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-8">
-          <button
-            onClick={() => navigate("/calculators")}
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition duration-200 text-sm font-medium"
-          >
-            <ArrowLeft size={16} /> Back to Calculators
-          </button>
-        </div>
-
-        {type === "crorepati" && <CrorepatiCalculator />}
-        {type === "mf-trailing" && <MFTrailingReturns />}
-        {type === "sip-annual" && <TargetAmountSIPCalculator title="SIP with Annual Increase" />}
-        {type === "scheme-categories" && <SchemeCategoriesCalculator />}
-        {type === "composite-goal" && <CompositeGoalCalculator />}
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   5) CROREPATI CALCULATOR (INTEGRATED WITH API)
+   1) CROREPATI CALCULATOR
 ───────────────────────────────────────────── */
 function CrorepatiCalculator() {
   const [wealthAmount, setWealthAmount] = useState("50000000");
@@ -222,20 +223,20 @@ function CrorepatiCalculator() {
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent mb-4">
+    <div className="w-full">
+      <div className="mb-6">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent mb-2 font-[Quicksand]">
           Become A Crorepati Calculator
-        </h1>
-        <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
-          Wish to invest periodically? Calculate the amount of wealth that you can generate using our SIP Calculator.
+        </h2>
+        <p className="text-gray-400 text-sm sm:text-base font-[Quicksand]">
+          Simulate the target savings &amp; monthly SIP needed to build your wealth target over time.
         </p>
       </div>
 
-      <div className="bg-[#080808] border border-gray-800 rounded-3xl p-6 sm:p-10 mb-10 shadow-2xl">
+      <div className="bg-[#111111] border border-gray-800 rounded-3xl p-6 sm:p-10 mb-8 shadow-2xl">
         <div className="space-y-6">
           <InputRow
-            label="How many Crores (at current value) you would need to consider yourself wealthy (Rs)"
+            label="How many Crores (at current value) you would need to consider yourself wealthy (₹)"
             value={wealthAmount}
             onChange={(e) => setWealthAmount(e.target.value)}
           />
@@ -255,12 +256,12 @@ function CrorepatiCalculator() {
             onChange={(e) => setInflationRate(e.target.value)}
           />
           <InputRow
-            label="What rate of return would you expect your SIP investment to generate (% per annum)"
+            label="Expected return rate on SIP investment (% per annum)"
             value={expectedReturn}
             onChange={(e) => setExpectedReturn(e.target.value)}
           />
           <InputRow
-            label="How much savings you have now (Rs)"
+            label="How much savings you have now (₹)"
             value={savingsAmount}
             onChange={(e) => setSavingsAmount(e.target.value)}
           />
@@ -268,37 +269,37 @@ function CrorepatiCalculator() {
       </div>
 
       {error && (
-        <div className="mb-6 p-4 bg-red-950/40 border border-red-800 rounded-xl text-red-400 text-sm flex items-center gap-3">
-          <AlertCircle size={18} /> {error}
+        <div className="mb-6 p-4 bg-red-950/40 border border-red-800 rounded-xl text-red-400 text-base flex items-center gap-3">
+          <AlertCircle size={20} /> {error}
         </div>
       )}
 
-      {/* Calculation Output Section */}
-      <div className="bg-[#0b0b0b] border border-gray-800 rounded-2xl p-6 mb-8 text-center flex flex-col md:flex-row items-center justify-between gap-6">
-        <span className="text-white text-xl md:text-2xl font-bold">Calculation</span>
-        <div className="bg-[#141414] border border-gray-700 rounded-xl px-6 py-4 w-full md:w-auto text-left min-w-[320px]">
+      {/* Output Display Card */}
+      <div className="bg-[#121212] border border-gray-800 rounded-3xl p-6 sm:p-8 mb-8 text-center flex flex-col md:flex-row items-center justify-between gap-6">
+        <span className="text-white text-2xl sm:text-3xl font-bold font-[Quicksand]">Calculation Result</span>
+        <div className="bg-[#1c1c1c] border border-gray-700 rounded-2xl p-6 w-full md:w-auto text-left min-w-[340px]">
           {loading ? (
-            <div className="flex items-center gap-3 text-gray-400 py-2">
-              <Loader2 size={18} className="animate-spin text-white" /> Calculating via AdvisorKhoj API...
+            <div className="flex items-center gap-3 text-gray-400 py-3 text-base">
+              <Loader2 size={22} className="animate-spin text-white" /> Calculating via AdvisorKhoj API...
             </div>
           ) : apiResult ? (
             <div>
-              <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">Required Monthly SIP</div>
-              <div className="text-2xl font-bold text-emerald-400">
+              <div className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Required Monthly SIP</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-400">
                 ₹ {Number(apiResult.monthly_savings || apiResult.sip_amount || 0).toLocaleString("en-IN")}
               </div>
-              <div className="text-xs text-gray-400 mt-2 space-y-0.5">
-                <div>Target Inflated Wealth: ₹ {Number(apiResult.target_wealth || 0).toLocaleString("en-IN")}</div>
+              <div className="text-sm sm:text-base text-gray-300 mt-3 space-y-1 border-t border-gray-700/80 pt-3">
+                <div>Target Inflated Wealth: <span className="font-bold text-white">₹ {Number(apiResult.target_wealth || 0).toLocaleString("en-IN")}</span></div>
                 {apiResult.invested_amount && (
-                  <div>Total Invested Amount: ₹ {Number(apiResult.invested_amount).toLocaleString("en-IN")}</div>
+                  <div>Total Invested Amount: <span className="font-bold text-white">₹ {Number(apiResult.invested_amount).toLocaleString("en-IN")}</span></div>
                 )}
                 {apiResult.total_earnings && (
-                  <div>Total Earnings: ₹ {Number(apiResult.total_earnings).toLocaleString("en-IN")}</div>
+                  <div>Total Earnings: <span className="font-bold text-white">₹ {Number(apiResult.total_earnings).toLocaleString("en-IN")}</span></div>
                 )}
               </div>
             </div>
           ) : (
-            <div className="text-gray-500 text-sm">Click Calculate to run simulation</div>
+            <div className="text-gray-400 text-base">Click Calculate to run simulation</div>
           )}
         </div>
       </div>
@@ -307,9 +308,9 @@ function CrorepatiCalculator() {
         <button
           onClick={calculateCrorepati}
           disabled={loading}
-          className="bg-[#1a1a1a] border border-gray-600 hover:bg-white hover:text-black text-white px-12 py-3.5 rounded-xl font-semibold text-lg transition duration-300 shadow-lg disabled:opacity-50"
+          className="bg-white text-black hover:bg-gray-200 px-12 py-4 rounded-xl font-bold text-lg md:text-xl transition duration-300 shadow-xl disabled:opacity-50"
         >
-          {loading ? "Calculating..." : "Calculate"}
+          {loading ? "Calculating..." : "Calculate Goal"}
         </button>
       </div>
     </div>
@@ -317,9 +318,9 @@ function CrorepatiCalculator() {
 }
 
 /* ─────────────────────────────────────────────
-   3) MF TRAILING RETURNS (INTEGRATED WITH API)
+   2) MF TRAILING RETURNS
 ───────────────────────────────────────────── */
-function MFTrailingReturns() {
+export function MFTrailingReturns() {
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("Hybrid: Aggressive");
   const [period, setPeriod] = useState("1m");
@@ -329,7 +330,6 @@ function MFTrailingReturns() {
   const [schemesList, setSchemesList] = useState([]);
   const [error, setError] = useState("");
 
-  // Load Categories on mount
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -347,7 +347,6 @@ function MFTrailingReturns() {
     fetchCategories();
   }, []);
 
-  // Fetch Returns when Category / Period changes
   const fetchReturns = async () => {
     try {
       setLoading(true);
@@ -393,29 +392,25 @@ function MFTrailingReturns() {
   );
 
   return (
-    <div className="max-w-5xl mx-auto">
-      <div className="text-center mb-10">
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent mb-4">
-          MF Trailing Returns
-        </h1>
-        <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
-          Wish to invest periodically? Calculate the amount of wealth that you can generate using our SIP Calculator.
+    <div className="w-full">
+      <div className="mb-8">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent mb-3 font-[Quicksand]">
+          Mutual Fund Trailing Returns
+        </h2>
+        <p className="text-gray-300 text-base sm:text-lg font-[Quicksand]">
+          Explore real-time trailing performance across fund categories powered by AdvisorKhoj.
         </p>
       </div>
 
-      <div className="bg-[#090909] border border-gray-800 rounded-3xl p-6 md:p-8 mb-10 shadow-2xl">
-        <h2 className="text-xl md:text-2xl font-bold text-center text-white mb-8 pb-4 border-b border-gray-800">
-          Mutual Fund Trailing Returns
-        </h2>
-
+      <div className="bg-[#111111] border border-gray-800 rounded-3xl p-6 sm:p-8 mb-8 shadow-2xl">
         {/* Filter Controls */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-8">
           <div>
-            <label className="text-xs text-gray-400 mb-1 block">Select Category</label>
+            <label className="text-base font-semibold text-gray-200 mb-2 block">Select Category</label>
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full bg-[#141414] border border-gray-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gray-600"
+              className="w-full bg-[#1c1c1c] border border-gray-700 rounded-xl px-4 py-3 text-base text-white focus:outline-none focus:border-white font-medium"
             >
               {categories.length > 0 ? (
                 categories.map((cat, idx) => (
@@ -430,11 +425,11 @@ function MFTrailingReturns() {
           </div>
 
           <div>
-            <label className="text-xs text-gray-400 mb-1 block">Select Period</label>
+            <label className="text-base font-semibold text-gray-200 mb-2 block">Select Period</label>
             <select
               value={period}
               onChange={(e) => setPeriod(e.target.value)}
-              className="w-full bg-[#141414] border border-gray-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gray-600"
+              className="w-full bg-[#1c1c1c] border border-gray-700 rounded-xl px-4 py-3 text-base text-white focus:outline-none focus:border-white font-medium"
             >
               <option value="1m">1 Month</option>
               <option value="3m">3 Months</option>
@@ -451,7 +446,7 @@ function MFTrailingReturns() {
             <button
               onClick={fetchReturns}
               disabled={loading}
-              className="w-full bg-[#1c1c1c] border border-gray-700 hover:bg-white hover:text-black text-white py-2.5 rounded-xl text-sm font-semibold transition"
+              className="w-full bg-white text-black hover:bg-gray-200 py-3.5 rounded-xl text-base font-bold transition shadow-lg"
             >
               {loading ? "Loading..." : "Submit"}
             </button>
@@ -459,76 +454,76 @@ function MFTrailingReturns() {
         </div>
 
         {/* Secondary Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pt-4 border-t border-gray-800/60 text-xs">
-          <div className="text-gray-400">
-            Live AdvisorKhoj Data for <span className="text-white font-medium">{category}</span>
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pt-4 border-t border-gray-800 text-sm">
+          <div className="text-gray-300 text-base">
+            Live Data for <span className="text-white font-bold">{category}</span>
           </div>
 
           <div className="flex items-center gap-3 w-full sm:w-auto">
-            <div className="relative flex-1 sm:w-60">
-              <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+            <div className="relative flex-1 sm:w-72">
+              <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search scheme..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full bg-[#141414] border border-gray-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white focus:outline-none focus:border-gray-600"
+                className="w-full bg-[#1c1c1c] border border-gray-700 rounded-xl pl-10 pr-4 py-2.5 text-base text-white focus:outline-none focus:border-white"
               />
             </div>
           </div>
         </div>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-950/40 border border-red-800 rounded-xl text-red-400 text-xs">
+          <div className="mb-6 p-4 bg-red-950/40 border border-red-800 rounded-xl text-red-400 text-base">
             {error}
           </div>
         )}
 
         {/* Data Table */}
-        <div className="overflow-x-auto border border-gray-800 rounded-xl min-h-[250px]">
+        <div className="overflow-x-auto border border-gray-800 rounded-2xl min-h-[300px]">
           {loading ? (
-            <div className="flex items-center justify-center py-20 text-gray-400 gap-3">
-              <Loader2 size={24} className="animate-spin text-white" /> Fetching Mutual Fund Returns...
+            <div className="flex items-center justify-center py-24 text-gray-300 text-lg gap-3">
+              <Loader2 size={26} className="animate-spin text-white" /> Fetching Mutual Fund Returns...
             </div>
           ) : (
-            <table className="w-full text-left text-xs">
-              <thead className="bg-[#121212] text-gray-400 border-b border-gray-800 uppercase tracking-wider font-semibold">
+            <table className="w-full text-left text-sm sm:text-base">
+              <thead className="bg-[#1a1a1a] text-gray-300 border-b border-gray-700 uppercase tracking-wider font-bold">
                 <tr>
-                  <th className="py-3 px-4">Scheme Name</th>
-                  <th className="py-3 px-3">Inception Date</th>
-                  <th className="py-3 px-3">Category</th>
-                  <th className="py-3 px-2 text-right">1M</th>
-                  <th className="py-3 px-2 text-right">3M</th>
-                  <th className="py-3 px-2 text-right">6M</th>
-                  <th className="py-3 px-2 text-right">1Y</th>
-                  <th className="py-3 px-2 text-right">3Y</th>
-                  <th className="py-3 px-2 text-right">5Y</th>
-                  <th className="py-3 px-3 text-right">Inception</th>
+                  <th className="py-4 px-5">Scheme Name</th>
+                  <th className="py-4 px-4">Inception Date</th>
+                  <th className="py-4 px-4">Category</th>
+                  <th className="py-4 px-3 text-right">1M</th>
+                  <th className="py-4 px-3 text-right">3M</th>
+                  <th className="py-4 px-3 text-right">6M</th>
+                  <th className="py-4 px-3 text-right">1Y</th>
+                  <th className="py-4 px-3 text-right">3Y</th>
+                  <th className="py-4 px-3 text-right">5Y</th>
+                  <th className="py-4 px-4 text-right">Inception</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-800/60 bg-[#0a0a0a]">
+              <tbody className="divide-y divide-gray-800/80 bg-[#0d0d0d]">
                 {filteredSchemes.length > 0 ? (
                   filteredSchemes.map((row, idx) => (
-                    <tr key={idx} className="hover:bg-[#141414] transition">
-                      <td className="py-3 px-4 font-medium text-white max-w-xs truncate" title={row.scheme_amfi}>
+                    <tr key={idx} className="hover:bg-[#181818] transition">
+                      <td className="py-4 px-5 font-semibold text-white max-w-xs truncate" title={row.scheme_amfi}>
                         {row.scheme_amfi}
                       </td>
-                      <td className="py-3 px-3 text-gray-400">
+                      <td className="py-4 px-4 text-gray-300">
                         {row.inception_date ? new Date(row.inception_date).toLocaleDateString() : "-"}
                       </td>
-                      <td className="py-3 px-3 text-gray-400">{row.scheme_category || category}</td>
-                      <td className="py-3 px-2 text-right text-gray-300">{row.returns_abs_1month ? `${row.returns_abs_1month}%` : "-"}</td>
-                      <td className="py-3 px-2 text-right text-gray-300">{row.returns_abs_3month ? `${row.returns_abs_3month}%` : "-"}</td>
-                      <td className="py-3 px-2 text-right text-gray-300">{row.returns_abs_6month ? `${row.returns_abs_6month}%` : "-"}</td>
-                      <td className="py-3 px-2 text-right font-medium text-emerald-400">{row.returns_abs_1year ? `${row.returns_abs_1year}%` : "-"}</td>
-                      <td className="py-3 px-2 text-right text-gray-300">{row.returns_cmp_3year ? `${row.returns_cmp_3year}%` : "-"}</td>
-                      <td className="py-3 px-2 text-right text-gray-300">{row.returns_cmp_5year ? `${row.returns_cmp_5year}%` : "-"}</td>
-                      <td className="py-3 px-3 text-right font-medium text-emerald-400">{row.returns_cmp_inception ? `${row.returns_cmp_inception}%` : "-"}</td>
+                      <td className="py-4 px-4 text-gray-300">{row.scheme_category || category}</td>
+                      <td className="py-4 px-3 text-right text-gray-300">{row.returns_abs_1month ? `${row.returns_abs_1month}%` : "-"}</td>
+                      <td className="py-4 px-3 text-right text-gray-300">{row.returns_abs_3month ? `${row.returns_abs_3month}%` : "-"}</td>
+                      <td className="py-4 px-3 text-right text-gray-300">{row.returns_abs_6month ? `${row.returns_abs_6month}%` : "-"}</td>
+                      <td className="py-4 px-3 text-right font-bold text-emerald-400">{row.returns_abs_1year ? `${row.returns_abs_1year}%` : "-"}</td>
+                      <td className="py-4 px-3 text-right text-gray-300">{row.returns_cmp_3year ? `${row.returns_cmp_3year}%` : "-"}</td>
+                      <td className="py-4 px-3 text-right text-gray-300">{row.returns_cmp_5year ? `${row.returns_cmp_5year}%` : "-"}</td>
+                      <td className="py-4 px-4 text-right font-bold text-emerald-400">{row.returns_cmp_inception ? `${row.returns_cmp_inception}%` : "-"}</td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="10" className="text-center py-12 text-gray-500">
+                    <td colSpan="10" className="text-center py-16 text-gray-400 text-base">
                       No schemes found for the selected category.
                     </td>
                   </tr>
@@ -543,9 +538,9 @@ function MFTrailingReturns() {
 }
 
 /* ─────────────────────────────────────────────
-   6) TARGET AMOUNT SIP CALCULATOR (INTEGRATED WITH API)
+   3) TARGET AMOUNT SIP CALCULATOR
 ───────────────────────────────────────────── */
-function TargetAmountSIPCalculator({ title = "Target Amount SIP Calculator" }) {
+function TargetAmountSIPCalculator({ title = "SIP with Annual Increase" }) {
   const [targetAmount, setTargetAmount] = useState("2500000");
   const [period, setPeriod] = useState("30");
   const [inflationRate, setInflationRate] = useState("5");
@@ -581,20 +576,20 @@ function TargetAmountSIPCalculator({ title = "Target Amount SIP Calculator" }) {
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent mb-4">
+    <div className="w-full">
+      <div className="mb-6">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent mb-2 font-[Quicksand]">
           {title}
-        </h1>
-        <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
-          Wish to invest periodically? Calculate the amount of wealth that you can generate using our SIP Calculator.
+        </h2>
+        <p className="text-gray-400 text-sm sm:text-base font-[Quicksand]">
+          Calculate periodic SIP growth with step-up annual increases over your investment timeframe.
         </p>
       </div>
 
-      <div className="bg-[#080808] border border-gray-800 rounded-3xl p-6 sm:p-10 mb-10 shadow-2xl">
+      <div className="bg-[#111111] border border-gray-800 rounded-3xl p-6 sm:p-10 mb-8 shadow-2xl">
         <div className="space-y-6">
           <InputRow
-            label="Target Amount (Rs)"
+            label="Target Amount (₹)"
             value={targetAmount}
             onChange={(e) => setTargetAmount(e.target.value)}
           />
@@ -604,12 +599,12 @@ function TargetAmountSIPCalculator({ title = "Target Amount SIP Calculator" }) {
             onChange={(e) => setPeriod(e.target.value)}
           />
           <InputRow
-            label="The expected rate of inflation over the years (% per annum)"
+            label="Expected rate of inflation (% per annum)"
             value={inflationRate}
             onChange={(e) => setInflationRate(e.target.value)}
           />
           <InputRow
-            label="What rate of return would you expect your SIP investment to generate (% per annum)"
+            label="Expected return rate on SIP investment (% per annum)"
             value={expectedReturn}
             onChange={(e) => setExpectedReturn(e.target.value)}
           />
@@ -617,32 +612,32 @@ function TargetAmountSIPCalculator({ title = "Target Amount SIP Calculator" }) {
       </div>
 
       {error && (
-        <div className="mb-6 p-4 bg-red-950/40 border border-red-800 rounded-xl text-red-400 text-sm flex items-center gap-3">
-          <AlertCircle size={18} /> {error}
+        <div className="mb-6 p-4 bg-red-950/40 border border-red-800 rounded-xl text-red-400 text-base flex items-center gap-3">
+          <AlertCircle size={20} /> {error}
         </div>
       )}
 
-      <div className="bg-[#0b0b0b] border border-gray-800 rounded-2xl p-6 mb-8 text-center flex flex-col md:flex-row items-center justify-between gap-6">
-        <span className="text-white text-xl md:text-2xl font-bold">Calculation</span>
-        <div className="bg-[#141414] border border-gray-700 rounded-xl px-6 py-4 w-full md:w-auto text-left min-w-[300px]">
+      <div className="bg-[#121212] border border-gray-800 rounded-3xl p-6 sm:p-8 mb-8 text-center flex flex-col md:flex-row items-center justify-between gap-6">
+        <span className="text-white text-2xl sm:text-3xl font-bold font-[Quicksand]">Calculation Result</span>
+        <div className="bg-[#1c1c1c] border border-gray-700 rounded-2xl p-6 w-full md:w-auto text-left min-w-[340px]">
           {loading ? (
-            <div className="flex items-center gap-3 text-gray-400 py-2">
-              <Loader2 size={18} className="animate-spin text-white" /> Calculating...
+            <div className="flex items-center gap-3 text-gray-400 py-3 text-base">
+              <Loader2 size={22} className="animate-spin text-white" /> Calculating...
             </div>
           ) : apiResult ? (
             <div>
-              <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">Required Monthly SIP</div>
-              <div className="text-2xl font-bold text-emerald-400">
+              <div className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Required Monthly SIP</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-400">
                 ₹ {Number(apiResult.sip_amount || 0).toLocaleString("en-IN")}
               </div>
-              <div className="text-xs text-gray-400 mt-2 space-y-0.5">
-                <div>Target Wealth: ₹ {Number(apiResult.target_wealth || 0).toLocaleString("en-IN")}</div>
-                <div>Invested Amount: ₹ {Number(apiResult.invested_amount || 0).toLocaleString("en-IN")}</div>
-                <div>Growth Amount: ₹ {Number(apiResult.growth_amount || 0).toLocaleString("en-IN")}</div>
+              <div className="text-sm sm:text-base text-gray-300 mt-3 space-y-1 border-t border-gray-700/80 pt-3">
+                <div>Target Wealth: <span className="font-bold text-white">₹ {Number(apiResult.target_wealth || 0).toLocaleString("en-IN")}</span></div>
+                <div>Invested Amount: <span className="font-bold text-white">₹ {Number(apiResult.invested_amount || 0).toLocaleString("en-IN")}</span></div>
+                <div>Growth Amount: <span className="font-bold text-white">₹ {Number(apiResult.growth_amount || 0).toLocaleString("en-IN")}</span></div>
               </div>
             </div>
           ) : (
-            <div className="text-gray-500 text-sm">Click Calculate to see results</div>
+            <div className="text-gray-400 text-base">Click Calculate to see results</div>
           )}
         </div>
       </div>
@@ -651,9 +646,9 @@ function TargetAmountSIPCalculator({ title = "Target Amount SIP Calculator" }) {
         <button
           onClick={calculateTarget}
           disabled={loading}
-          className="bg-[#1a1a1a] border border-gray-600 hover:bg-white hover:text-black text-white px-12 py-3.5 rounded-xl font-semibold text-lg transition duration-300 shadow-lg disabled:opacity-50"
+          className="bg-white text-black hover:bg-gray-200 px-12 py-4 rounded-xl font-bold text-lg md:text-xl transition duration-300 shadow-xl disabled:opacity-50"
         >
-          {loading ? "Calculating..." : "Calculate"}
+          {loading ? "Calculating..." : "Calculate SIP"}
         </button>
       </div>
     </div>
@@ -661,112 +656,7 @@ function TargetAmountSIPCalculator({ title = "Target Amount SIP Calculator" }) {
 }
 
 /* ─────────────────────────────────────────────
-   1 & 2) SCHEME CATEGORIES & SCHEMES BY CATEGORY (INTEGRATED WITH API)
-───────────────────────────────────────────── */
-function SchemeCategoriesCalculator() {
-  const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [schemes, setSchemes] = useState([]);
-  const [loadingCats, setLoadingCats] = useState(false);
-  const [loadingSchemes, setLoadingSchemes] = useState(false);
-
-  useEffect(() => {
-    const loadCategories = async () => {
-      try {
-        setLoadingCats(true);
-        const data = await getAllSchemeCategories();
-        if (data && data.list) {
-          setCategories(data.list);
-          if (data.list.length > 0) {
-            setSelectedCategory(data.list[0]);
-          }
-        }
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoadingCats(false);
-      }
-    };
-    loadCategories();
-  }, []);
-
-  useEffect(() => {
-    if (!selectedCategory) return;
-    const fetchSchemes = async () => {
-      try {
-        setLoadingSchemes(true);
-        const data = await getMutualFundSchemesByCategory(selectedCategory);
-        if (data && data.scheme_list) {
-          setSchemes(data.scheme_list);
-        } else {
-          setSchemes([]);
-        }
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoadingSchemes(false);
-      }
-    };
-    fetchSchemes();
-  }, [selectedCategory]);
-
-  return (
-    <div className="max-w-5xl mx-auto">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent mb-4">
-          Scheme Categories
-        </h1>
-        <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
-          Explore mutual fund scheme categories and active funds powered by AdvisorKhoj API.
-        </p>
-      </div>
-
-      <div className="mb-8">
-        <label className="text-sm text-gray-400 mb-2 block">Select Scheme Category:</label>
-        <select
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          className="w-full bg-[#111] border border-gray-800 rounded-xl px-5 py-3 text-white text-base outline-none focus:border-gray-600"
-        >
-          {categories.map((c, i) => (
-            <option key={i} value={c}>
-              {c}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="bg-[#090909] border border-gray-800 rounded-2xl p-6">
-        <h3 className="text-xl font-bold text-white mb-6 pb-3 border-b border-gray-800 flex items-center justify-between">
-          <span>Schemes in {selectedCategory}</span>
-          <span className="text-xs font-normal text-gray-400">{schemes.length} Schemes</span>
-        </h3>
-
-        {loadingSchemes ? (
-          <div className="flex items-center justify-center py-16 text-gray-400 gap-3">
-            <Loader2 size={22} className="animate-spin text-white" /> Loading schemes...
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {schemes.slice(0, 12).map((s, idx) => (
-              <div key={idx} className="bg-[#121212] border border-gray-800/80 rounded-xl p-4 hover:border-gray-700 transition">
-                <div className="text-white font-medium text-sm mb-1">{s.scheme_amfi}</div>
-                <div className="text-xs text-gray-400">{s.scheme_company}</div>
-                <div className="text-[11px] text-gray-500 mt-2 flex items-center justify-between">
-                  <span>AMFI Code: {s.scheme_amfi_code}</span>
-                  <span>ISIN: {s.scheme_isin}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   7) COMPOSITE GOAL PLANNER (INTEGRATED WITH API)
+   4) COMPOSITE GOAL PLANNER
 ───────────────────────────────────────────── */
 function CompositeGoalCalculator() {
   const [eduAmount, setEduAmount] = useState("2500000");
@@ -833,20 +723,20 @@ function CompositeGoalCalculator() {
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent mb-4">
+    <div className="w-full">
+      <div className="mb-6">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent mb-2 font-[Quicksand]">
           Composite Goal Planner
-        </h1>
-        <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
+        </h2>
+        <p className="text-gray-400 text-sm sm:text-base font-[Quicksand]">
           Plan multiple financial goals together seamlessly with our composite planner.
         </p>
       </div>
 
-      <div className="bg-[#080808] border border-gray-800 rounded-3xl p-6 sm:p-10 mb-10 shadow-2xl">
+      <div className="bg-[#111111] border border-gray-800 rounded-3xl p-6 sm:p-10 mb-8 shadow-2xl">
         <div className="space-y-6">
           <InputRow
-            label="Children Education Goal Amount (Rs)"
+            label="Children Education Goal Amount (₹)"
             value={eduAmount}
             onChange={(e) => setEduAmount(e.target.value)}
           />
@@ -861,12 +751,12 @@ function CompositeGoalCalculator() {
             onChange={(e) => setChildEduAge(e.target.value)}
           />
           <InputRow
-            label="Children Marriage Goal Amount (Rs)"
+            label="Children Marriage Goal Amount (₹)"
             value={marriageAmount}
             onChange={(e) => setMarriageAmount(e.target.value)}
           />
           <InputRow
-            label="Dream Home Goal Amount (Rs)"
+            label="Dream Home Goal Amount (₹)"
             value={homeAmount}
             onChange={(e) => setHomeAmount(e.target.value)}
           />
@@ -886,32 +776,38 @@ function CompositeGoalCalculator() {
             onChange={(e) => setInflationRate(e.target.value)}
           />
           <InputRow
-            label="Current Savings to meet goals (Rs)"
+            label="Current Savings to meet goals (₹)"
             value={savingsAmount}
             onChange={(e) => setSavingsAmount(e.target.value)}
           />
         </div>
       </div>
 
-      <div className="bg-[#0b0b0b] border border-gray-800 rounded-2xl p-6 mb-8 text-center flex flex-col md:flex-row items-center justify-between gap-6">
-        <span className="text-white text-xl md:text-2xl font-bold">Calculation</span>
-        <div className="bg-[#141414] border border-gray-700 rounded-xl px-6 py-4 w-full md:w-auto text-left min-w-[300px]">
+      {error && (
+        <div className="mb-6 p-4 bg-red-950/40 border border-red-800 rounded-xl text-red-400 text-base flex items-center gap-3">
+          <AlertCircle size={20} /> {error}
+        </div>
+      )}
+
+      <div className="bg-[#121212] border border-gray-800 rounded-3xl p-6 sm:p-8 mb-8 text-center flex flex-col md:flex-row items-center justify-between gap-6">
+        <span className="text-white text-xl md:text-2xl font-bold font-[Quicksand]">Calculation Result</span>
+        <div className="bg-[#1c1c1c] border border-gray-700 rounded-2xl p-6 w-full md:w-auto text-left min-w-[340px]">
           {loading ? (
-            <div className="flex items-center gap-3 text-gray-400 py-2">
-              <Loader2 size={18} className="animate-spin text-white" /> Calculating composite goals...
+            <div className="flex items-center gap-3 text-gray-400 py-3 text-base">
+              <Loader2 size={22} className="animate-spin text-white" /> Calculating composite goals...
             </div>
           ) : result ? (
             <div>
-              <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">Total Monthly Savings Needed</div>
-              <div className="text-2xl font-bold text-emerald-400">
+              <div className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Total Monthly Savings Needed</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-400">
                 ₹ {Number(result.total_monthly_savings || 0).toLocaleString("en-IN")}
               </div>
-              <div className="text-xs text-gray-400 mt-2">
-                Total Inflation Adjusted Value: ₹ {Number(result.total_inflation_adjust_value || 0).toLocaleString("en-IN")}
+              <div className="text-sm sm:text-base text-gray-300 mt-3 border-t border-gray-700/80 pt-3">
+                Total Inflation Adjusted Value: <span className="font-bold text-white">₹ {Number(result.total_inflation_adjust_value || 0).toLocaleString("en-IN")}</span>
               </div>
             </div>
           ) : (
-            <div className="text-gray-500 text-sm">Click Calculate to see results</div>
+            <div className="text-gray-400 text-base">Click Calculate to see results</div>
           )}
         </div>
       </div>
@@ -920,9 +816,9 @@ function CompositeGoalCalculator() {
         <button
           onClick={calculateComposite}
           disabled={loading}
-          className="bg-[#1a1a1a] border border-gray-600 hover:bg-white hover:text-black text-white px-12 py-3.5 rounded-xl font-semibold text-lg transition duration-300 shadow-lg disabled:opacity-50"
+          className="bg-white text-black hover:bg-gray-200 px-12 py-4 rounded-xl font-bold text-lg md:text-xl transition duration-300 shadow-xl disabled:opacity-50"
         >
-          {loading ? "Calculating..." : "Calculate"}
+          {loading ? "Calculating..." : "Calculate Composite Goals"}
         </button>
       </div>
     </div>
@@ -934,14 +830,14 @@ function CompositeGoalCalculator() {
 ───────────────────────────────────────────── */
 function InputRow({ label, value, onChange }) {
   return (
-    <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 text-sm md:text-base border-b border-gray-800/80 pb-4 last:border-b-0 last:pb-0">
-      <label className="text-gray-300 font-medium flex-1 pr-4">{label}</label>
+    <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 text-sm md:text-base border-b border-gray-800/90 pb-3.5 last:border-b-0 last:pb-0 font-[Quicksand]">
+      <label className="text-gray-300 font-medium flex-1 pr-4 leading-relaxed">{label}</label>
       <div className="w-full md:w-64">
         <input
           type="text"
           value={value}
           onChange={onChange}
-          className="w-full bg-black border border-gray-800 focus:border-gray-500 rounded-xl px-4 py-2.5 text-right text-white font-semibold outline-none transition"
+          className="w-full bg-black border border-gray-700 focus:border-white rounded-xl px-3.5 py-2.5 text-right text-white font-semibold text-sm md:text-base outline-none transition"
         />
       </div>
     </div>

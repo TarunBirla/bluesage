@@ -35,13 +35,13 @@ const Partner = () => {
       <Header />
 
       {/* HERO */}
-      <section className="relative w-full h-[65vh] md:h-[80vh] overflow-hidden flex items-center justify-center">
+      <section className="relative w-full h-[65vh] md:h-[68vh] overflow-hidden flex items-center justify-center">
         <img
           src="/partner.png"
           alt="partner"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute  w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute" />
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-12">
           <h1
@@ -71,7 +71,7 @@ const Partner = () => {
         </div>
       </section>
 
-      {/* CONTENT SECTION (MATCHED TO OUR THEME) */}
+      {/* CONTENT SECTION */}
       <section className="relative bg-black py-10 md:py-16 overflow-hidden">
         <div className="absolute top-0 left-0 w-[500px] h-[300px] bg-gray-400 blur-[180px] opacity-10 pointer-events-none" />
 
@@ -135,42 +135,41 @@ const Partner = () => {
         </div>
       </section>
 
-      {/* WHAT WE OFFER (SMALLER COMPACT BOXES) */}
-      <section className="relative bg-black py-10 md:py-16 overflow-hidden">
-        <div className="absolute left-0 top-0 w-[400px] h-[300px] bg-gray-400 blur-[180px] opacity-10 pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-6">
+      {/* WHAT WE OFFER (EXACT FIGMA DESIGN MATCH) */}
+      <section className="relative bg-black py-12 md:py-20 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Section Title */}
           <h2
-            className="text-center font-bold font-[Quicksand] mb-10
-            text-[36px] md:text-[60px] leading-tight tracking-[-0.02em]
+            className="text-center font-bold font-[Quicksand] mb-12 sm:mb-16
+            text-[36px] sm:text-[48px] md:text-[60px] leading-tight tracking-[-0.02em]
             bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent"
           >
             What We Offer
           </h2>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-7">
             {card.map((item, index) => (
               <div
                 key={index}
-                className="w-full max-w-[360px] mx-auto text-white bg-gradient-to-b from-[#181818] via-[#111111] to-[#0a0a0a] border border-gray-800 rounded-3xl p-6 hover:border-gray-500 hover:shadow-[0_0_50px_rgba(200,200,200,0.12)] hover:scale-[1.02] transition-all duration-300 flex flex-col justify-start min-h-[200px]"
+                className="w-full text-left text-white bg-gradient-to-b from-[#181818] via-[#121212] to-[#0e0e0e] border border-[#2a2a2a] rounded-[24px] p-8 md:p-9 hover:border-gray-600 hover:scale-[1.01] transition-all duration-300 flex flex-col justify-start"
               >
-                {/* Icon */}
-                <div className="mb-4 w-12 h-12 rounded-xl bg-[#1c1c1c] border border-gray-700 flex items-center justify-center p-2.5 shadow-md">
+                {/* Icon Container */}
+                <div className="mb-6 w-12 h-12 rounded-xl bg-[#1d1d1d] border border-gray-700/80 flex items-center justify-center p-2.5 shadow-md">
                   <img
                     src={`${baseURL}/${item.icon_img}`}
                     alt={item.title}
-                    className="w-7 h-7 object-contain"
+                    className="w-6 h-6 object-contain"
                   />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-white text-[17px] md:text-[19px] font-bold font-[Quicksand] leading-snug mb-2">
+                <h3 className="text-white text-[19px] md:text-[22px] font-semibold font-[Quicksand] leading-snug mb-3.5 text-left">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-400 text-[13px] md:text-[14px] leading-relaxed font-[Quicksand]">
+                <p className="text-[#b0b0b0] text-[14px] md:text-[15px] leading-relaxed font-[Quicksand] text-left">
                   {item.description}
                 </p>
               </div>

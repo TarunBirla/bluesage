@@ -595,77 +595,40 @@ const Abouts = () => {
         </div>
       </section>
 
-      <section className="bg-gradient-to-b from-[#161616] to-[#000] py-10">
-        <section className=" py-16 md:mx-8">
-          <div className="max-w-7xl mx-auto relative">
-            {/* LEFT SHADOW */}
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-40 bg-gradient-to-r from-black/90 to-transparent z-10"></div>
-
-            {/* RIGHT SHADOW */}
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-40 bg-gradient-to-l from-black/90 to-transparent z-10"></div>
-            {/* Slider 1 */}
+      <section className="bg-black py-8 sm:py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <div className="bg-white py-3 md:py-4 px-2 sm:px-4 rounded-xl sm:rounded-2xl overflow-hidden shadow-md">
             <Swiper
               modules={[Autoplay]}
               spaceBetween={30}
               slidesPerView={6}
               loop={true}
-              speed={3000}
+              speed={3500}
               autoplay={{
                 delay: 0,
                 disableOnInteraction: false,
               }}
+              className="swiper-linear"
               breakpoints={{
                 320: { slidesPerView: 2 },
                 640: { slidesPerView: 3 },
                 1024: { slidesPerView: 6 },
               }}
             >
-              {logos.map((logo, index) => (
+              {(logos.length > 0 ? [...logos, ...logos, ...logos, ...logos] : []).map((logo, index) => (
                 <SwiperSlide key={index}>
-                  <div className="bg-white h-20 w-full rounded-xl flex items-center justify-center p-2">
+                  <div className="h-12 md:h-16 w-full flex items-center justify-center px-3">
                     <img
                       src={`${baseURL}/${logo?.logo}`}
                       alt="logo"
-                      className="h-full w-full object-contain"
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            {/* Slider 2 */}
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={30}
-              slidesPerView={6}
-              loop={true}
-              speed={3000}
-              autoplay={{
-                delay: 0,
-                disableOnInteraction: false,
-                reverseDirection: true,
-              }}
-              className="mt-6"
-              breakpoints={{
-                320: { slidesPerView: 2 },
-                640: { slidesPerView: 3 },
-                1024: { slidesPerView: 6 },
-              }}
-            >
-              {logos.map((logo, index) => (
-                <SwiperSlide key={index}>
-                  <div className="bg-white h-20 w-full rounded-xl flex items-center justify-center p-2">
-                    <img
-                      src={`${baseURL}/${logo?.logo}`}
-                      alt="logo"
-                      className="h-full w-full object-contain"
+                      className="max-h-10 md:max-h-12 w-auto object-contain"
                     />
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
-        </section>
+        </div>
       </section>
       <Footer />
     </>

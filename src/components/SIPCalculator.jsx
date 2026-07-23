@@ -179,16 +179,7 @@ export default function SIPCalculator() {
               />
             </PieChart>
 
-            <div className="flex gap-8 mt-2 text-sm font-[Quicksand]">
-              <div className="flex items-center gap-2">
-                <div className="w-3.5 h-3.5 rounded-full bg-gray-300"></div>
-                <span className="text-gray-300">Principal</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3.5 h-3.5 rounded-full bg-gray-500"></div>
-                <span className="text-gray-300">Returns</span>
-              </div>
-            </div>
+
 
             <div className="grid grid-cols-2 gap-6 mt-6 w-full text-center md:text-left">
               <div>

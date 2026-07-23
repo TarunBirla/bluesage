@@ -80,3 +80,10 @@ body {
   cursor: pointer;
   border: none;
 }
+
+/* Swiper continuous linear marquee */
+.swiper-linear .swiper-wrapper {
+  -webkit-transition-timing-function: linear !important;
+  -o-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
+}
